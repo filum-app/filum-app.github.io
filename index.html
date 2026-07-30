@@ -166,7 +166,7 @@
         <button class="ttab active" data-shot="tableau-de-bord" data-caption="La couverture de vérification, les risques et les non-conformités ouvertes — recalculés en continu, et tout ce qui manque en premier.">
           <strong>Tableau de bord</strong><span>Piloter le dossier en temps réel</span>
         </button>
-        <button class="ttab" data-shot="document" data-caption="REQ-3002 en revue : contenu gelé, signatures électroniques attribuables, génération Word en un clic. Un retour au brouillon invalide les signatures — jamais l'inverse.">
+        <button class="ttab" data-shot="document" data-caption="REQ-3002 publié : l'enregistrement approuvé est conservé octet pour octet, avec l'empreinte SHA-256 du contenu que chaque signature atteste. Le téléchargement sert ces octets — il ne régénère pas le document.">
           <strong>Le document vivant</strong><span>Cycle Brouillon → Revue → Publié</span>
         </button>
         <button class="ttab" data-shot="plan-de-test" data-caption="PLN-3010 : protocoles, résultats et preuves reliés aux spécifications. Import CSV du banc d'essai — n, moyenne, écart-type calculés automatiquement.">
@@ -187,10 +187,10 @@
         <button class="ttab" data-shot="import" data-caption="Votre dossier existant entre depuis un fichier CSV. Les liens se résolvent avec VOS codes. Aperçu à blanc avant toute écriture : ce qui serait créé, mis à jour, rejeté — et pourquoi, ligne par ligne.">
           <strong>Reprise de données</strong><span>Sans ressaisir 400 exigences</span>
         </button>
-        <button class="ttab" data-shot="signature" data-caption="Le mot de passe est redemandé à chaque signature (21 CFR 11.200(a)(1)), et la manifestation porte le nom imprimé figé, la signification et l'horodatage UTC (11.50). Un échec est journalisé et compte dans le verrouillage du compte.">
+        <button class="ttab" data-shot="signature" data-caption="Le mot de passe est redemandé à chaque signature (21 CFR 11.200(a)(1)). La manifestation porte le nom imprimé figé, la signification, l'horodatage UTC (11.50) et l'empreinte du contenu attesté (11.70). Un échec est journalisé et compte dans le verrouillage du compte.">
           <strong>Signature électronique</strong><span>Deux composants, à chaque fois</span>
         </button>
-        <button class="ttab" data-shot="audit" data-caption="Chaque écriture, signature, génération et connexion — attribuée, horodatée, immuable (ALCOA+), avec annulation ciblée pour corriger sans effacer.">
+        <button class="ttab" data-shot="audit" data-caption="Chaque écriture, signature, gel de contenu, génération et connexion — attribuée, horodatée, immuable (ALCOA+), avec l'empreinte de l'enregistrement à chaque étape et une annulation ciblée pour corriger sans effacer.">
           <strong>Journal d'audit</strong><span>Qui, quoi, quand, pourquoi</span>
         </button>
       </div>
