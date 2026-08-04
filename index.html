@@ -25,6 +25,7 @@
       <a href="#modules">Modules</a>
       <a href="#ia">IA</a>
       <a href="#conformite">Conformité</a>
+      <a href="#perimetre">Périmètre</a>
       <a href="#faq">FAQ</a>
     </div>
     <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démo</a>
@@ -339,6 +340,68 @@
       <p>La certification du §11.100(c) engage l'entité juridique dont les collaborateurs signent, par lettre manuscrite adressée à la FDA. Aucun éditeur de logiciel ne peut la porter à votre place, et celui qui le prétend vous vend un risque.</p>
       <p>Ce que nous livrons, en revanche : une <strong>matrice clause par clause</strong> en trois colonnes — ce que fait le logiciel, ce qui reste à votre charge, ce qui est hors périmètre, points ouverts nommés compris ; une <strong>note d'intégrité des données</strong> avec un protocole que votre auditeur peut jouer pour la <em>falsifier</em> ; et un <strong>pack de validation</strong> : protocole IQ, dossier de validation, exigences et cas de test exécutables dans votre environnement.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ PÉRIMÈTRE ═══════════ -->
+<!-- Le contenu entre les deux marqueurs est GÉNÉRÉ depuis scripts/scope-data.ts, la même
+     source que la note de périmètre, son recto, le chapitre 21 du manuel et la diapositive
+     22 de la présentation. Ne pas l'éditer à la main : « npx tsx scripts/build-site-scope.ts »
+     l'écrase. Modifier scope-data.ts, puis régénérer les cinq. -->
+<section class="section section-tint" id="perimetre">
+  <div class="container">
+    <!-- PERIMETRE:DEBUT -->
+    <p class="kicker reveal">Périmètre</p>
+    <h2 class="reveal d1">Ce que Filum fait. <span class="grad">Et ce qu'il ne fait pas.</span></h2>
+    <p class="section-sub reveal d2">
+      Une démonstration faite à quelqu'un qui cherchait autre chose coûte deux heures aux deux parties.
+      Autant le dire ici. Aucune ligne de la colonne de droite n'est assortie d'une échéance&nbsp;:
+      nous ne vendons pas ce qui n'existe pas.
+    </p>
+
+    <div class="scope reveal d3">
+      <div class="scope-col scope-yes">
+        <h3>Ce qui est en place</h3>
+        <ul>
+        <li class="scope-item"><strong>Traçabilité</strong><span>Graphe besoin → exigence → spécification → essai → preuve. Matrice et analyse d'impact générées, jamais périmées.</span></li>
+        <li class="scope-item"><strong>Gestion documentaire</strong><span>Brouillon → Revue → Publié, contenu gelé dès la mise en revue. NDR, DHF, RMF, NCR, CAPA générés en .docx.</span></li>
+        <li class="scope-item"><strong>Signature électronique</strong><span>Deux composants à chaque signature, manifestation lisible, empreinte du contenu attesté.</span></li>
+        <li class="scope-item"><strong>Risque ISO 14971</strong><span>FMEA, matrice 5×5, ALARP. Une maîtrise n'est vérifiée que si les essais qui la portent sont clos favorablement.</span></li>
+        <li class="scope-item"><strong>Validation de méthodes IVD</strong><span>Six protocoles CLSI calculés en interne — EP05, 06, 09, 17, 25, 26 — verdict conforme / non conforme automatique.</span></li>
+        <li class="scope-item"><strong>Non-conformités et CAPA</strong><span>Cycles verrouillés. Pas de clôture sans efficacité prouvée par un essai repassé favorable.</span></li>
+        <li class="scope-item"><strong>Conformité du logiciel</strong><span>Piste d'audit chaînée, archive vérifiable hors Filum, horodatage RFC 3161, rétention déclarée, conservation légale.</span></li>
+        <li class="scope-item"><strong>Reprise de vos données</strong><span>Import CSV, liens résolus par VOS codes, aperçu à blanc obligatoire avant toute écriture.</span></li>
+        <li class="scope-item"><strong>Exploitation</strong><span>Docker auto-hébergé, interface FR / EN, quatre rôles, pack de validation IQ/OQ remis.</span></li>
+        </ul>
+      </div>
+      <div class="scope-col scope-no">
+        <h3>Ce qui n'existe pas</h3>
+        <ul>
+        <li class="scope-item"><strong>Ce n'est pas un eQMS</strong><span>Ni formation, ni fournisseurs, ni réclamations, ni audits internes, ni revue de direction.</span></li>
+        <li class="scope-item"><strong>Pas de gestion de configuration</strong><span>Ni ligne de base, ni article de configuration, ni comparaison entre deux états figés.</span></li>
+        <li class="scope-item"><strong>IEC 62304 à l'état d'ébauche</strong><span>Pas de cycle de vie logiciel outillé, pas de suivi d'anomalies, pas de gestion des SOUP.</span></li>
+        <li class="scope-item"><strong>Aucun canal sortant</strong><span>Filum n'envoie pas de courriel : ni notification, ni rappel d'échéance, ni relance d'approbateur.</span></li>
+        <li class="scope-item"><strong>Pas d'intégration</strong><span>Ni API publique, ni webhook, ni connecteur PLM / ERP / ALM, ni ReqIF, ni import Word ou Excel.</span></li>
+        <li class="scope-item"><strong>Une installation, une organisation</strong><span>Pas de multi-locataire : l'isolement se fait par instance, une par entité.</span></li>
+        <li class="scope-item"><strong>On ne signe que ce que Filum produit</strong><span>Pas de signature d'un PDF déposé ni d'un fichier venu d'ailleurs.</span></li>
+        <li class="scope-item"><strong>La piste d'audit est rédigée en français</strong><span>Quelle que soit la langue de l'interface, qui est bien FR / EN.</span></li>
+        <li class="scope-item"><strong>Ni application mobile, ni mode hors ligne</strong><span>Application web servie par votre serveur, pour écran d'ordinateur.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="scope-out reveal d3">
+      <strong>Filum ne vous conviendra probablement pas si</strong>
+      vous cherchez un système qualité complet (formation, fournisseurs, réclamations, audits) &nbsp;·&nbsp; votre dispositif est d'abord un logiciel et vous attendez une chaîne IEC 62304 outillée &nbsp;·&nbsp; il vous faut une intégration PLM, ERP ou ALM &nbsp;·&nbsp; vous voulez un SaaS multi-locataire administré par l'éditeur &nbsp;·&nbsp; vous attendez d'un fournisseur qu'il se déclare « conforme 21 CFR Part 11 ».
+    </p>
+
+    <p class="section-note reveal d3">
+      La note de périmètre remise avec le logiciel développe chaque ligne, énonce les trois choix de
+      conception qui expliquent les absences, et dit ce qui reste à la charge de votre organisation.
+      Elle est faite pour être lue avant de s'engager, pas après —
+      <a href="mailto:garaukev@gmail.com?subject=Note%20de%20p%C3%A9rim%C3%A8tre%20Filum">demandez-la</a>.
+    </p>
+    <!-- PERIMETRE:FIN -->
   </div>
 </section>
 
