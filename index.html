@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filum — Du besoin à la preuve, sans rupture</title>
-  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Piste d'audit chaînée, archive d'inspection vérifiable sans le logiciel, pack de validation IQ/OQ remis avec. Conçu pour la R&D de dispositifs médicaux." />
+  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Piste d'audit chaînée, archive d'inspection vérifiable sans le logiciel, pack de validation IQ/OQ remis avec. Conçu pour la R&amp;D de dispositifs médicaux." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/" />
 </head>
 <body>
 
@@ -28,7 +31,10 @@
       <a href="#perimetre">Périmètre</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démo</a>
+    <div class="nav-right">
+      <a class="lang-switch" href="en/" hreflang="en" title="Read this page in English">EN</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démo</a>
+    </div>
   </div>
 </nav>
 
@@ -39,10 +45,7 @@
     <p class="hero-kicker reveal">Traçabilité &amp; conformité — R&amp;D de dispositifs médicaux</p>
     <h1 class="reveal d1">Du besoin à la preuve,<br /><span class="grad">sans rupture.</span></h1>
     <p class="hero-sub reveal d2">
-      Filum relie besoins, exigences, essais, <strong>risques</strong> et preuves dans un
-      <strong>graphe de traçabilité vivant</strong> — et génère NDR, DHF, rapport de gestion des risques
-      et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA
-      vivent sur le même fil : vous saisissez le lien une fois ; les manques sont signalés automatiquement.
+      Filum relie besoins, exigences, essais, <strong>risques</strong> et preuves dans un <strong>graphe de traçabilité vivant</strong> — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA vivent sur le même fil : vous saisissez le lien une fois ; les manques sont signalés automatiquement.
     </p>
     <div class="hero-cta reveal d3">
       <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démonstration</a>
@@ -149,7 +152,7 @@
         <button class="gnode gnode-risk" data-node="risque" role="tab"><span class="dot dot-amber"></span>Risque ISO 14971</button>
       </div>
       <div class="graph-panel" id="graphPanel">
-        <!-- rempli par script.js -->
+        <!-- rempli par script.js depuis #graph-data -->
       </div>
     </div>
   </div>
@@ -203,7 +206,7 @@
           <div class="browser-bar"><span></span><span></span><span></span><em id="tourTitle">filum — tableau de bord</em></div>
           <img id="tourImg" src="assets/tableau-de-bord.png" alt="Capture d'écran de Filum" />
         </div>
-        <figcaption id="tourCaption">La couverture de vérification recalculée en continu — et tout ce qui manque, en premier.</figcaption>
+        <figcaption id="tourCaption">La couverture de vérification, les risques et les non-conformités ouvertes — recalculés en continu, et tout ce qui manque en premier.</figcaption>
         <p class="tour-hint">Cliquez sur l'image pour l'agrandir</p>
       </figure>
     </div>
@@ -344,48 +347,41 @@
 </section>
 
 <!-- ═══════════ PÉRIMÈTRE ═══════════ -->
-<!-- Le contenu entre les deux marqueurs est GÉNÉRÉ depuis scripts/scope-data.ts, la même
-     source que la note de périmètre, son recto, le chapitre 21 du manuel et la diapositive
-     22 de la présentation. Ne pas l'éditer à la main : « npx tsx scripts/build-site-scope.ts »
-     l'écrase. Modifier scope-data.ts, puis régénérer les cinq. -->
 <section class="section section-tint" id="perimetre">
   <div class="container">
-    <!-- PERIMETRE:DEBUT -->
     <p class="kicker reveal">Périmètre</p>
     <h2 class="reveal d1">Ce que Filum fait. <span class="grad">Et ce qu'il ne fait pas.</span></h2>
     <p class="section-sub reveal d2">
-      Une démonstration faite à quelqu'un qui cherchait autre chose coûte deux heures aux deux parties.
-      Autant le dire ici. Aucune ligne de la colonne de droite n'est assortie d'une échéance&nbsp;:
-      nous ne vendons pas ce qui n'existe pas.
+      Une démonstration faite à quelqu'un qui cherchait autre chose coûte deux heures aux deux parties. Autant le dire ici. Aucune ligne de la colonne de droite n'est assortie d'une échéance&nbsp;: nous ne vendons pas ce qui n'existe pas.
     </p>
 
     <div class="scope reveal d3">
       <div class="scope-col scope-yes">
         <h3>Ce qui est en place</h3>
         <ul>
-        <li class="scope-item"><strong>Traçabilité</strong><span>Graphe besoin → exigence → spécification → essai → preuve. Matrice et analyse d'impact générées, jamais périmées.</span></li>
-        <li class="scope-item"><strong>Gestion documentaire</strong><span>Brouillon → Revue → Publié, contenu gelé dès la mise en revue. NDR, DHF, RMF, NCR, CAPA générés en .docx.</span></li>
-        <li class="scope-item"><strong>Signature électronique</strong><span>Deux composants à chaque signature, manifestation lisible, empreinte du contenu attesté.</span></li>
-        <li class="scope-item"><strong>Risque ISO 14971</strong><span>FMEA, matrice 5×5, ALARP. Une maîtrise n'est vérifiée que si les essais qui la portent sont clos favorablement.</span></li>
-        <li class="scope-item"><strong>Validation de méthodes IVD</strong><span>Six protocoles CLSI calculés en interne — EP05, 06, 09, 17, 25, 26 — verdict conforme / non conforme automatique.</span></li>
-        <li class="scope-item"><strong>Non-conformités et CAPA</strong><span>Cycles verrouillés. Pas de clôture sans efficacité prouvée par un essai repassé favorable.</span></li>
-        <li class="scope-item"><strong>Conformité du logiciel</strong><span>Piste d'audit chaînée, archive vérifiable hors Filum, horodatage RFC 3161, rétention déclarée, conservation légale.</span></li>
-        <li class="scope-item"><strong>Reprise de vos données</strong><span>Import CSV, liens résolus par VOS codes, aperçu à blanc obligatoire avant toute écriture.</span></li>
-        <li class="scope-item"><strong>Exploitation</strong><span>Docker auto-hébergé, interface FR / EN, quatre rôles, pack de validation IQ/OQ remis.</span></li>
+          <li class="scope-item"><strong>Traçabilité</strong><span>Graphe besoin → exigence → spécification → essai → preuve. Matrice et analyse d'impact générées, jamais périmées.</span></li>
+          <li class="scope-item"><strong>Gestion documentaire</strong><span>Brouillon → Revue → Publié, contenu gelé dès la mise en revue. NDR, DHF, RMF, NCR, CAPA générés en .docx.</span></li>
+          <li class="scope-item"><strong>Signature électronique</strong><span>Deux composants à chaque signature, manifestation lisible, empreinte du contenu attesté.</span></li>
+          <li class="scope-item"><strong>Risque ISO 14971</strong><span>FMEA, matrice 5×5, ALARP. Une maîtrise n'est vérifiée que si les essais qui la portent sont clos favorablement.</span></li>
+          <li class="scope-item"><strong>Validation de méthodes IVD</strong><span>Six protocoles CLSI calculés en interne — EP05, 06, 09, 17, 25, 26 — verdict conforme / non conforme automatique.</span></li>
+          <li class="scope-item"><strong>Non-conformités et CAPA</strong><span>Cycles verrouillés. Pas de clôture sans efficacité prouvée par un essai repassé favorable.</span></li>
+          <li class="scope-item"><strong>Conformité du logiciel</strong><span>Piste d'audit chaînée, archive vérifiable hors Filum, horodatage RFC 3161, rétention déclarée, conservation légale.</span></li>
+          <li class="scope-item"><strong>Reprise de vos données</strong><span>Import CSV, liens résolus par VOS codes, aperçu à blanc obligatoire avant toute écriture.</span></li>
+          <li class="scope-item"><strong>Exploitation</strong><span>Docker auto-hébergé, interface FR / EN, quatre rôles, pack de validation IQ/OQ remis.</span></li>
         </ul>
       </div>
       <div class="scope-col scope-no">
         <h3>Ce qui n'existe pas</h3>
         <ul>
-        <li class="scope-item"><strong>Ce n'est pas un eQMS</strong><span>Ni formation, ni fournisseurs, ni réclamations, ni audits internes, ni revue de direction.</span></li>
-        <li class="scope-item"><strong>Pas de gestion de configuration</strong><span>Ni ligne de base, ni article de configuration, ni comparaison entre deux états figés.</span></li>
-        <li class="scope-item"><strong>IEC 62304 à l'état d'ébauche</strong><span>Pas de cycle de vie logiciel outillé, pas de suivi d'anomalies, pas de gestion des SOUP.</span></li>
-        <li class="scope-item"><strong>Aucun canal sortant</strong><span>Filum n'envoie pas de courriel : ni notification, ni rappel d'échéance, ni relance d'approbateur.</span></li>
-        <li class="scope-item"><strong>Pas d'intégration</strong><span>Ni API publique, ni webhook, ni connecteur PLM / ERP / ALM, ni ReqIF, ni import Word ou Excel.</span></li>
-        <li class="scope-item"><strong>Une installation, une organisation</strong><span>Pas de multi-locataire : l'isolement se fait par instance, une par entité.</span></li>
-        <li class="scope-item"><strong>On ne signe que ce que Filum produit</strong><span>Pas de signature d'un PDF déposé ni d'un fichier venu d'ailleurs.</span></li>
-        <li class="scope-item"><strong>La piste d'audit est rédigée en français</strong><span>Quelle que soit la langue de l'interface, qui est bien FR / EN.</span></li>
-        <li class="scope-item"><strong>Ni application mobile, ni mode hors ligne</strong><span>Application web servie par votre serveur, pour écran d'ordinateur.</span></li>
+          <li class="scope-item"><strong>Ce n'est pas un eQMS</strong><span>Ni formation, ni fournisseurs, ni réclamations, ni audits internes, ni revue de direction.</span></li>
+          <li class="scope-item"><strong>Pas de gestion de configuration</strong><span>Ni ligne de base, ni article de configuration, ni comparaison entre deux états figés.</span></li>
+          <li class="scope-item"><strong>IEC 62304 à l'état d'ébauche</strong><span>Pas de cycle de vie logiciel outillé, pas de suivi d'anomalies, pas de gestion des SOUP.</span></li>
+          <li class="scope-item"><strong>Aucun canal sortant</strong><span>Filum n'envoie pas de courriel : ni notification, ni rappel d'échéance, ni relance d'approbateur.</span></li>
+          <li class="scope-item"><strong>Pas d'intégration</strong><span>Ni API publique, ni webhook, ni connecteur PLM / ERP / ALM, ni ReqIF, ni import Word ou Excel.</span></li>
+          <li class="scope-item"><strong>Une installation, une organisation</strong><span>Pas de multi-locataire : l'isolement se fait par instance, une par entité.</span></li>
+          <li class="scope-item"><strong>On ne signe que ce que Filum produit</strong><span>Pas de signature d'un PDF déposé ni d'un fichier venu d'ailleurs.</span></li>
+          <li class="scope-item"><strong>La piste d'audit est rédigée en français</strong><span>Quelle que soit la langue de l'interface, qui est bien FR / EN.</span></li>
+          <li class="scope-item"><strong>Ni application mobile, ni mode hors ligne</strong><span>Application web servie par votre serveur, pour écran d'ordinateur.</span></li>
         </ul>
       </div>
     </div>
@@ -396,12 +392,8 @@
     </p>
 
     <p class="section-note reveal d3">
-      La note de périmètre remise avec le logiciel développe chaque ligne, énonce les trois choix de
-      conception qui expliquent les absences, et dit ce qui reste à la charge de votre organisation.
-      Elle est faite pour être lue avant de s'engager, pas après —
-      <a href="mailto:garaukev@gmail.com?subject=Note%20de%20p%C3%A9rim%C3%A8tre%20Filum">demandez-la</a>.
+      La note de périmètre remise avec le logiciel développe chaque ligne, énonce les trois choix de conception qui expliquent les absences, et dit ce qui reste à la charge de votre organisation. Elle est faite pour être lue avant de s'engager, pas après — <a href="mailto:garaukev@gmail.com?subject=Note%20de%20p%C3%A9rim%C3%A8tre%20Filum">demandez-la</a>.
     </p>
-    <!-- PERIMETRE:FIN -->
   </div>
 </section>
 
@@ -499,6 +491,7 @@
   <img src="" alt="Capture agrandie" />
 </div>
 
+<script type="application/json" id="graph-data">[{"cle":"besoin","titre":"Besoin","ex":"« UN-40 — Le laboratoire doit obtenir des résultats d'électrolytes fiables dès le premier passage de l'échantillon. »","corps":"Le point de départ du fil : l'usage prévu, la douleur terrain, la demande clinique. Chaque besoin est rattaché à son activité R&D et relié aux exigences qu'il motive — dès le départ, on sait pourquoi chaque exigence existe.","puces":["Saisi sur l'activité","Relié aux exigences","Repris dans le NDR généré (Background & Purpose)"]},{"cle":"exigence","titre":"Exigence","ex":"« La pièce à main shall rester sous 48 °C au contact osseux en usage continu. » — REQ-3002, criticité haute","corps":"L'entrée de conception, formulée en « shall », avec sa catégorie (mécanique, électrique, logiciel…) et sa criticité. Les exigences se hiérarchisent (système → sous-système, relation N–M) et se lient aux clauses normatives applicables — IEC 61010, 61326, 62366… — depuis la bibliothèque intégrée.","puces":["Hiérarchie système → sous-système","Bibliothèque de normes intégrée","Alerte si non couverte"]},{"cle":"spec","titre":"Spécification","ex":"« SPEC-5 — étanchéité du joint de tête : 500 cycles autoclave sans fissuration » — statut : OK / NOK / Justifié / N-A / En attente","corps":"La sortie de conception : une valeur mesurable, une méthode de vérification, un statut qui vit avec le projet. Une spécification peut couvrir plusieurs exigences — la relation N–M observée dans les vrais dossiers est native. Et quand un essai échoue, le NOK se voit partout où le fil passe.","puces":["Statut modifiable en un clic","Journalisé à chaque changement","Multi-exigences"]},{"cle":"essai","titre":"Essai","ex":"« VER-3 — endurance autoclave, plan PLN-3010 : 3/3 unités conformes à 500 cycles »","corps":"Le protocole avec son critère d'acceptation défini a priori, ses résultats et ses preuves. Un échec ne se perd pas dans un rapport : VER-3 en échec a ouvert la non-conformité NC-1 automatiquement. Tout ce qu'un auditeur demande, structuré d'avance.","puces":["Critères d'acceptation structurés","Échec → non-conformité tracée","Relié aux spécifications"]},{"cle":"resultat","titre":"Résultat","ex":"« Pass — re-vérification VER-3 après CAPA-1 : 3/3 unités à 500 cycles, joint FKM »","corps":"Le verdict de l'essai avec ses conditions, son exécutant et sa date. Importez le CSV du banc de mesure : Filum le conserve intact et calcule automatiquement n, moyenne, écart-type, min et max par colonne — et les études CLSI y ajoutent ANOVA, régressions et limites de détection.","puces":["Import CSV du banc","Statistiques automatiques","Moteur CLSI intégré"]},{"cle":"preuve","titre":"Preuve","ex":"« essai-endurance-ver3.csv — donnée brute conservée telle qu'importée »","corps":"L'enregistrement versé au dossier. La donnée brute n'est jamais retouchée (ALCOA+ : originale, durable) ; elle reste consultable dans la visionneuse et téléchargeable à l'identique. C'est elle qui ferme le fil — et qui reverdit la spécification.","puces":["Donnée brute intacte","Visionneuse intégrée","Reprise dans le DHF généré"]},{"cle":"risque","titre":"Risque (ISO 14971)","ex":"« R-1 — Énergie thermique au contact osseux → nécrose thermique » — initial S4×P3, résiduel S4×P1, maîtrisé","corps":"La dimension transverse : un danger appelle une maîtrise, et la maîtrise doit être vérifiée par le graphe — elle n'est « vérifiée » que si les spécifications et essais qui la portent sont clos favorablement. Filum signale tout risque dont la maîtrise n'a pas de preuve, et le RMF se génère en .docx.","puces":["Maîtrise vérifiée par le graphe","Matrice 5×5, zones ALARP","RMF généré en .docx"]}]</script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -41,59 +41,20 @@ const countObserver = new IntersectionObserver(
 document.querySelectorAll(".stat-num").forEach((el) => countObserver.observe(el));
 
 /* ─── Le graphe interactif ─── */
-const GRAPH = {
-  besoin: {
-    title: "Besoin",
-    ex: "« UN-40 — Le laboratoire doit obtenir des résultats d'électrolytes fiables dès le premier passage de l'échantillon. »",
-    body: "Le point de départ du fil : l'usage prévu, la douleur terrain, la demande clinique. Chaque besoin est rattaché à son activité R&D et relié aux exigences qu'il motive — dès le départ, on sait pourquoi chaque exigence existe.",
-    chips: ["Saisi sur l'activité", "Relié aux exigences", "Repris dans le NDR généré (Background & Purpose)"],
-  },
-  exigence: {
-    title: "Exigence",
-    ex: "« La pièce à main shall rester sous 48 °C au contact osseux en usage continu. » — REQ-3002, criticité haute",
-    body: "L'entrée de conception, formulée en « shall », avec sa catégorie (mécanique, électrique, logiciel…) et sa criticité. Les exigences se hiérarchisent (système → sous-système, relation N–M) et se lient aux clauses normatives applicables — IEC 61010, 61326, 62366… — depuis la bibliothèque intégrée.",
-    chips: ["Hiérarchie système → sous-système", "Bibliothèque de normes intégrée", "Alerte si non couverte"],
-  },
-  spec: {
-    title: "Spécification",
-    ex: "« SPEC-5 — étanchéité du joint de tête : 500 cycles autoclave sans fissuration » — statut : OK / NOK / Justifié / N-A / En attente",
-    body: "La sortie de conception : une valeur mesurable, une méthode de vérification, un statut qui vit avec le projet. Une spécification peut couvrir plusieurs exigences — la relation N–M observée dans les vrais dossiers est native. Et quand un essai échoue, le NOK se voit partout où le fil passe.",
-    chips: ["Statut modifiable en un clic", "Journalisé à chaque changement", "Multi-exigences"],
-  },
-  essai: {
-    title: "Essai",
-    ex: "« VER-3 — endurance autoclave, plan PLN-3010 : 3/3 unités conformes à 500 cycles »",
-    body: "Le protocole avec son critère d'acceptation défini a priori, ses résultats et ses preuves. Un échec ne se perd pas dans un rapport : VER-3 en échec a ouvert la non-conformité NC-1 automatiquement. Tout ce qu'un auditeur demande, structuré d'avance.",
-    chips: ["Critères d'acceptation structurés", "Échec → non-conformité tracée", "Relié aux spécifications"],
-  },
-  resultat: {
-    title: "Résultat",
-    ex: "« Pass — re-vérification VER-3 après CAPA-1 : 3/3 unités à 500 cycles, joint FKM »",
-    body: "Le verdict de l'essai avec ses conditions, son exécutant et sa date. Importez le CSV du banc de mesure : Filum le conserve intact et calcule automatiquement n, moyenne, écart-type, min et max par colonne — et les études CLSI y ajoutent ANOVA, régressions et limites de détection.",
-    chips: ["Import CSV du banc", "Statistiques automatiques", "Moteur CLSI intégré"],
-  },
-  preuve: {
-    title: "Preuve",
-    ex: "« essai-endurance-ver3.csv — donnée brute conservée telle qu'importée »",
-    body: "L'enregistrement versé au dossier. La donnée brute n'est jamais retouchée (ALCOA+ : originale, durable) ; elle reste consultable dans la visionneuse et téléchargeable à l'identique. C'est elle qui ferme le fil — et qui reverdit la spécification.",
-    chips: ["Donnée brute intacte", "Visionneuse intégrée", "Reprise dans le DHF généré"],
-  },
-  risque: {
-    title: "Risque (ISO 14971)",
-    ex: "« R-1 — Énergie thermique au contact osseux → nécrose thermique » — initial S4×P3, résiduel S4×P1, maîtrisé",
-    body: "La dimension transverse : un danger appelle une maîtrise, et la maîtrise doit être vérifiée par le graphe — elle n'est « vérifiée » que si les spécifications et essais qui la portent sont clos favorablement. Filum signale tout risque dont la maîtrise n'a pas de preuve, et le RMF se génère en .docx.",
-    chips: ["Maîtrise vérifiée par le graphe", "Matrice 5×5, zones ALARP", "RMF généré en .docx"],
-  },
-};
-
+// Les fiches sont injectées par scripts/build-site.ts dans #graph-data, en français ou en
+// anglais selon la page. Ce fichier ne contient donc plus une seule chaîne de texte : il
+// reste unique et partagé par les deux langues.
+const GRAPH = JSON.parse(document.getElementById("graph-data").textContent);
 const graphPanel = document.getElementById("graphPanel");
-function renderGraphPanel(key) {
-  const d = GRAPH[key];
+
+function renderGraphPanel(cle) {
+  const d = GRAPH.find((g) => g.cle === cle);
+  if (!d) return;
   graphPanel.innerHTML = `
-    <h3>${d.title}</h3>
+    <h3>${d.titre}</h3>
     <p class="gp-ex">${d.ex}</p>
-    <p>${d.body}</p>
-    <div class="gp-chips">${d.chips.map((c) => `<span>${c}</span>`).join("")}</div>`;
+    <p>${d.corps}</p>
+    <div class="gp-chips">${d.puces.map((c) => `<span>${c}</span>`).join("")}</div>`;
   graphPanel.style.animation = "none";
   void graphPanel.offsetWidth; // relance l'animation
   graphPanel.style.animation = "";
@@ -105,7 +66,7 @@ document.querySelectorAll(".gnode").forEach((btn) =>
     renderGraphPanel(btn.dataset.node);
   })
 );
-renderGraphPanel("besoin");
+renderGraphPanel(GRAPH[0].cle);
 
 /* ─── Tour du produit ─── */
 const tourImg = document.getElementById("tourImg");
@@ -117,7 +78,10 @@ document.querySelectorAll(".ttab").forEach((tab) =>
     tab.classList.add("active");
     tourImg.classList.add("fading");
     setTimeout(() => {
-      tourImg.src = `assets/${tab.dataset.shot}.png`;
+      // Le chemin des captures dépend de la page : /en/ remonte d'un cran. On le déduit de
+      // l'image déjà en place plutôt que de le coder en dur — le script reste unique.
+      const racine = tourImg.getAttribute("src").replace(/assets\/.*$/, "");
+      tourImg.src = `${racine}assets/${tab.dataset.shot}.png`;
       tourImg.onload = () => tourImg.classList.remove("fading");
       tourCaption.textContent = tab.dataset.caption;
       tourTitle.textContent = "filum — " + tab.querySelector("strong").textContent.toLowerCase();

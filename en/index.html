@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filum — From need to proof, without a break</title>
+  <meta name="description" content="Filum connects user needs, requirements, tests, risks and evidence into a living traceability graph — and generates design reports, DHF, risk management file and CAPA reports on demand. ISO 14971 risk, CLSI method validation and NC/CAPA on the same thread. Chained audit trail, inspection archive verifiable without the software, IQ/OQ validation pack delivered with it. Built for medical device R&amp;D." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/" />
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="#graphe">The graph</a>
+      <a href="#produit">The product</a>
+      <a href="#modules">Modules</a>
+      <a href="#ia">AI</a>
+      <a href="#conformite">Compliance</a>
+      <a href="#perimetre">Scope</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a class="lang-switch" href="../" hreflang="fr" title="Lire cette page en français">FR</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HÉROS ═══════════ -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <p class="hero-kicker reveal">Traceability &amp; compliance — medical device R&amp;D</p>
+    <h1 class="reveal d1">From need to proof,<br /><span class="grad">without a break.</span></h1>
+    <p class="hero-sub reveal d2">
+      Filum connects user needs, requirements, tests, <strong>risks</strong> and evidence into a <strong>living traceability graph</strong> — and generates design reports, DHF, risk management file and CAPA reports on demand. ISO 14971 risk, CLSI method validation and NC/CAPA live on the same thread: you enter the link once; gaps are flagged automatically.
+    </p>
+    <div class="hero-cta reveal d3">
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demonstration</a>
+      <a class="btn btn-ghost" href="#graphe">Follow the thread ↓</a>
+    </div>
+
+    <!-- Le fil animé -->
+    <div class="hero-thread reveal d4" aria-hidden="true">
+      <svg viewBox="0 0 1000 90" preserveAspectRatio="xMidYMid meet">
+        <path id="threadPath" d="M 30 45 H 970" stroke="#334155" stroke-width="2" fill="none" />
+        <path d="M 30 45 H 970" stroke="url(#threadGrad)" stroke-width="2" fill="none" class="thread-draw" />
+        <defs>
+          <linearGradient id="threadGrad" x1="0" x2="1">
+            <stop offset="0" stop-color="#64748B"/><stop offset="0.5" stop-color="#6366F1"/><stop offset="1" stop-color="#10B981"/>
+          </linearGradient>
+        </defs>
+        <g class="thread-nodes" font-family="Inter, sans-serif" font-size="15" text-anchor="middle">
+          <g><circle cx="30"  cy="45" r="8" fill="#64748B"/><text x="30"  y="80" fill="#94A3B8">Need</text></g>
+          <g><circle cx="218" cy="45" r="8" fill="#818CF8"/><text x="218" y="80" fill="#94A3B8">Requirement</text></g>
+          <g><circle cx="406" cy="45" r="8" fill="#6366F1"/><text x="406" y="80" fill="#94A3B8">Specification</text></g>
+          <g><circle cx="594" cy="45" r="8" fill="#8B5CF6"/><text x="594" y="80" fill="#94A3B8">Test</text></g>
+          <g><circle cx="782" cy="45" r="8" fill="#34D399"/><text x="782" y="80" fill="#94A3B8">Result</text></g>
+          <g><circle cx="970" cy="45" r="8" fill="#10B981"/><text x="970" y="80" fill="#94A3B8">Evidence</text></g>
+        </g>
+        <circle r="5" fill="#C7D2FE" class="thread-pulse">
+          <animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
+            <mpath href="#threadPath"/>
+          </animateMotion>
+        </circle>
+      </svg>
+    </div>
+
+    <!-- Capture en vitrine -->
+    <figure class="hero-shot reveal d5">
+      <div class="browser-frame">
+        <div class="browser-bar"><span></span><span></span><span></span><em>filum — dashboard</em></div>
+        <img src="assets/tableau-de-bord.png" alt="The Filum dashboard: verification coverage, documents, activities and risks in real time" />
+      </div>
+    </figure>
+  </div>
+</header>
+
+<!-- ═══════════ CHIFFRES ═══════════ -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <span class="stat-num" data-count="38" data-suffix=" / 44">38 / 44</span>
+      <span class="stat-label">FDA warning letters (devices, 2025) cite the quality system</span>
+    </div>
+    <div class="stat reveal d1">
+      <span class="stat-num" data-count="120" data-prefix="50–" data-suffix="&nbsp;h">50–120&nbsp;h</span>
+      <span class="stat-label">of qualified writing for a single document review</span>
+    </div>
+    <div class="stat reveal d2">
+      <span class="stat-num" data-count="2" data-suffix="&nbsp;markets, 1&nbsp;standard">2&nbsp;markets, 1&nbsp;standard</span>
+      <span class="stat-label">since 2026, QMSR (FDA) and MDR (EU) both anchor on ISO 13485</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LE RENVERSEMENT ═══════════ -->
+<section class="section" id="renversement">
+  <div class="container">
+    <p class="kicker reveal">The root cause</p>
+    <h2 class="reveal d1">The document is not the data.</h2>
+    <div class="two-col">
+      <div class="col-card col-before reveal d2">
+        <h3>Today: disconnected files</h3>
+        <ul>
+          <li>The same requirement re-typed into the design report, the test plan, the report and the matrix</li>
+          <li>Every change creates silent inconsistencies between files</li>
+          <li>“What is impacted?” — nobody knows without reading everything again</li>
+          <li>The file is rebuilt by hand, under pressure, before the audit</li>
+        </ul>
+      </div>
+      <div class="col-card col-after reveal d3">
+        <h3>The Filum inversion</h3>
+        <ul>
+          <li>Data lives in a <strong>graph</strong> — one place, versioned, audited</li>
+          <li>Documents (design reports, DHF, RMF, nonconformity records, CAPA reports) are <strong>generated views</strong></li>
+          <li>You enter the link <strong>once</strong> — everything depending on it follows</li>
+          <li>Gaps are <strong>flagged continuously</strong>, not discovered during an audit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LE GRAPHE INTERACTIF ═══════════ -->
+<section class="section section-dark" id="graphe">
+  <div class="container">
+    <p class="kicker reveal">The key idea</p>
+    <h2 class="reveal d1">One continuous thread. <span class="grad">Explore it.</span></h2>
+    <p class="section-sub reveal d2">Click each link of the thread to see what Filum does with it.</p>
+
+    <div class="graph-explorer reveal d3">
+      <div class="graph-nodes" role="tablist" aria-label="The links of the graph">
+        <button class="gnode active" data-node="besoin" role="tab"><span class="dot dot-slate"></span>User need</button>
+        <button class="gnode" data-node="exigence" role="tab"><span class="dot dot-indigo"></span>Requirement</button>
+        <button class="gnode" data-node="spec" role="tab"><span class="dot dot-indigo"></span>Specification</button>
+        <button class="gnode" data-node="essai" role="tab"><span class="dot dot-violet"></span>Test</button>
+        <button class="gnode" data-node="resultat" role="tab"><span class="dot dot-emerald"></span>Result</button>
+        <button class="gnode" data-node="preuve" role="tab"><span class="dot dot-emerald"></span>Evidence</button>
+        <button class="gnode gnode-risk" data-node="risque" role="tab"><span class="dot dot-amber"></span>ISO 14971 risk</button>
+      </div>
+      <div class="graph-panel" id="graphPanel">
+        <!-- rempli par script.js depuis #graph-data -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TOUR DU PRODUIT ═══════════ -->
+<section class="section" id="produit">
+  <div class="container">
+    <p class="kicker reveal">The foundation</p>
+    <h2 class="reveal d1">Guided tour, on real data.</h2>
+    <p class="section-sub reveal d2">Every screenshot comes from the running application — nothing is mocked up. Two demonstration programmes: OD-300 “Orthodrive” (surgical drill) and NovaLyte NL-100 (electrolyte analyser, in vitro diagnostics), which the analytical validation screens come from.</p>
+
+    <div class="tour reveal d3">
+      <div class="tour-tabs" role="tablist" aria-label="Product screens">
+        <button class="ttab active" data-shot="tableau-de-bord" data-caption="Verification coverage, risks and open nonconformities — recomputed continuously, with whatever is missing shown first.">
+          <strong>Dashboard</strong><span>Steer the file in real time</span>
+        </button>
+        <button class="ttab" data-shot="document" data-caption="REQ-3002 released: the approved record is kept byte for byte, with the SHA-256 fingerprint of the content each signature attests. Downloading serves those bytes — it does not regenerate the document.">
+          <strong>The living document</strong><span>Draft → Review → Released</span>
+        </button>
+        <button class="ttab" data-shot="plan-de-test" data-caption="PLN-3010: protocols, results and evidence linked to specifications. Bench CSV import — n, mean and standard deviation computed automatically.">
+          <strong>Plans &amp; tests</strong><span>From protocol to evidence</span>
+        </button>
+        <button class="ttab" data-shot="matrice" data-caption="Every row is a complete thread. An empty cell is a hole in the file. CSV export in one click.">
+          <strong>Traceability matrix</strong><span>Generated — never stale</span>
+        </button>
+        <button class="ttab" data-shot="impact" data-caption="Upstream in amber, downstream in emerald: from SPEC-5, the thread climbs to the user need and descends to NC-1 and CAPA-1 — everything a change calls into question, in one second.">
+          <strong>Impact analysis</strong><span>“If I change this, what breaks?”</span>
+        </button>
+        <button class="ttab" data-shot="activite" data-caption="ACT-0101: completeness checks running continuously, then the Design History File compiled in one click — gaps flagged inside it.">
+          <strong>Auto-compiled DHF</strong><span>The file always current</span>
+        </button>
+        <button class="ttab" data-shot="normes" data-caption="ISO 13485, MDR, ISO 14971, IEC 62304, 61010, 61326, 62366… references you can link to requirements. Metadata only — the text stays in the copies your company bought.">
+          <strong>Standards library</strong><span>IEC 61010, 61326, 62366…</span>
+        </button>
+        <button class="ttab" data-shot="import" data-caption="Your existing file comes in from a CSV. Links resolve using YOUR codes. Dry run before any write: what would be created, updated, rejected — and why, line by line.">
+          <strong>Data migration</strong><span>Without re-typing 400 requirements</span>
+        </button>
+        <button class="ttab" data-shot="signature" data-caption="The password is asked again at every signature (21 CFR 11.200(a)(1)). The manifestation carries the frozen printed name, the meaning, the UTC timestamp (11.50) and the fingerprint of the attested content (11.70). A failure is logged and counts towards account lockout.">
+          <strong>Electronic signature</strong><span>Two components, every time</span>
+        </button>
+        <button class="ttab" data-shot="audit" data-caption="Every entry carries the fingerprint of the previous one: the banner verifies the chain on every view and would name the rank of a break. Writes, signatures, content freezes, generations and sign-ins — attributed, timestamped, append-only (ALCOA+), with a targeted revert to correct without ever erasing.">
+          <strong>Chained audit trail</strong><span>Tampering shows, and is located</span>
+        </button>
+        <button class="ttab" data-shot="retention" data-caption="You declare your retention period, what grounds it and your procedure reference — Filum imposes no doctrine and never purges. A legal hold blocks every deletion. The inspection archive produces a folder verifiable outside Filum, whose anchor can be counter-signed by an RFC 3161 timestamping authority.">
+          <strong>Retention &amp; archive</strong><span>Verifiable without the software</span>
+        </button>
+      </div>
+      <figure class="tour-stage">
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span><em id="tourTitle">filum — dashboard</em></div>
+          <img id="tourImg" src="assets/tableau-de-bord.png" alt="Filum screenshot" />
+        </div>
+        <figcaption id="tourCaption">Verification coverage, risks and open nonconformities — recomputed continuously, with whatever is missing shown first.</figcaption>
+        <p class="tour-hint">Click the image to enlarge</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LES TROIS MODULES ═══════════ -->
+<section class="section section-tint" id="modules">
+  <div class="container">
+    <p class="kicker reveal">The modules</p>
+    <h2 class="reveal d1">Three modules. <span class="grad">One single graph.</span></h2>
+    <p class="section-sub reveal d2">Risk, method validation and CAPA are not add-ons: they live on the same thread as your requirements — and verify one another.</p>
+
+    <!-- Module 1 : ISO 14971 -->
+    <div class="module-row reveal">
+      <figure class="module-figure">
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span><em>filum — risk management</em></div>
+          <img src="assets/risques.png" alt="The Filum ISO 14971 module: initial and residual 5×5 matrices, FMEA register with controls verified by the graph" />
+        </div>
+      </figure>
+      <div class="module-text">
+        <span class="module-badge badge-amber">ISO 14971</span>
+        <h3>Risk management, verified by the graph</h3>
+        <p>FMEA register (hazard → hazardous situation → harm), 5×5 matrix with Acceptable / ALARP / Unacceptable zones, initial risk against residual. And above all: a control counts as “verified” only when the specifications and tests carrying it are closed favourably — evidence from the graph, not a ticked box.</p>
+        <ul class="module-points">
+          <li>Controls verified by the linked tests — never by a checkbox</li>
+          <li>5×5 severity × probability matrix (+ detectability), hazard library</li>
+          <li>Risk management file (RMF) generated as .docx</li>
+        </ul>
+        <p class="module-case">On OD-300: R-1 “thermal energy” controlled and verified; R-4 “use error” still open — flagged as such.</p>
+      </div>
+    </div>
+
+    <!-- Module 2 : Études CLSI -->
+    <div class="module-row module-flip reveal">
+      <figure class="module-figure">
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span><em>filum — clsi studies</em></div>
+          <img src="assets/etudes.png" alt="The Filum CLSI studies module: six studies EP05 to EP26 with automatic Pass / Fail verdict, each linked to its specification" />
+        </div>
+      </figure>
+      <div class="module-text">
+        <span class="module-badge badge-indigo">CLSI EP</span>
+        <h3>IVD method validation, statistics included</h3>
+        <p>Import the bench CSV: the built-in statistical engine runs the CLSI protocols — EP05 precision (ANOVA), EP06 linearity, EP09 method comparison (Bland-Altman, Passing-Bablok), EP17 LoB/LoD/LoQ, EP25 stability, EP26 lot-to-lot — and returns a Pass / Fail verdict against an a priori criterion. The study verifies a specification: the evidence lands in the matrix.</p>
+        <ul class="module-points">
+          <li>6 CLSI protocols, statistics and charts computed internally</li>
+          <li>Automatic Pass / Fail verdict — no spreadsheet on the side</li>
+          <li>Every study files its evidence into the traceability matrix</li>
+        </ul>
+        <p class="module-case">On NovaLyte: 6 specifications, 6 studies STU-1 to STU-6 — 5 pass, 1 lot-to-lot failure (EP26) visible immediately.</p>
+      </div>
+    </div>
+
+    <!-- Module 3 : NC / CAPA -->
+    <div class="module-row reveal">
+      <figure class="module-figure">
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span><em>filum — capa</em></div>
+          <img src="assets/capa.png" alt="The Filum NC/CAPA module: CAPA-1 closed with its full lifecycle, root cause and effectiveness check" />
+        </div>
+      </figure>
+      <div class="module-text">
+        <span class="module-badge badge-emerald">ISO 13485 §8.3 / §8.5</span>
+        <h3>NC &amp; CAPA born from the graph, closed by it</h3>
+        <p>A failed test, a NOK specification, an unacceptable risk: the nonconformity is born from the graph, with its signed disposition. Escalation to CAPA is justified on risk, and the lifecycle is locked — no action plan without a root cause, no closure without an effectiveness check proven by a re-run test that passes, controlled by an independent verifier.</p>
+        <ul class="module-points">
+          <li>Locked lifecycle: Open → Investigation → Plan → Implementation → Verification → Closure</li>
+          <li>Effectiveness proven by the graph: a priori criterion + re-verified test that passes</li>
+          <li>Automatic feedback on closure: NOK specification turned green, nonconformities closed, risk re-assessed</li>
+        </ul>
+        <p class="module-case">On OD-300: the failed VER-3 test raised NC-1, escalated to CAPA-1 (root cause: unsuitable seal elastomer) — closed EFFECTIVE, SPEC-5 turned NOK → OK automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ IA SOUS GARDE-FOUS ═══════════ -->
+<section class="section section-tint" id="ia">
+  <div class="container">
+    <p class="kicker reveal">AI assistant</p>
+    <h2 class="reveal d1">The AI proposes. <span class="grad">A human validates and signs.</span></h2>
+    <div class="cards-4">
+      <div class="gcard reveal"><span class="gnum n1">1</span><h3>Traced origin</h3><p>Every text carries an “Origin: AI” badge naming the model used. Nothing anonymous.</p></div>
+      <div class="gcard reveal d1"><span class="gnum n2">2</span><h3>Sources cited</h3><p>The AI writes only from the graph and cites every claim: [REQ-3001], [SPEC-5]…</p></div>
+      <div class="gcard reveal d2"><span class="gnum n3">3</span><h3>Human validation</h3><p>A draft enters a document only after explicit, named and timestamped validation.</p></div>
+      <div class="gcard reveal d3"><span class="gnum n4">4</span><h3>Zero regulatory decisions</h3><p>The AI reports the state of the data. The decision — and the signature — stay human.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONFORMITÉ ═══════════ -->
+<section class="section section-dark" id="conformite">
+  <div class="container">
+    <p class="kicker reveal">Compliance of the software itself</p>
+    <h2 class="reveal d1">Audit-ready, <span class="grad">and verifiable without us.</span></h2>
+    <p class="section-sub reveal d2">A compliance tool that asks to be taken at its word is worth nothing. Every mechanism below can be checked by a third party — often without even opening Filum.</p>
+    <div class="cards-3">
+      <div class="ccard reveal">
+        <h3>Chained audit trail</h3>
+        <p>Every entry carries the fingerprint of the previous one. Modifying or deleting a row directly in the database breaks the link for all the following ones, and verification says <em>at which rank</em>. Chaining detects, it does not prevent — that is written as such on the screen.</p>
+      </div>
+      <div class="ccard reveal d1">
+        <h3>Inspection archive verifiable without Filum</h3>
+        <p>A compressed folder: the approved records byte for byte, their fingerprints, and a single anchor covering them all. Your auditor checks it with <code>sha256sum</code>, on any machine, ten years from now — without the software, without us, without a licence.</p>
+      </div>
+      <div class="ccard reveal d2">
+        <h3>Third-party timestamping</h3>
+        <p>The archive anchor is counter-signed by the RFC 3161 timestamping authority <strong>you</strong> designate. A chain recomputed after the fact will not give back the timestamped head: tampering goes from detectable to undeniable.</p>
+      </div>
+      <div class="ccard reveal">
+        <h3>Declared retention, legal hold</h3>
+        <p>Filum never deletes a frozen record and applies no purge at expiry. You declare your period, what grounds it and your procedure reference. A legal hold blocks every deletion, with a mandatory written reason.</p>
+      </div>
+      <div class="ccard reveal d1">
+        <h3>Nobody sets someone else's password</h3>
+        <p>An administrator issues a single-use token; its holder chooses their own secret. Whoever types another person's password holds both components of their signature — exactly what 21 CFR 11.200(a)(3) sets out to prevent.</p>
+      </div>
+      <div class="ccard reveal d2">
+        <h3>Attributable signatures, roles server-side</h3>
+        <p>The password is asked again at <em>every</em> signature, and only the designated signer can apply theirs. Administrator, approver, editor, viewer: the guard is at the server, not in a greyed-out button.</p>
+      </div>
+    </div>
+
+    <div class="proof reveal d2">
+      <div class="proof-num"><strong>28</strong><span>operational qualification cases executed</span></div>
+      <div class="proof-num"><strong>0</strong><span>deviations on the last run</span></div>
+      <div class="proof-num"><strong>31</strong><span>validation requirements, each traced to its clause</span></div>
+    </div>
+
+    <div class="honesty reveal d3">
+      <h3>What we never write: “21 CFR Part 11 compliant”.</h3>
+      <p>The §11.100(c) certification binds the legal entity whose staff sign, by handwritten letter to the FDA. No software vendor can carry it for you, and one that claims to is selling you a risk.</p>
+      <p>What we do deliver: a <strong>clause-by-clause matrix</strong> in three columns — what the software does, what remains yours, what is out of scope, open points named included; a <strong>data integrity note</strong> with a protocol your auditor can run to <em>falsify</em> it; and a <strong>validation pack</strong>: IQ protocol, validation file, requirements and test cases executable in your own environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PÉRIMÈTRE ═══════════ -->
+<section class="section section-tint" id="perimetre">
+  <div class="container">
+    <p class="kicker reveal">Scope</p>
+    <h2 class="reveal d1">What Filum does. <span class="grad">And what it does not.</span></h2>
+    <p class="section-sub reveal d2">
+      A demonstration given to somebody looking for something else costs two hours on both sides. So it is said here. No line in the right-hand column comes with a delivery date&nbsp;: we do not sell what does not exist.
+    </p>
+
+    <div class="scope reveal d3">
+      <div class="scope-col scope-yes">
+        <h3>What is in place</h3>
+        <ul>
+          <li class="scope-item"><strong>Traceability</strong><span>Graph need → requirement → specification → test → evidence. Matrix and impact analysis generated, never stale.</span></li>
+          <li class="scope-item"><strong>Document control</strong><span>Draft → Review → Released, content frozen on entering review. Design reports, DHF, RMF, NCR, CAPA generated as .docx.</span></li>
+          <li class="scope-item"><strong>Electronic signature</strong><span>Two components at every signature, human-readable manifestation, fingerprint of the attested content.</span></li>
+          <li class="scope-item"><strong>ISO 14971 risk</strong><span>FMEA, 5×5 matrix, ALARP. A control is verified only when the tests carrying it are closed favourably.</span></li>
+          <li class="scope-item"><strong>IVD method validation</strong><span>Six CLSI protocols computed internally — EP05, 06, 09, 17, 25, 26 — automatic pass / fail verdict.</span></li>
+          <li class="scope-item"><strong>Nonconformities and CAPA</strong><span>Locked lifecycles. No closure without effectiveness proven by a re-run test that passes.</span></li>
+          <li class="scope-item"><strong>Software compliance</strong><span>Chained audit trail, archive verifiable without Filum, RFC 3161 timestamping, declared retention, legal hold.</span></li>
+          <li class="scope-item"><strong>Migrating your data</strong><span>CSV import, links resolved by YOUR codes, mandatory dry run before any write.</span></li>
+          <li class="scope-item"><strong>Operations</strong><span>Self-hosted Docker, FR / EN interface, four roles, IQ/OQ validation pack delivered.</span></li>
+        </ul>
+      </div>
+      <div class="scope-col scope-no">
+        <h3>What does not exist</h3>
+        <ul>
+          <li class="scope-item"><strong>This is not an eQMS</strong><span>No training, no suppliers, no complaints, no internal audits, no management review.</span></li>
+          <li class="scope-item"><strong>No configuration management</strong><span>No baselines, no configuration items, no comparison between two frozen states.</span></li>
+          <li class="scope-item"><strong>IEC 62304 is a stub</strong><span>No tooled software lifecycle, no anomaly tracking, no SOUP management.</span></li>
+          <li class="scope-item"><strong>No outbound channel</strong><span>Filum sends no email: no notifications, no due-date reminders, no approver chasing.</span></li>
+          <li class="scope-item"><strong>No integrations</strong><span>No public API, no webhooks, no PLM / ERP / ALM connector, no ReqIF, no Word or Excel import.</span></li>
+          <li class="scope-item"><strong>One installation, one organisation</strong><span>Not multi-tenant: isolation is per instance, one per entity.</span></li>
+          <li class="scope-item"><strong>You only sign what Filum produces</strong><span>No signing of an uploaded PDF or a file coming from elsewhere.</span></li>
+          <li class="scope-item"><strong>The audit trail is written in French</strong><span>Whatever the interface language, which is genuinely FR / EN.</span></li>
+          <li class="scope-item"><strong>No mobile app, no offline mode</strong><span>Web application served by your own server, for a computer screen.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="scope-out reveal d3">
+      <strong>Filum will probably not suit you if</strong>
+      you are looking for a complete quality system (training, suppliers, complaints, audits) &nbsp;·&nbsp; your device is primarily software and you expect a tooled IEC 62304 chain &nbsp;·&nbsp; you need a PLM, ERP or ALM integration &nbsp;·&nbsp; you want a vendor-run multi-tenant SaaS &nbsp;·&nbsp; you expect a supplier to declare itself “21 CFR Part 11 compliant”.
+    </p>
+
+    <p class="section-note reveal d3">
+      The scope note delivered with the software expands every line, states the three design trade-offs behind the absences, and says what remains your organisation's responsibility. It is meant to be read before committing, not after — <a href="mailto:garaukev@gmail.com?subject=Filum%20scope%20note">ask for it</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ POSITIONNEMENT ═══════════ -->
+<section class="section" id="positionnement">
+  <div class="container">
+    <p class="kicker reveal">Positioning</p>
+    <h2 class="reveal d1">The seam the others leave open.</h2>
+    <div class="table-wrap reveal d2">
+      <table>
+        <thead>
+          <tr><th></th><th>Hardware V&amp;V driven by test data</th><th>Fine-grained requirement&nbsp;→&nbsp;evidence graph</th><th>Risk &amp; CAPA verified by the graph</th><th>Auto-compiled file (DHF)</th><th>Simplicity &amp; SME pricing</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>General-purpose eQMS <em>(Greenlight Guru, Qualio…)</em></td><td>—</td><td>—</td><td>partial</td><td>partial</td><td>—</td></tr>
+          <tr><td>ALM / requirements <em>(Polarion, Jama…)</em></td><td>—</td><td class="ok">✓</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Regulated-software platforms <em>(Ketryx…)</em></td><td>—</td><td>✓ (code)</td><td>partial</td><td>partial</td><td>—</td></tr>
+          <tr class="filum-row"><td>Filum</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note reveal d3">Mechanics and embedded software (IEC 62304) live on the same graph — no silos.</p>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section section-tint" id="faq">
+  <div class="container container-narrow">
+    <p class="kicker reveal">Frequently asked</p>
+    <h2 class="reveal d1">What people ask us first.</h2>
+    <div class="faq reveal d2">
+      <details open>
+        <summary>Where is our data hosted?</summary>
+        <p>Today, with you: Filum installs locally or on your own server — the database is a single file you back up as you see fit. A hosted SaaS offer (EU) is coming with V1; free data export will remain the rule.</p>
+      </details>
+      <details>
+        <summary>What about the text of ISO / IEC / ASTM standards?</summary>
+        <p>Filum never hosts it: the library holds metadata only (code, title, usage description, official link). You read the text in the copies your company purchased — the standards bodies' copyright is respected by construction.</p>
+      </details>
+      <details>
+        <summary>The software itself has to be validated on our side. Do you help?</summary>
+        <p>The validation pack exists and is handed to you: an <strong>IQ protocol</strong> for your IT team or hosting provider, a <strong>validation file</strong> listing the software requirements with justified criticality, and an <strong>executable operational qualification suite</strong> — its cases call the same functions as the application, not copies, which is the only way a report says anything about the software actually delivered. You replay it on your side, after every version upgrade.</p>
+        <p>What remains yours, and what we cannot do for you: the system criticality decision, performance qualification under your real conditions, and your revalidation policy.</p>
+      </details>
+      <details>
+        <summary>How do we prove to an inspector that a record has not moved?</summary>
+        <p>You produce an <strong>inspection archive</strong>: a compressed folder holding the approved records byte for byte, the list of their SHA-256 fingerprints, the audit trail, and a single anchor covering everything. The inspector verifies it with the standard tools of their operating system — without Filum, without a licence, without us. That anchor can be counter-signed by the RFC 3161 timestamping authority of your choice: a value recomputed after the fact will never give back the one that was timestamped.</p>
+        <p>The honest corollary: chaining <em>detects</em> tampering, it does not prevent it. Anyone with direct access to the database file can write outside the application — third-party timestamping, and the access restriction that belongs to your infrastructure, are what close that door.</p>
+      </details>
+      <details>
+        <summary>Can the AI write anything it likes into my file?</summary>
+        <p>No. It writes only from your graph's data, cites its sources, writes “to be completed” when information is missing — and nothing enters a document without your named validation. No regulatory decision is automated.</p>
+      </details>
+      <details>
+        <summary>We work in Word. Will we have to change?</summary>
+        <p>No — quite the opposite. Filum generates .docx files structured like your templates (title block, approvals, revision history, Design Input/Output…). You keep delivering Word; you just stop re-typing it.</p>
+      </details>
+      <details>
+        <summary>How much does it cost?</summary>
+        <p>The intended model: self-service, transparent pricing, no multi-year commitment — the opposite of traditional eQMS. Get in touch about the pilot programme: the first partners get founding terms.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA FINAL ═══════════ -->
+<section class="cta-final">
+  <div class="container">
+    <h2 class="reveal">Run your next R&amp;D activity<br />through Filum. <span class="ital">And compare.</span></h2>
+    <div class="hero-cta reveal d1">
+      <a class="btn btn-light" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demonstration</a>
+    </div>
+    <p class="cta-note reveal d2">Pilot programme open — surgical instruments, implants and in vitro diagnostic devices.</p>
+  </div>
+</section>
+
+<!-- ═══════════ PIED ═══════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p>“From need to proof, without a break” — traceability &amp; compliance for medical device R&amp;D.</p>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. Screenshots taken from the real application.</p>
+  </div>
+</footer>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <img src="" alt="Enlarged screenshot" />
+</div>
+
+<script type="application/json" id="graph-data">[{"cle":"besoin","titre":"User need","ex":"“UN-40 — The laboratory must obtain reliable electrolyte results on the sample's first pass.”","corps":"The start of the thread: intended use, the pain on the ground, the clinical demand. Every need is attached to its R&D activity and linked to the requirements it drives — from the outset, you know why each requirement exists.","puces":["Entered on the activity","Linked to requirements","Carried into the generated design report (Background & Purpose)"]},{"cle":"exigence","titre":"Requirement","ex":"“The handpiece shall remain below 48 °C at bone contact under continuous use.” — REQ-3002, high criticality","corps":"The design input, phrased with “shall”, with its category (mechanical, electrical, software…) and its criticality. Requirements form a hierarchy (system → subsystem, N–M relation) and link to the applicable standard clauses — IEC 61010, 61326, 62366… — from the built-in library.","puces":["System → subsystem hierarchy","Built-in standards library","Flagged when not covered"]},{"cle":"spec","titre":"Specification","ex":"“SPEC-5 — head seal tightness: 500 autoclave cycles with no cracking” — status: OK / NOK / Justified / N-A / Pending","corps":"The design output: a measurable value, a verification method, a status that lives with the project. One specification can cover several requirements — the N–M relation seen in real files is native. And when a test fails, the NOK shows everywhere the thread runs.","puces":["Status changed in one click","Logged on every change","Multi-requirement"]},{"cle":"essai","titre":"Test","ex":"“VER-3 — autoclave endurance, plan PLN-3010: 3/3 units conforming at 500 cycles”","corps":"The protocol with its a priori acceptance criterion, its results and its evidence. A failure does not get lost in a report: VER-3 failing opened nonconformity NC-1 automatically. Everything an auditor asks for, structured in advance.","puces":["Structured acceptance criteria","Failure → traced nonconformity","Linked to specifications"]},{"cle":"resultat","titre":"Result","ex":"“Pass — VER-3 re-verification after CAPA-1: 3/3 units at 500 cycles, FKM seal”","corps":"The test verdict with its conditions, its operator and its date. Import the bench CSV: Filum keeps it intact and automatically computes n, mean, standard deviation, min and max per column — and CLSI studies add ANOVA, regressions and detection limits.","puces":["Bench CSV import","Automatic statistics","Built-in CLSI engine"]},{"cle":"preuve","titre":"Evidence","ex":"“endurance-test-ver3.csv — raw data kept exactly as imported”","corps":"The record filed into the dossier. Raw data is never retouched (ALCOA+: original, enduring); it stays viewable in the built-in viewer and downloadable byte for byte. It is what closes the thread — and turns the specification green again.","puces":["Raw data untouched","Built-in viewer","Carried into the generated DHF"]},{"cle":"risque","titre":"Risk (ISO 14971)","ex":"“R-1 — Thermal energy at bone contact → thermal necrosis” — initial S4×P3, residual S4×P1, controlled","corps":"The dimension that runs across everything: a hazard calls for a control, and the control must be verified by the graph — it counts as “verified” only if the specifications and tests carrying it are closed favourably. Filum flags every risk whose control has no evidence, and the risk management file is generated as .docx.","puces":["Control verified by the graph","5×5 matrix, ALARP zones","Risk management file as .docx"]}]</script>
+<script src="../script.js"></script>
+</body>
+</html>
