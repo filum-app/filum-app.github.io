@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filum — Du besoin à la preuve, sans rupture</title>
-  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Conçu pour la R&D de dispositifs médicaux." />
+  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Piste d'audit chaînée, archive d'inspection vérifiable sans le logiciel, pack de validation IQ/OQ remis avec. Conçu pour la R&D de dispositifs médicaux." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -190,8 +190,11 @@
         <button class="ttab" data-shot="signature" data-caption="Le mot de passe est redemandé à chaque signature (21 CFR 11.200(a)(1)). La manifestation porte le nom imprimé figé, la signification, l'horodatage UTC (11.50) et l'empreinte du contenu attesté (11.70). Un échec est journalisé et compte dans le verrouillage du compte.">
           <strong>Signature électronique</strong><span>Deux composants, à chaque fois</span>
         </button>
-        <button class="ttab" data-shot="audit" data-caption="Chaque écriture, signature, gel de contenu, génération et connexion — attribuée, horodatée, immuable (ALCOA+), avec l'empreinte de l'enregistrement à chaque étape et une annulation ciblée pour corriger sans effacer.">
-          <strong>Journal d'audit</strong><span>Qui, quoi, quand, pourquoi</span>
+        <button class="ttab" data-shot="audit" data-caption="Chaque entrée porte l'empreinte de la précédente : le bandeau vérifie la chaîne à chaque affichage et nommerait le rang d'une rupture. Écritures, signatures, gels de contenu, générations et connexions — attribuées, horodatées, en append seul (ALCOA+), avec une annulation ciblée pour corriger sans jamais effacer.">
+          <strong>Journal d'audit chaîné</strong><span>Une altération se voit, et se situe</span>
+        </button>
+        <button class="ttab" data-shot="retention" data-caption="Vous déclarez votre durée de conservation, ce qui la fonde et la référence de votre procédure — Filum n'impose aucune doctrine et ne purge jamais. Une conservation légale bloque toute suppression. L'archive d'inspection produit un dossier vérifiable hors Filum, dont l'ancre peut être contresignée par une autorité d'horodatage RFC 3161.">
+          <strong>Rétention &amp; archive</strong><span>Vérifiable sans le logiciel</span>
         </button>
       </div>
       <figure class="tour-stage">
@@ -296,20 +299,45 @@
 <section class="section section-dark" id="conformite">
   <div class="container">
     <p class="kicker reveal">Conformité du logiciel lui-même</p>
-    <h2 class="reveal d1">Audit-ready, par construction.</h2>
+    <h2 class="reveal d1">Audit-ready, <span class="grad">et vérifiable sans nous.</span></h2>
+    <p class="section-sub reveal d2">Un logiciel de conformité qui demande qu'on le croie sur parole ne vaut rien. Chacun des mécanismes ci-dessous se contrôle par un tiers — souvent sans même ouvrir Filum.</p>
     <div class="cards-3">
       <div class="ccard reveal">
-        <h3>Piste d'audit immuable</h3>
-        <p>Chaque écriture, signature, génération et connexion — en append seul, avec les valeurs avant / après. Principes ALCOA+.</p>
+        <h3>Piste d'audit chaînée</h3>
+        <p>Chaque entrée porte l'empreinte de la précédente. Modifier ou supprimer une ligne directement dans la base rompt le maillon de toutes les suivantes, et la vérification dit <em>à quel rang</em>. Le chaînage détecte, il n'empêche pas — c'est écrit tel quel dans l'écran.</p>
       </div>
       <div class="ccard reveal d1">
-        <h3>Signatures attribuables</h3>
-        <p>Seul le signataire désigné, authentifié, peut apposer sa signature : identité + signification + horodatage — l'exigence du 21 CFR Part 11.</p>
+        <h3>Archive d'inspection vérifiable hors Filum</h3>
+        <p>Un dossier compressé : les enregistrements approuvés octet pour octet, leurs empreintes, et une ancre unique qui les couvre toutes. Votre auditeur la contrôle avec <code>sha256sum</code>, sur n'importe quelle machine, dans dix ans — sans le logiciel, sans nous, sans licence.</p>
       </div>
       <div class="ccard reveal d2">
-        <h3>Rôles &amp; accès (RBAC)</h3>
-        <p>Administrateur, approbateur, éditeur, lecteur : qui crée, revoit, approuve et signe — appliqué côté serveur.</p>
+        <h3>Horodatage par un tiers</h3>
+        <p>L'ancre de l'archive est contresignée par l'autorité d'horodatage RFC 3161 que <strong>vous</strong> désignez. Une chaîne recalculée après coup ne redonnera pas la tête horodatée : l'altération passe de détectable à indéniable.</p>
       </div>
+      <div class="ccard reveal">
+        <h3>Rétention déclarée, conservation légale</h3>
+        <p>Filum ne supprime jamais un enregistrement figé et n'applique aucune purge à l'échéance. Vous déclarez votre durée, ce qui la fonde et la référence de votre procédure. Une conservation légale bloque toute suppression, motif écrit obligatoire.</p>
+      </div>
+      <div class="ccard reveal d1">
+        <h3>Personne ne pose le mot de passe d'un autre</h3>
+        <p>Un administrateur émet un jeton à usage unique ; son titulaire choisit lui-même son secret. Qui saisit le mot de passe d'autrui détient les deux composants de sa signature — exactement ce que le 21 CFR 11.200(a)(3) veut empêcher.</p>
+      </div>
+      <div class="ccard reveal d2">
+        <h3>Signatures attribuables, rôles côté serveur</h3>
+        <p>Le mot de passe est redemandé à <em>chaque</em> signature, et seul le signataire désigné peut apposer la sienne. Administrateur, approbateur, éditeur, lecteur : la garde est au serveur, pas dans un bouton grisé.</p>
+      </div>
+    </div>
+
+    <div class="proof reveal d2">
+      <div class="proof-num"><strong>28</strong><span>cas de qualification opérationnelle exécutés</span></div>
+      <div class="proof-num"><strong>0</strong><span>écart au dernier passage</span></div>
+      <div class="proof-num"><strong>31</strong><span>exigences de validation, chacune tracée à sa clause</span></div>
+    </div>
+
+    <div class="honesty reveal d3">
+      <h3>Ce que nous n'écrivons jamais : « conforme 21 CFR Part 11 ».</h3>
+      <p>La certification du §11.100(c) engage l'entité juridique dont les collaborateurs signent, par lettre manuscrite adressée à la FDA. Aucun éditeur de logiciel ne peut la porter à votre place, et celui qui le prétend vous vend un risque.</p>
+      <p>Ce que nous livrons, en revanche : une <strong>matrice clause par clause</strong> en trois colonnes — ce que fait le logiciel, ce qui reste à votre charge, ce qui est hors périmètre, points ouverts nommés compris ; une <strong>note d'intégrité des données</strong> avec un protocole que votre auditeur peut jouer pour la <em>falsifier</em> ; et un <strong>pack de validation</strong> : protocole IQ, dossier de validation, exigences et cas de test exécutables dans votre environnement.</p>
     </div>
   </div>
 </section>
@@ -352,7 +380,13 @@
       </details>
       <details>
         <summary>Le logiciel lui-même doit être validé chez nous. Vous nous aidez ?</summary>
-        <p>Oui. Filum est conçu pour être validable (piste d'audit ALCOA+, signatures attribuables, rôles) et un pack de validation prêt à l'emploi — protocoles IQ/OQ, matrice d'exigences du logiciel, jeux de tests — est prévu à la feuille de route pour transformer cette contrainte en formalité.</p>
+        <p>Le pack de validation existe et vous est remis : <strong>protocole IQ</strong> destiné à votre informatique ou à votre infogérant, <strong>dossier de validation</strong> reprenant les exigences du logiciel avec leur criticité justifiée, et une <strong>suite de qualification opérationnelle exécutable</strong> — ses cas appellent les mêmes fonctions que l'application, pas des copies, ce qui est la seule façon qu'un rapport dise quelque chose du logiciel réellement livré. Vous la rejouez chez vous, après chaque montée de version.</p>
+        <p>Ce qui reste à votre charge, et que nous ne pouvons pas faire à votre place : la décision de criticité du système, la qualification de performance dans vos conditions réelles, et votre politique de revalidation.</p>
+      </details>
+      <details>
+        <summary>Comment prouver à un inspecteur qu'un enregistrement n'a pas bougé ?</summary>
+        <p>Vous produisez une <strong>archive d'inspection</strong> : un dossier compressé contenant les enregistrements approuvés octet pour octet, la liste de leurs empreintes SHA-256, la piste d'audit, et une ancre unique qui couvre le tout. L'inspecteur la vérifie avec les outils standard de son système d'exploitation — sans Filum, sans licence, sans nous. Cette ancre peut être contresignée par l'autorité d'horodatage RFC 3161 de votre choix : une valeur recalculée après coup ne redonnera jamais celle qui a été horodatée.</p>
+        <p>Le corollaire honnête : le chaînage <em>détecte</em> une altération, il ne l'empêche pas. Qui a un accès direct au fichier de base peut écrire hors de l'application — c'est l'horodatage tiers, et la restriction d'accès qui relève de votre infrastructure, qui referment cette porte.</p>
       </details>
       <details>
         <summary>L'IA peut-elle écrire n'importe quoi dans mon dossier ?</summary>
