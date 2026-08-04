@@ -393,8 +393,8 @@ a { color: inherit; text-decoration: none; }
 .dl-mail .dl-ico { background: var(--slate-ico, #64748B); }
 
 /* Les mêmes boutons, posés sur la section sombre de la conformité. */
-.telechargements-sombre { grid-template-columns: 1fr 1fr; margin-top: 22px; }
-@media (max-width: 860px) { .telechargements-sombre { grid-template-columns: 1fr; } }
+.telechargements-sombre { grid-template-columns: repeat(3, 1fr); margin-top: 22px; }
+@media (max-width: 980px) { .telechargements-sombre { grid-template-columns: 1fr; } }
 .dl-sombre {
   background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .16); box-shadow: none;
 }
