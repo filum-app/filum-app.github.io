@@ -374,6 +374,28 @@ a { color: inherit; text-decoration: none; }
 .scope-out strong { color: #B91C1C; margin-right: 8px; }
 @media (max-width: 860px) { .scope { grid-template-columns: 1fr; } }
 
+/* ─── Téléchargements directs ─── */
+/* Pas de formulaire, pas d'adresse à laisser : c'est le geste qui rend la promesse
+   « lisez-la avant de vous engager » crédible. Un mur de capture de leads la démentirait. */
+.telechargements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.dl {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border-radius: var(--radius);
+  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.dl:hover { transform: translateY(-3px); border-color: var(--indigo); }
+.dl-ico {
+  flex: none; width: 34px; height: 34px; border-radius: 9px;
+  display: grid; place-items: center;
+  background: var(--indigo); color: #fff; font-size: 16px; font-weight: 700;
+}
+.dl-mail .dl-ico { background: var(--slate-ico, #64748B); }
+.dl-txt { display: block; }
+.dl-txt strong { display: block; font-size: 15px; color: var(--ink); }
+.dl-txt em { display: block; font-style: normal; font-size: 13px; color: var(--sub); margin-top: 2px; }
+@media (max-width: 860px) { .telechargements { grid-template-columns: 1fr; } }
+
 /* ─── Tableau positionnement ─── */
 .table-wrap { margin-top: 40px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
 table { width: 100%; border-collapse: collapse; background: #fff; min-width: 680px; }
