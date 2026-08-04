@@ -391,6 +391,15 @@ a { color: inherit; text-decoration: none; }
   background: var(--indigo); color: #fff; font-size: 16px; font-weight: 700;
 }
 .dl-mail .dl-ico { background: var(--slate-ico, #64748B); }
+
+/* Le même bouton, posé sur la section sombre de la conformité. */
+.dl-sombre {
+  margin-top: 20px; max-width: 460px;
+  background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .16); box-shadow: none;
+}
+.dl-sombre:hover { border-color: #A5B4FC; background: rgba(255, 255, 255, .1); }
+.dl-sombre .dl-txt strong { color: #E0E7FF; }
+.dl-sombre .dl-txt em { color: #94A3B8; }
 .dl-txt { display: block; }
 .dl-txt strong { display: block; font-size: 15px; color: var(--ink); }
 .dl-txt em { display: block; font-style: normal; font-size: 13px; color: var(--sub); margin-top: 2px; }
