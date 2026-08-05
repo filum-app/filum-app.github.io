@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filum validated itself — and found seven defects</title>
+  <meta name="description" content="The vendor of Filum executed on its own software the installation qualification protocol it hands to its customers. The 7 defects found, what they would have cost, and what was done." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/validation.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/validation.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/validation.html" />
+  <style>
+    /* La barre de navigation du site est conçue pour un héros SOMBRE : ses liens sont
+       clairs et son fond ne s'opacifie qu'au défilement, par script.js. Cette page n'a pas
+       de héros sombre et ne charge pas ce script — sans cette règle, ses liens sont
+       illisibles sur fond clair. Constaté en lisant le rendu, pas le code. */
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .cas-hero { padding: 128px 0 40px; }
+    .cas-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 20ch; }
+    .cas-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .cas-chapo { font-size: 1.05rem; color: #475569; max-width: 62ch; }
+    .cas-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
+    .cas-chiffre b { display: block; font-size: 1.7rem; color: #4338CA; line-height: 1.1; }
+    .cas-chiffre span { font-size: .82rem; color: #64748b; }
+    .defaut { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid #e6e7f0; }
+    .defaut-etape { font: 700 .75rem/1.6 ui-monospace, Consolas, monospace; color: #4338CA; background: #eceafd; border-radius: 6px; height: fit-content; text-align: center; padding: 3px 0; }
+    .defaut-corps h3 { margin: 0 0 6px; font-size: 1.02rem; }
+    .defaut-conseq { margin: 0 0 8px; color: #475569; font-size: .93rem; }
+    .defaut-trait { margin: 0; color: #334155; font-size: .9rem; }
+    .defaut-trait strong { color: #047857; }
+    .cas-acquis li { margin-bottom: 9px; color: #475569; }
+    @media (max-width: 640px) { .defaut { grid-template-columns: 1fr; gap: 6px; } .defaut-etape { display: inline-block; padding: 3px 10px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="../">Back to the site</a>
+      <a class="lang-switch" href="../validation.html" hreflang="fr">Français</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="cas-hero">
+  <div class="container">
+    <span class="cas-surtitre">Case study — the vendor on its own product</span>
+    <h1>We executed our own protocol. It found seven defects.</h1>
+    <p class="cas-chapo">Filum ships with an installation qualification protocol: thirteen steps the customer's IT team runs and signs. Most vendors write it. We <strong>executed</strong> it, on a real installation, from loading the image through restoring a backup. Here is what it found — and why that is good news.</p>
+    <div class="cas-chiffres">
+      <div class="cas-chiffre"><b>13/13</b><span>steps executed</span></div>
+      <div class="cas-chiffre"><b>7</b><span>defects found, all closed</span></div>
+      <div class="cas-chiffre"><b>29</b><span>qualification cases, 0 deviation</span></div>
+      <div class="cas-chiffre"><b>32</b><span>validation requirements</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What the procedure found</h2>
+    <p class="lead">Each line gives the step that surfaced the defect, what it would have cost the customer, and what was done. None would have been found without running the procedure: neither code checking, nor the application build, nor the qualification cases ran inside the delivered container at the time.</p>
+    
+      <article class="defaut">
+        <div class="defaut-etape">IQ-04</div>
+        <div class="defaut-corps">
+          <h3>The delivered image could not start</h3>
+          <p class="defaut-conseq">The installation stopped at the first technical step, in front of the customer's IT provider, on go-live day. No upstream check could have caught it: they all run outside the container.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Dependencies completed, and a check that now fails the BUILD rather than the start-up: the error can no longer travel as far as the customer.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-07</div>
+        <div class="defaut-corps">
+          <h3>The container announced a version that was not its own</h3>
+          <p class="defaut-conseq">The start-up log — kept by the IT provider as installation evidence — said 1.0.0 while the screen displayed 1.2.0. Two numbers for one installation, in a file that must tie every record to the version that produced it.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — A single source, no fallback value left. And the protocol now makes it a check: record the version in the log, compare it with the screen.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-09</div>
+        <div class="defaut-corps">
+          <h3>The backup check checked nothing</h3>
+          <p class="defaut-conseq">The procedure checked that the archive of the volume holding approved documents was not empty. The test answered “verified” on an 86-byte archive that was entirely empty. A reassuring, hollow backup — the defect would only have surfaced at the first restore.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Volume existence checked BEFORE the backup, then a count of archived records. The trap was reproduced deliberately to prove the new version catches it.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-13</div>
+        <div class="defaut-corps">
+          <h3>A failed backup left the software down</h3>
+          <p class="defaut-conseq">The backup stops the service, copies, restarts. The script died half-way: the application stayed unavailable for four minutes. On a task scheduled at two in the morning, it would have stayed down until daybreak.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — The restart is now guaranteed whatever happens, and the guide points out that a backup whose exit code nobody reads is not a backup.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-02</div>
+        <div class="defaut-corps">
+          <h3>The delivery check step could not be executed</h3>
+          <p class="defaut-conseq">The protocol asked to compare the digest of the archive received with the one communicated by the vendor. Neither the archive nor the digest existed, and the step skipped the only check that catches a delivery altered in transit.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Delivery archive produced with two digests verifiable without Docker, and the step now requires both: the archive's before loading, the image's after.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-06</div>
+        <div class="defaut-corps">
+          <h3>A criterion described behaviour the product does not have</h3>
+          <p class="defaut-conseq">The criterion announced a redirect; the software renders the sign-in screen instead of the content. The protection is there — nothing leaks — but an IT provider applying the text literally would have recorded a deviation on correct software.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Criterion rewritten on the observed behaviour, in both languages of the protocol.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">—</div>
+        <div class="defaut-corps">
+          <h3>The installation guide described a delivery that did not exist</h3>
+          <p class="defaut-conseq">The guide had the reader load a file with an invented name and asked for no digest check before loading. The customer would have followed a procedure impossible from its very first line.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Section rewritten on the real delivery, digest check included, with the warning never to rebuild the image in order to check it.</p>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container">
+    <h2>What remains of it</h2>
+    <p class="lead">Fixing seven defects would be worth little if the eighth had to wait for the next customer. What the exercise mainly left behind is checks.</p>
+    <ul class="cas-acquis">
+      <li>A qualification case that starts the delivered image, reads its log and checks that no data is served without a session — the blind spot is covered, not merely patched.</li>
+      <li>A check that regenerates the published documents and compares their text: none can any longer describe a product it no longer describes without that showing.</li>
+      <li>A check that says whether the delivered archive still describes the repository — and refuses to republish a version number already handed to a customer.</li>
+      <li>All of it replayed on every change to the code, with no human action.</li>
+    </ul>
+    <p style="margin-top:22px">The execution is recorded in a dated and signed record whose digest is frozen. It is provided on request, along with the validation file and the protocol itself.</p>
+    <div class="telechargements telechargements-un" style="margin-top:24px">
+      <a class="dl" href="../docs/Filum_software_validation_file.docx" download>
+        <span class="dl-ico" aria-hidden="true">↓</span>
+        <span class="dl-txt">
+          <strong>The validation file</strong>
+          <em>32 requirements, 29 cases executed</em>
+        </span>
+      </a>
+      <a class="dl" href="../docs/Filum_IQ_protocol.docx" download>
+        <span class="dl-ico" aria-hidden="true">↓</span>
+        <span class="dl-txt">
+          <strong>The IQ protocol</strong>
+          <em>13 steps for your IT team</em>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:64ch">
+    <h2>Why we are telling this</h2>
+    <p>A supplier claiming to have no defects is mostly claiming to have looked for none. What you can ask a vendor for is not an absence of defects: it is that they ran their own procedure, that they say what they found, and that they show you what stops the next one from getting through.</p>
+    <p>It is also the reason the product exists. Filum does not promise your files will be perfect: it makes sure a discrepancy shows while you can still deal with it, rather than in front of an auditor.</p>
+    <p style="margin-top:26px">
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demonstration</a>
+      <a class="btn btn-light" href="../" style="margin-left:10px">Discover Filum</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. The defects described are those recorded in the signed execution record.</p>
+  </div>
+</footer>
+
+</body>
+</html>

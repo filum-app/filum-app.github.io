@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filum s'est validé lui-même — et a trouvé sept défauts</title>
+  <meta name="description" content="L'éditeur de Filum a exécuté sur son propre logiciel le protocole de qualification d'installation qu'il remet à ses clients. Les 7 défauts trouvés, ce qu'ils auraient coûté, et ce qui a été fait." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/validation.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/validation.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/validation.html" />
+  <style>
+    /* La barre de navigation du site est conçue pour un héros SOMBRE : ses liens sont
+       clairs et son fond ne s'opacifie qu'au défilement, par script.js. Cette page n'a pas
+       de héros sombre et ne charge pas ce script — sans cette règle, ses liens sont
+       illisibles sur fond clair. Constaté en lisant le rendu, pas le code. */
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .cas-hero { padding: 128px 0 40px; }
+    .cas-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 20ch; }
+    .cas-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .cas-chapo { font-size: 1.05rem; color: #475569; max-width: 62ch; }
+    .cas-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
+    .cas-chiffre b { display: block; font-size: 1.7rem; color: #4338CA; line-height: 1.1; }
+    .cas-chiffre span { font-size: .82rem; color: #64748b; }
+    .defaut { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid #e6e7f0; }
+    .defaut-etape { font: 700 .75rem/1.6 ui-monospace, Consolas, monospace; color: #4338CA; background: #eceafd; border-radius: 6px; height: fit-content; text-align: center; padding: 3px 0; }
+    .defaut-corps h3 { margin: 0 0 6px; font-size: 1.02rem; }
+    .defaut-conseq { margin: 0 0 8px; color: #475569; font-size: .93rem; }
+    .defaut-trait { margin: 0; color: #334155; font-size: .9rem; }
+    .defaut-trait strong { color: #047857; }
+    .cas-acquis li { margin-bottom: 9px; color: #475569; }
+    @media (max-width: 640px) { .defaut { grid-template-columns: 1fr; gap: 6px; } .defaut-etape { display: inline-block; padding: 3px 10px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="">Retour au site</a>
+      <a class="lang-switch" href="en/validation.html" hreflang="en">English</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="cas-hero">
+  <div class="container">
+    <span class="cas-surtitre">Étude de cas — l'éditeur sur son propre produit</span>
+    <h1>Nous avons exécuté notre protocole. Il a trouvé sept défauts.</h1>
+    <p class="cas-chapo">Filum est livré avec un protocole de qualification d'installation : treize étapes que l'informatique du client déroule et signe. La plupart des éditeurs le rédigent. Nous l'avons <strong>exécuté</strong>, sur une installation réelle, du chargement de l'image jusqu'à la restauration d'une sauvegarde. Voici ce qu'il a trouvé — et pourquoi c'est une bonne nouvelle.</p>
+    <div class="cas-chiffres">
+      <div class="cas-chiffre"><b>13/13</b><span>étapes exécutées</span></div>
+      <div class="cas-chiffre"><b>7</b><span>défauts trouvés, tous fermés</span></div>
+      <div class="cas-chiffre"><b>29</b><span>cas de qualification, 0 écart</span></div>
+      <div class="cas-chiffre"><b>32</b><span>exigences de validation</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Ce que la procédure a trouvé</h2>
+    <p class="lead">Chaque ligne indique l'étape qui a fait tomber le défaut, ce qu'il aurait coûté au client, et ce qui a été fait. Aucun n'aurait été trouvé sans dérouler la procédure : ni le contrôle du code, ni la construction de l'application, ni les cas de qualification ne s'exécutaient alors dans le conteneur livré.</p>
+    
+      <article class="defaut">
+        <div class="defaut-etape">IQ-04</div>
+        <div class="defaut-corps">
+          <h3>L'image livrée ne pouvait pas démarrer</h3>
+          <p class="defaut-conseq">L'installation s'arrêtait à la première étape technique, devant l'infogérant du client, un jour de mise en service. Aucun contrôle en amont ne pouvait le voir : ils s'exécutent tous en dehors du conteneur.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Dépendances complétées, et un contrôle qui fait désormais échouer la CONSTRUCTION plutôt que le démarrage : l'erreur ne peut plus voyager jusqu'au client.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-07</div>
+        <div class="defaut-corps">
+          <h3>Le conteneur annonçait une version qui n'était pas la sienne</h3>
+          <p class="defaut-conseq">Le journal de démarrage — que l'infogérant conserve comme preuve d'installation — disait 1.0.0 pendant que l'écran affichait 1.2.0. Deux numéros pour une seule installation, dans un dossier qui doit rattacher chaque enregistrement à la version qui l'a produit.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Une seule source, plus aucune valeur de repli. Et le protocole en fait maintenant un contrôle : relever la version au journal, la confronter à l'écran.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-09</div>
+        <div class="defaut-corps">
+          <h3>Le contrôle de sauvegarde ne contrôlait rien</h3>
+          <p class="defaut-conseq">La procédure vérifiait que l'archive du volume portant les documents approuvés n'était pas vide. Le test répondait « vérifié » sur une archive de 86 octets, entièrement vide. Une sauvegarde rassurante et creuse — le défaut ne se serait découvert qu'à la première restauration.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Contrôle d'existence des volumes AVANT la sauvegarde, puis comptage des enregistrements archivés. Le piège a été reproduit volontairement pour prouver que la nouvelle version l'attrape.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-13</div>
+        <div class="defaut-corps">
+          <h3>Une sauvegarde qui échoue laissait le logiciel arrêté</h3>
+          <p class="defaut-conseq">La sauvegarde arrête le service, copie, redémarre. Le script est mort au milieu : l'application est restée indisponible quatre minutes. Sur une tâche planifiée à deux heures du matin, elle l'aurait été jusqu'au matin.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Le redémarrage est désormais garanti quoi qu'il arrive, et le guide rappelle qu'une sauvegarde dont personne ne lit le code de retour n'est pas une sauvegarde.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-02</div>
+        <div class="defaut-corps">
+          <h3>L'étape de contrôle de la livraison était inexécutable</h3>
+          <p class="defaut-conseq">Le protocole demandait de confronter l'empreinte de l'archive reçue à celle communiquée par l'éditeur. Ni l'archive ni l'empreinte n'existaient, et l'étape sautait le seul contrôle qui attrape une livraison altérée en transit.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Archive de livraison produite avec deux empreintes vérifiables sans Docker, et l'étape exige maintenant les deux : celle de l'archive avant chargement, celle de l'image après.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">IQ-06</div>
+        <div class="defaut-corps">
+          <h3>Un critère décrivait un comportement que le produit n'a pas</h3>
+          <p class="defaut-conseq">Le critère annonçait une redirection ; le logiciel affiche l'écran de connexion à la place du contenu. La protection est bien là — rien ne filtre — mais l'infogérant appliquant le texte à la lettre aurait consigné un écart sur un logiciel correct.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Critère réécrit sur le comportement observé, dans les deux langues du protocole.</p>
+        </div>
+      </article>
+      <article class="defaut">
+        <div class="defaut-etape">—</div>
+        <div class="defaut-corps">
+          <h3>Le guide d'installation décrivait une livraison qui n'existait pas</h3>
+          <p class="defaut-conseq">Le guide faisait charger un fichier au nom inventé et ne demandait aucune vérification d'empreinte avant chargement. Le client aurait suivi une procédure impossible dès sa première ligne.</p>
+          <p class="defaut-trait"><strong>Traitement</strong> — Section réécrite sur la livraison réelle, vérification d'empreinte incluse, avec l'avertissement de ne jamais reconstruire l'image pour la contrôler.</p>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container">
+    <h2>Ce qu'il en reste</h2>
+    <p class="lead">Corriger sept défauts ne vaudrait pas grand-chose si le huitième devait attendre le prochain client. L'exercice a surtout laissé des contrôles.</p>
+    <ul class="cas-acquis">
+      <li>Un cas de qualification qui démarre l'image livrée, lit son journal et vérifie qu'aucune donnée n'est servie sans session — l'angle mort est couvert, pas seulement corrigé.</li>
+      <li>Un contrôle qui régénère les documents publiés et compare leur texte : aucun ne peut plus décrire un produit qu'il ne décrit plus sans que cela se voie.</li>
+      <li>Un contrôle qui dit si l'archive livrée décrit encore le dépôt — et qui refuse de republier un numéro de version déjà remis à un client.</li>
+      <li>Tout cela rejoué à chaque modification du code, sans intervention.</li>
+    </ul>
+    <p style="margin-top:22px">L'exécution est consignée dans un enregistrement daté et signé, dont l'empreinte est figée. Il est remis sur demande, avec le dossier de validation et le protocole lui-même.</p>
+    <div class="telechargements telechargements-un" style="margin-top:24px">
+      <a class="dl" href="docs/Dossier_de_validation_Filum.docx" download>
+        <span class="dl-ico" aria-hidden="true">↓</span>
+        <span class="dl-txt">
+          <strong>Le dossier de validation</strong>
+          <em>32 exigences, 29 cas exécutés</em>
+        </span>
+      </a>
+      <a class="dl" href="docs/Protocole_IQ_Filum.docx" download>
+        <span class="dl-ico" aria-hidden="true">↓</span>
+        <span class="dl-txt">
+          <strong>Le protocole IQ</strong>
+          <em>13 étapes pour votre informatique</em>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:64ch">
+    <h2>Pourquoi nous le racontons</h2>
+    <p>Un fournisseur qui affirme n'avoir aucun défaut affirme surtout n'avoir rien cherché. Ce que vous pouvez demander à un éditeur, ce n'est pas l'absence de défauts : c'est qu'il ait déroulé sa propre procédure, qu'il dise ce qu'il a trouvé, et qu'il vous montre ce qui empêche le prochain de passer.</p>
+    <p>C'est aussi la raison d'être du produit. Filum ne promet pas que vos dossiers seront parfaits : il fait en sorte qu'un écart se voie pendant que vous pouvez encore le traiter, plutôt que devant un auditeur.</p>
+    <p style="margin-top:26px">
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démonstration</a>
+      <a class="btn btn-light" href="" style="margin-left:10px">Découvrir Filum</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. Les défauts décrits sont ceux consignés dans l'enregistrement d'exécution signé.</p>
+  </div>
+</footer>
+
+</body>
+</html>
