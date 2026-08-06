@@ -67,15 +67,26 @@ jobs:
         with:
           path: .
 
+      # CE QU'ON A APPRIS LE 6 AOÛT 2026, ET QUI VAUT D'ÊTRE ÉCRIT ICI.
+      #
+      # L'empaquetage réussit toujours : 26,3 Mo envoyés en quelques secondes, l'artefact
+      # est accepté. C'est la PUBLICATION côté GitHub qui reste « in_progress » et ne rend
+      # jamais la main. L'action attend, puis abandonne et ANNULE le déploiement.
+      #
+      # Passer « timeout: 1800000 » ne sert à rien : l'action reçoit bien la valeur — le
+      # journal la montre — mais la plafonne en interne à dix minutes. Un réglage sans
+      # effet dans un dépôt vaut moins que pas de réglage : il fait croire au lecteur
+      # suivant que la question est traitée. Il est donc retiré.
+      #
+      # Le même site se publiait en moins d'une minute le matin même, trois fois de suite.
+      # Ce n'est ni sa taille ni son contenu : c'est le service qui s'est dégradé pour ce
+      # dépôt en début d'après-midi. Ce qu'apporte ce workflow, ce n'est pas de corriger
+      # ça — on ne corrige pas le service de quelqu'un d'autre — c'est de POUVOIR LE DIRE,
+      # là où le constructeur historique répondait « Page build failed », durée 0.
+      #
+      # Si l'échec persiste : relancer par « workflow_dispatch » plus tard. Ne PAS forcer
+      # plusieurs reconstructions d'affilée — chacune annule celle qui est encore en cours,
+      # et c'est ce cercle qui a tenu le site figé toute une après-midi.
       - name: Déployer
         id: deploiement
         uses: actions/deploy-pages@v4
-        with:
-          # Trente minutes, au lieu des dix par défaut. Le journal du premier passage a
-          # montré un déploiement qui avançait normalement — « waiting », « queued »,
-          # « in_progress » — puis se faisait abandonner par l'action au bout de dix
-          # minutes, ce qui le marquait « failure ». Le service n'était pas cassé, il était
-          # lent : vingt-sept mégaoctets dont deux manuels de six. Abandonner trop tôt
-          # transformait une lenteur en panne, et chaque relance annulait la tentative
-          # encore en cours — c'est ce cercle qui a tenu le site figé une après-midi.
-          timeout: 1800000
