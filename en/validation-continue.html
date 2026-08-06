@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continuous validation — what stops the next release from shipping with a deviation</title>
+  <meta name="description" content="Software validated once is validated for one version. Three automatic checks replay the qualification, re-read the 18 published documents and compare the delivered archive with the code, on every change." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/validation-continue.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/validation-continue.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/validation-continue.html" />
+  <style>
+    /* Même raison que l'étude de cas : la barre de navigation est dessinée pour un héros
+       SOMBRE et ne s'opacifie qu'au défilement, par un script que cette page ne charge
+       pas. Sans cette règle, ses liens sont illisibles sur fond clair. */
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .vc-hero { padding: 128px 0 40px; }
+    .vc-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 22ch; }
+    .vc-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .vc-chapo { font-size: 1.05rem; color: #475569; max-width: 64ch; }
+    .vc-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
+    .vc-chiffre b { display: block; font-size: 1.7rem; color: #4338CA; line-height: 1.1; }
+    .vc-chiffre span { font-size: .82rem; color: #64748b; }
+    .garde { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid #e6e7f0; }
+    .garde-rang { font: 700 1.15rem/1 ui-monospace, Consolas, monospace; color: #4338CA; background: #eceafd; border-radius: 999px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+    .garde-corps h3 { margin: 0 0 10px; font-size: 1.12rem; }
+    .garde-q { margin: 0 0 12px; color: #334155; font-size: .96rem; font-style: italic; border-left: 3px solid #c7c5f5; padding-left: 12px; }
+    .garde-quoi { margin: 0 0 10px; color: #475569; font-size: .94rem; }
+    .garde-attrape { margin: 0 0 10px; color: #475569; font-size: .92rem; }
+    .garde-attrape strong { color: #b45309; }
+    .garde-effet { margin: 0; color: #334155; font-size: .92rem; }
+    .vc-limites li { margin-bottom: 11px; color: #475569; }
+    @media (max-width: 640px) { .garde { grid-template-columns: 1fr; gap: 10px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="../">Back to the site</a>
+      <a href="validation.html">Case study</a>
+      <a class="lang-switch" href="../validation-continue.html" hreflang="fr">Français</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="vc-hero">
+  <div class="container">
+    <span class="vc-surtitre">Continuous validation</span>
+    <h1>Software validated once is validated for one version.</h1>
+    <p class="vc-chapo">The question we get after someone has read the validation file is never “did you validate?”. It is: <strong>what stops the next release from shipping with a deviation?</strong> Three checks run on every change to the code. None of them depends on somebody remembering to launch them.</p>
+    <div class="vc-chiffres">
+      <div class="vc-chiffre"><b>30</b><span>cases replayed on every change</span></div>
+      <div class="vc-chiffre"><b>33</b><span>requirements, each traced to its clause</span></div>
+      <div class="vc-chiffre"><b>18</b><span>documents regenerated and compared</span></div>
+      <div class="vc-chiffre"><b>3</b><span>guards, each proven by mutation</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The three guards</h2>
+    <p class="lead">Each answers a question an evaluator is entitled to ask, does one precise thing, and has already caught something. That last point is not decoration: a check that has never detected anything has not yet proven that it detects.</p>
+    
+      <article class="garde">
+        <div class="garde-rang">1</div>
+        <div class="garde-corps">
+          <h3>The software qualifies itself</h3>
+          <p class="garde-q">“How do you know the version you deliver still does what your file says?”</p>
+          <p class="garde-quoi">A suite of operational qualification cases is replayed on every change to the code. Each case is tied to a validation requirement and to its regulatory clause. The last of them does not merely inspect the code: it STARTS the delivered image, on empty volumes, and reads its startup log.</p>
+          <p class="garde-attrape"><strong>What it caught</strong> — A deliverable image that did not start at all. Neither code checking, nor compilation, nor the other cases could see it: they all run outside the container. The customer would have found it at the first technical step of their installation.</p>
+          <p class="garde-effet">The validation file is not written: it is PRODUCED from that run. The generator refuses to emit it if the suite has not run. One deviating case, and the file carries the deviation.</p>
+        </div>
+      </article>
+      <article class="garde">
+        <div class="garde-rang">2</div>
+        <div class="garde-corps">
+          <h3>The documents re-read themselves</h3>
+          <p class="garde-q">“How do you know the document you handed me still describes your software?”</p>
+          <p class="garde-quoi">Every published document is regenerated from its sources, then its TEXT is compared with the published version. Values specific to a run — dates, durations, digests — are neutralised before comparison: a check that cries every day ends up ignored, which is worse than no check.</p>
+          <p class="garde-attrape"><strong>What it caught</strong> — The English 21 CFR Part 11 matrix, downloadable from this site, announced “31 requirements, 28 cases” when the French version counted 32 and 29. At the time the check only regenerated the French documents: it declared the corpus up to date having verified only half of it.</p>
+          <p class="garde-effet">A stale document fails the check, and the failure names the sentence that changed. Since then, a second check rejects any published document that no generator rewrites — the blind spot can no longer re-form silently.</p>
+        </div>
+      </article>
+      <article class="garde">
+        <div class="garde-rang">3</div>
+        <div class="garde-corps">
+          <h3>The delivery says whether it is stale</h3>
+          <p class="garde-q">“How do you know the archive you sent me matches this code?”</p>
+          <p class="garde-quoi">A check compares the published archive against the current code, reading the image's real build rules rather than restating them. It accounts for changes not yet committed: drift always begins with a modified file on a workstation.</p>
+          <p class="garde-attrape"><strong>What it caught</strong> — This check has not yet caught a defect at a customer's: it reports drift daily, on our side, as soon as the code moves past a delivery. That is its job, and it is why a version number already handed over is never republished — a new version is opened instead.</p>
+          <p class="garde-effet">A record handed over is not rewritten. If the content must change, it changes version, and the previous one stays exactly as it was received.</p>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container">
+    <h2>They do not run on my machine</h2>
+    <p class="lead">The three checks are replayed on every code push on a fresh machine that knows nothing of my workstation: dependencies reinstalled, image rebuilt from scratch, 16 generator invocations, then the 30 qualification cases — delivered image included. A change that broke one of them cannot go unnoticed, including by me.</p>
+    <p>It is also what makes the validation file usable: it is not written once and copied from release to release. It is produced from the most recent real run, with its figures, durations and digests. A hand-written figure always ends up lying — it happened, it is told above, and it is why every figure on this page is read from the sources.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:66ch">
+    <h2>What these checks do not do</h2>
+    <ul class="vc-limites">
+      <li>These checks run at the vendor's, on the vendor's code and documents. They in no way replace the qualification YOU carry out in your environment: installation and performance are assessed at your site, and the installation protocol is handed to you for that.</li>
+      <li>They verify that the software does what the file describes, not that the file describes what you need. Fitness for your intended use remains your assessment, and nobody can carry it for you.</li>
+      <li>No penetration test by an independent third party has been conducted to date. The limitation is declared in the validation file, and it will stay there until a third party lifts it.</li>
+    </ul>
+    <p style="margin-top:26px">
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demonstration</a>
+      <a class="btn btn-light" href="validation.html" style="margin-left:10px">Read the case study</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. The figures on this page are read from the software's sources at every generation.</p>
+  </div>
+</footer>
+
+</body>
+</html>
