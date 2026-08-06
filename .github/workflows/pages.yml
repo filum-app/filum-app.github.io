@@ -70,3 +70,12 @@ jobs:
       - name: Déployer
         id: deploiement
         uses: actions/deploy-pages@v4
+        with:
+          # Trente minutes, au lieu des dix par défaut. Le journal du premier passage a
+          # montré un déploiement qui avançait normalement — « waiting », « queued »,
+          # « in_progress » — puis se faisait abandonner par l'action au bout de dix
+          # minutes, ce qui le marquait « failure ». Le service n'était pas cassé, il était
+          # lent : vingt-sept mégaoctets dont deux manuels de six. Abandonner trop tôt
+          # transformait une lenteur en panne, et chaque relance annulait la tentative
+          # encore en cours — c'est ce cercle qui a tenu le site figé une après-midi.
+          timeout: 1800000
