@@ -1,0 +1,72 @@
+# Déploiement du site vitrine par GitHub Actions.
+#
+# POURQUOI REMPLACER LE CONSTRUCTEUR HISTORIQUE. Le déploiement Pages « legacy » se
+# déclenche tout seul à la poussée et ne rend qu'un verdict : « built » ou « errored ».
+# Le 6 août 2026, trois builds consécutifs ont échoué avec « Page build failed », durée 0,
+# sans une ligne de journal — alors qu'aucun fichier n'avait été ajouté ni supprimé depuis
+# le dernier build réussi, que .nojekyll était en place, et que GitHub annonçait Pages
+# opérationnel. Le site est resté figé sur une version périmée, et il n'y avait rien à
+# lire pour comprendre pourquoi.
+#
+# Un déploiement qu'on ne peut pas diagnostiquer n'est pas un déploiement, c'est un pari.
+# Ce workflow fait le même travail — publier le contenu du dépôt tel quel — mais chaque
+# étape écrit son journal, et un échec désigne sa cause.
+#
+# CE QU'IL NE FAIT PAS. Aucune construction, aucune transformation : le site est déjà
+# généré dans C:\Dev\filum par « npx tsx scripts/build-site.ts », vérifié par la QA et
+# l'audit de fraîcheur, puis recopié ici. Ajouter une étape de génération ici dupliquerait
+# cette chaîne et ferait diverger les deux.
+
+name: deploiement
+
+on:
+  push:
+    branches: [main]
+  # Relance à la demande, sans avoir à fabriquer un commit pour reconstruire.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  # Exigé par actions/deploy-pages : le déploiement s'authentifie auprès de Pages par un
+  # jeton OIDC de courte durée, jamais par un secret stocké dans le dépôt.
+  id-token: write
+
+# Un seul déploiement à la fois. « cancel-in-progress: false » : une publication déjà
+# lancée va à son terme plutôt que d'être coupée en deux par la poussée suivante — un site
+# à moitié déployé est pire qu'un site en retard d'une minute.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v5
+
+      - name: Compter ce qui part
+        # Le journal doit dire ce qui a été publié, pas seulement que ça l'a été. Un site
+        # amputé de ses documents se déploierait sans erreur : ce relevé le montrerait.
+        run: |
+          echo "pages HTML : $(find . -name '*.html' -not -path './.git/*' | wc -l)"
+          echo "documents  : $(find ./docs -name '*.docx' 2>/dev/null | wc -l)"
+          echo "captures   : $(find . -name '*.png' -not -path './.git/*' | wc -l)"
+          echo "poids total: $(du -sh --exclude=.git . | cut -f1)"
+          test -f .nojekyll || { echo "::error::.nojekyll absent — Pages tenterait de traiter le site avec Jekyll"; exit 1; }
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empaqueter le site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Déployer
+        id: deploiement
+        uses: actions/deploy-pages@v4
