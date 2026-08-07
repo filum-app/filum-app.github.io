@@ -16,6 +16,25 @@
   --radius: 16px;
   --shadow: 0 10px 40px -12px rgba(15, 23, 42, .25);
   --shadow-lg: 0 30px 80px -20px rgba(15, 23, 42, .45);
+
+  /* SURFACES ET TEINTES — posees pour le mode sombre.
+     Une carte n'est pas le fond de la page : sur fond clair les deux sont blancs, ce qui
+     laissait ecrire #fff partout sans que la distinction se voie. Sur fond sombre elle
+     devient structurante — c'est elle qui fait qu'une carte se detache. */
+  --indigo-text: #4F46E5; /* indigo LISIBLE sur lavis — --indigo-deep reste pour le bouton blanc */
+  --danger: #B91C1C;
+  --strong: #0B1220; /* encre d'emphase — NE PAS confondre avec --dark, fond de bande */
+  --surface: #FFFFFF;
+  --wash-indigo-a: #EEF2FF;
+  --wash-indigo-b: #F5F3FF;
+  --wash-emerald-a: #ECFDF5;
+  --wash-emerald-b: #F0FDF4;
+  --wash-rose-a: #FEF2F2;
+  --wash-rose-b: #FFF7ED;
+  --badge-amber-bg: #FEF3C7;  --badge-amber-fg: #B45309;  --badge-amber-line: #FDE68A;
+  --badge-indigo-bg: #E0E7FF; --badge-indigo-fg: #4F46E5; --badge-indigo-line: #C7D2FE;
+  --cta-a: #4F46E5; --cta-b: #8B5CF6; --cta-c: #6D28D9;
+  --badge-emerald-bg: #D1FAE5; --badge-emerald-fg: #047857; --badge-emerald-line: #A7F3D0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -179,9 +198,9 @@ a { color: inherit; text-decoration: none; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 40px; }
 .col-card { border-radius: var(--radius); padding: 30px 32px; }
 .col-before { background: var(--tint); }
-.col-after { background: linear-gradient(160deg, #EEF2FF, #F5F3FF); box-shadow: var(--shadow); }
+.col-after { background: linear-gradient(160deg, var(--wash-indigo-a), var(--wash-indigo-b)); box-shadow: var(--shadow); }
 .col-card h3 { font-size: 18px; margin-bottom: 14px; }
-.col-after h3 { color: var(--indigo-deep); }
+.col-after h3 { color: var(--indigo-text); }
 .col-card ul { list-style: none; }
 .col-card li { padding: 8px 0 8px 28px; position: relative; color: var(--sub); font-size: 15px; }
 .col-before li::before { content: "–"; position: absolute; left: 6px; color: var(--faint); font-weight: 700; }
@@ -233,8 +252,8 @@ a { color: inherit; text-decoration: none; }
 .ttab strong { display: block; font-size: 14.5px; color: var(--ink); }
 .ttab span { display: block; font-size: 12.5px; color: var(--faint); margin-top: 1px; }
 .ttab:hover { background: var(--tint); }
-.ttab.active { background: linear-gradient(160deg, #EEF2FF, #F5F3FF); border-color: #C7D2FE; box-shadow: 0 6px 18px -8px rgba(99,102,241,.35); }
-.ttab.active strong { color: var(--indigo-deep); }
+.ttab.active { background: linear-gradient(160deg, var(--wash-indigo-a), var(--wash-indigo-b)); border-color: #C7D2FE; box-shadow: 0 6px 18px -8px rgba(99,102,241,.35); }
+.ttab.active strong { color: var(--indigo-text); }
 .tour-stage { position: sticky; top: 90px; }
 .tour-stage .browser-frame { cursor: zoom-in; transition: transform .2s ease; }
 .tour-stage .browser-frame:hover { transform: translateY(-3px); }
@@ -262,9 +281,9 @@ a { color: inherit; text-decoration: none; }
   display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
 }
-.badge-amber { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
-.badge-indigo { background: #E0E7FF; color: var(--indigo-deep); border: 1px solid #C7D2FE; }
-.badge-emerald { background: #D1FAE5; color: #047857; border: 1px solid #A7F3D0; }
+.badge-amber { background: var(--badge-amber-bg); color: var(--badge-amber-fg); border: 1px solid var(--badge-amber-line); }
+.badge-indigo { background: var(--badge-indigo-bg); color: var(--badge-indigo-fg); border: 1px solid var(--badge-indigo-line); }
+.badge-emerald { background: var(--badge-emerald-bg); color: var(--badge-emerald-fg); border: 1px solid var(--badge-emerald-line); }
 .module-text h3 { font-size: 23px; letter-spacing: -.02em; margin-bottom: 12px; line-height: 1.25; }
 .module-text > p { color: var(--sub); font-size: 15px; }
 .module-points { list-style: none; margin-top: 16px; }
@@ -272,7 +291,7 @@ a { color: inherit; text-decoration: none; }
 .module-points li::before { content: "✓"; position: absolute; left: 2px; color: var(--indigo); font-weight: 700; }
 .module-case {
   margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--indigo);
-  background: #EEF2FF; border-radius: 0 10px 10px 0;
+  background: var(--wash-indigo-a); border-radius: 0 10px 10px 0;
   color: var(--ink); font-size: 13.5px;
 }
 @media (max-width: 960px) {
@@ -283,7 +302,7 @@ a { color: inherit; text-decoration: none; }
 /* ─── Cartes IA ─── */
 .cards-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 40px; }
 .gcard {
-  background: #fff; border-radius: var(--radius); padding: 28px 30px;
+  background: var(--surface); border-radius: var(--radius); padding: 28px 30px;
   box-shadow: var(--shadow); position: relative;
   transition: transform .2s ease;
 }
@@ -352,14 +371,14 @@ a { color: inherit; text-decoration: none; }
 /* ─── Périmètre : le fait / ne fait pas, en regard ─── */
 .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 40px; }
 .scope-col { border-radius: var(--radius); padding: 26px 28px; box-shadow: var(--shadow); }
-.scope-yes { background: linear-gradient(160deg, #ECFDF5, #F0FDF4); }
-.scope-no { background: linear-gradient(160deg, #FEF2F2, #FFF7ED); }
+.scope-yes { background: linear-gradient(160deg, var(--wash-emerald-a), var(--wash-emerald-b)); }
+.scope-no { background: linear-gradient(160deg, var(--wash-rose-a), var(--wash-rose-b)); }
 .scope-col h3 {
   font-size: 13px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
   margin-bottom: 18px;
 }
 .scope-yes h3 { color: #047857; }
-.scope-no h3 { color: #B91C1C; }
+.scope-no h3 { color: var(--danger); }
 .scope-col ul { list-style: none; }
 .scope-item { padding: 9px 0; border-top: 1px solid rgba(15, 23, 42, .07); }
 .scope-item:first-child { border-top: 0; padding-top: 0; }
@@ -368,10 +387,10 @@ a { color: inherit; text-decoration: none; }
 .scope-out {
   margin-top: 28px; padding: 18px 22px;
   border-radius: var(--radius); border-left: 3px solid var(--amber);
-  background: #fff; box-shadow: var(--shadow);
+  background: var(--surface); box-shadow: var(--shadow);
   font-size: 14.5px; color: var(--sub);
 }
-.scope-out strong { color: #B91C1C; margin-right: 8px; }
+.scope-out strong { color: var(--danger); margin-right: 8px; }
 @media (max-width: 860px) { .scope { grid-template-columns: 1fr; } }
 
 /* ─── Téléchargements directs ─── */
@@ -381,7 +400,7 @@ a { color: inherit; text-decoration: none; }
 .dl {
   display: flex; align-items: center; gap: 14px;
   padding: 16px 18px; border-radius: var(--radius);
-  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow);
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
   transition: transform .18s ease, border-color .18s ease;
 }
 .dl:hover { transform: translateY(-3px); border-color: var(--indigo); }
@@ -411,7 +430,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Tableau positionnement ─── */
 .table-wrap { margin-top: 40px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 680px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 680px; }
 th, td { padding: 15px 18px; font-size: 14px; text-align: center; border-bottom: 1px solid var(--line); }
 th:first-child, td:first-child { text-align: left; }
 thead th { background: var(--dark2); color: #fff; font-weight: 600; font-size: 13px; }
@@ -419,13 +438,13 @@ td { color: var(--faint); }
 td:first-child { color: var(--ink); font-weight: 500; }
 td em { color: var(--faint); font-size: 12.5px; }
 td.ok { color: var(--emerald); font-weight: 700; }
-.filum-row td { background: #EEF2FF; }
-.filum-row td:first-child { color: var(--indigo-deep); font-weight: 800; }
+.filum-row td { background: var(--wash-indigo-a); }
+.filum-row td:first-child { color: var(--indigo-text); font-weight: 800; }
 
 /* ─── FAQ ─── */
 .faq { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
 .faq details {
-  background: #fff; border-radius: 14px; box-shadow: var(--shadow);
+  background: var(--surface); border-radius: 14px; box-shadow: var(--shadow);
   padding: 0 26px; overflow: hidden;
 }
 .faq summary {
@@ -442,7 +461,7 @@ td.ok { color: var(--emerald); font-weight: 700; }
 
 /* ─── CTA final ─── */
 .cta-final {
-  background: linear-gradient(120deg, var(--indigo-deep), var(--violet) 60%, #6D28D9);
+  background: linear-gradient(120deg, var(--cta-a), var(--cta-b) 60%, var(--cta-c));
   color: #fff; text-align: center; padding: 96px 0;
 }
 .cta-final h2 { font-size: clamp(28px, 4.5vw, 46px); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
@@ -454,7 +473,7 @@ footer { background: var(--dark); color: #94A3B8; padding: 60px 0; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-size: 14.5px; }
 .footer-contact a { color: #A5B4FC; font-weight: 600; }
 .footer-contact a:hover { text-decoration: underline; }
-.footer-legal { font-size: 12.5px; color: #64748B; }
+.footer-legal { font-size: 12.5px; color: var(--faint); }
 
 /* ─── Lightbox ─── */
 .lightbox {
@@ -546,7 +565,7 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 .cas-chapo { max-width: 62ch; }
 .vc-chapo { max-width: 64ch; }
 .ia-chapo, .demo-chapo { max-width: 66ch; }
-.ia-chapo strong, .demo-chapo strong { color: var(--dark); }
+.ia-chapo strong, .demo-chapo strong { color: var(--strong); }
 
 /* ── Les compteurs de tête (étude de cas et validation continue) ── */
 .cas-chiffres, .vc-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
@@ -579,7 +598,7 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 .ia-ligne { display: grid; grid-template-columns: 132px 1fr; gap: 14px; padding: 8px 0; }
 .ia-ligne dt { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--sub-2); padding-top: 2px; }
 .ia-ligne dd { margin: 0; font-size: .93rem; color: var(--sub); }
-.ia-verrou dd strong, .ia-ligne dd strong { color: var(--dark); }
+.ia-verrou dd strong, .ia-ligne dd strong { color: var(--strong); }
 .ia-appel .ia-verrou dt { color: var(--emerald-2); }
 .ia-appel .ia-verrou dd { color: var(--ink-2); }
 .verrou { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid var(--line-2); }
@@ -589,12 +608,12 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 .verrou .v-pourquoi { margin: 0 0 8px; color: var(--sub-2); font-size: .9rem; }
 .verrou .v-ou { margin: 0; color: var(--indigo-2); font-size: .86rem; }
 .qr { border-top: 1px solid var(--line-2); padding: 18px 0; }
-.qr h3 { margin: 0 0 6px; font-size: .98rem; color: var(--dark); }
+.qr h3 { margin: 0 0 6px; font-size: .98rem; color: var(--strong); }
 .qr p { margin: 0; color: var(--sub); font-size: .93rem; }
 
 /* ── Limites et avertissements : même composant, deux noms hérités ── */
 .limite, .avert { border-left: 3px solid var(--amber-2); padding: 4px 0 4px 16px; margin-bottom: 22px; }
-.limite h3, .avert h3 { margin: 0 0 6px; font-size: 1rem; color: var(--dark); }
+.limite h3, .avert h3 { margin: 0 0 6px; font-size: 1rem; color: var(--strong); }
 .limite p, .avert p { margin: 0; color: var(--sub); font-size: .93rem; }
 
 /* ── Démonstration : identifiants publiés ── */
@@ -606,8 +625,8 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 table.demo-comptes { width: 100%; border-collapse: collapse; font-size: .92rem; }
 table.demo-comptes th { text-align: left; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--sub-2); font-weight: 700; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line-2); }
 table.demo-comptes td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--tint-2); color: var(--sub); }
-table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; color: var(--dark); font-weight: 600; }
-.demo-mdp { font-family: ui-monospace, Consolas, monospace; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 7px; padding: 3px 8px; color: var(--dark); }
+table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; color: var(--strong); font-weight: 600; }
+.demo-mdp { font-family: ui-monospace, Consolas, monospace; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 7px; padding: 3px 8px; color: var(--strong); }
 
 @media (max-width: 640px) {
   .defaut { grid-template-columns: 1fr; gap: 6px; }
@@ -615,4 +634,142 @@ table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; co
   .garde { grid-template-columns: 1fr; gap: 10px; }
   .ia-ligne, .verrou { grid-template-columns: 1fr; gap: 6px; }
   table.demo-comptes th:last-child, table.demo-comptes td:last-child { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   MODE SOMBRE
+   ══════════════════════════════════════════════════════════════════════════════
+
+   LA DÉCISION QUI COMMANDE TOUT LE RESTE. Ce site ne se contente pas d'être clair : il
+   ALTERNE. Le héros est sombre, les sections de preuve sont sombres, et c'est ce rythme
+   qui découpe la page. Inverser bêtement l'écraserait — tout deviendrait sombre, et les
+   bandes qui structurent la lecture disparaîtraient dans un aplat.
+
+   Le rythme est donc conservé en RETOURNANT SON SENS. En clair, une section sombre
+   s'enfonce sous une page blanche. En sombre, on ne peut pas s'enfoncer sous un fond déjà
+   presque noir : les sections sombres se SOULÈVENT au-dessus de la page, et les cartes se
+   soulèvent au-dessus des sections. Trois plans, comme avant, empilés dans l'autre sens.
+
+        clair :  page #FFFFFF  >  section #0F172A  >  carte #FFFFFF
+        sombre : page #0E1017  <  section #171A25  <  carte #1B1F2C
+
+   CE QUI NE BASCULE PAS, ET POURQUOI. Le bouton clair du héros reste blanc : il est posé
+   sur un fond sombre dans les deux modes, et le retourner l'y ferait disparaître. Les
+   pastilles décoratives ambre gardent leur couleur — ce sont des points de repère, pas des
+   surfaces. Et le dégradé de l'appel final garde ses trois teintes riches : il porte du
+   texte blanc, et l'éclaircir rendrait ce texte illisible.
+
+   TROIS RÔLES POUR UN JETON. --indigo-deep servait à la fois de texte sur bouton blanc, de
+   texte sur pastille claire et de teinte de dégradé. Impossible de le basculer sans en
+   casser un : la pastille a reçu son propre --badge-indigo-fg, le dégradé ses --cta-*.
+   L'écrasement était invisible tant qu'il n'existait qu'un seul mode.
+
+   PAS DE BASCULE MANUELLE. Le site suit la préférence du système et rien d'autre. Un
+   sélecteur de thème demande un état à conserver, donc un stockage, donc une bannière de
+   consentement dans plusieurs juridictions — beaucoup de surface pour un réglage que le
+   système expose déjà.
+   ────────────────────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Les trois plans */
+    --bg: #0E1017;
+    --dark: #171A25;   /* le héros et les bandes de preuve, SOULEVÉS au lieu d'enfoncés */
+    --dark2: #171A25;
+    --surface: #1B1F2C; /* les cartes, au-dessus des bandes */
+    --tint: #151821;
+    --line: #272B38;
+
+    /* Le texte. --faint reste lisible : c'est lui qui porte les mentions de bas de carte,
+       et le descendre sous #7F899F les ferait disparaître à la première lumière du jour. */
+    --ink: #E7E9F2;
+    --sub: #A9B1C4;
+    --faint: #8A93A8;
+
+    /* Les accents s'éclaircissent : posés sur un fond sombre, leurs valeurs claires
+       n'atteignent plus le contraste d'un texte de corps. */
+    --indigo: #8D90F8;
+    --violet: #A78BFA;
+    --emerald: #34D399;
+    --amber: #FBBF24;
+
+    /* Les teintes de fond deviennent des VOILES : sur clair elles étaient des lavis
+       presque blancs, sur sombre elles doivent rester des lavis presque noirs, sinon
+       elles crèvent la page. */
+    --wash-indigo-a: #1C1E36;
+    --wash-indigo-b: #211E38;
+    --wash-emerald-a: #10261F;
+    --wash-emerald-b: #122A22;
+    --wash-rose-a: #2A1A1C;
+    --wash-rose-b: #2B2018;
+
+    --badge-amber-bg: #33260F;  --badge-amber-fg: #FBBF24;  --badge-amber-line: #4A380F;
+    --badge-indigo-bg: #23244A; --badge-indigo-fg: #A5A8FB; --badge-indigo-line: #33356B;
+    --badge-emerald-bg: #10312A; --badge-emerald-fg: #34D399; --badge-emerald-line: #17493C;
+
+    /* L'ombre portée ne se voit presque pas sur un fond sombre : la profondeur vient du
+       soulèvement des surfaces et du filet. On la garde plus dense et plus courte, pour
+       le décollement, sans compter dessus. */
+    /* LES RÔLES SÉPARÉS. Trois jetons servaient chacun à deux choses, ce qui ne se
+       voyait pas tant qu'un seul mode existait : --dark était le fond des bandes ET
+       l'encre des passages en gras ; --indigo-deep était le texte du bouton blanc ET
+       le texte sur lavis clair. Basculer l'un cassait l'autre — le détecteur de texte
+       invisible l'a montré avant la mise en ligne, sur 39 éléments d'une seule page. */
+    --strong: #F2F4FA;      /* l'emphase s'éclaircit ; --dark, lui, reste un fond */
+    --indigo-text: #A5A8FB; /* lisible sur lavis sombre ; --indigo-deep reste riche */
+    --danger: #FCA5A5;      /* le rouge des mises en garde, remonté pour fond sombre */
+
+    /* LE TEXTE POSÉ SUR UN APLAT D'ACCENT ne suit PAS l'accent. Les accents ont été
+       éclaircis pour rester lisibles EN TANT QUE TEXTE sur fond sombre ; le blanc qui
+       se posait dessus est alors passé à 1,7 de contraste. Sur un aplat clair, on
+       écrit sombre — c'est l'inverse du réflexe, et c'est ce que le calcul impose. */
+    --on-accent: #0E1017;
+    --slate-ico: #9AA4B8;
+
+    --shadow: 0 10px 30px -14px rgba(0, 0, 0, .75);
+    --shadow-lg: 0 26px 60px -24px rgba(0, 0, 0, .85);
+
+    /* Palette des pages secondaires — mêmes rôles, mêmes noms. */
+    --line-2: #272B38;
+    --tint-2: #151821;
+    --surface-2: #20242F;
+    --sub-2: #98A1B5;
+    --indigo-2: #A5A8FB;
+    --indigo-pale: #24244C;
+    --amber-2: #FBBF24;
+    --emerald-2: #34D399;
+    --emerald-pale: #10312A;
+    --ink-2: #C3CAD8;
+    --violet-pale: #45428F;
+  }
+
+  /* Le héros : son dégradé partait d'un indigo profond vers --dark. Les deux ayant
+     remonté, il garde sa courbe et son rôle de bande d'ouverture. */
+  .hero { background: radial-gradient(1200px 600px at 70% -10%, #232063 0%, var(--dark) 55%); }
+
+  /* Le filet des bandes sombres. En clair, une section sombre se détache par sa couleur
+     seule. En sombre, l'écart avec la page est plus mince : un filet le rend franc. */
+  .stats, .section-dark { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  /* Une carte blanche sur page blanche se lisait par son ombre. Soulevée sur fond sombre,
+     elle se lit par son filet — l'ombre seule ne suffirait plus. */
+  .gcard, .dl, .faq details, table { border: 1px solid var(--line); }
+
+  /* Les captures d'écran sont des images CLAIRES, et elles le resteront : ce sont des
+     enregistrements du produit, pas des éléments de décor. On les pose sur un cadre qui
+     assume le contraste au lieu de le subir, et on ne les assombrit surtout pas — une
+     capture retouchée dans un dossier commercial est une capture qui ne prouve rien. */
+  .shot, .shot img, .lightbox img { border-color: var(--line); }
+
+  /* Les aplats d'accent portent une encre sombre en mode sombre — voir --on-accent. */
+  /* Seules les pastilles réellement REMPLIES d'un accent reçoivent l'encre sombre.
+     .proof-num strong en est exclu : c'est du texte PEINT PAR UN DÉGRADÉ
+     (background-clip: text; color: transparent). Lui imposer une couleur écrase le
+     transparent, tue le dégradé et rend le chiffre invisible sur la page — et le
+     détecteur de texte invisible ne l'aurait pas vu, puisqu'il ignore les fonds en
+     dégradé. Trouvé en relisant la feuille, pas en mesurant. */
+  .dl-ico, .gnum { color: var(--on-accent); }
+  /* La pastille de courriel n'est pas remplie d'un accent mais d'un gris moyen, qui ne
+     donne le contraste ni au blanc ni au noir. On la remonte pour qu'elle le donne. */
+  .dl-mail .dl-ico { background: var(--slate-ico); }
+
 }
