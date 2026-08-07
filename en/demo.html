@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Try Filum — public demonstration</title>
+  <meta name="description" content="A public instance of Filum, filled with an entirely fictional design file taken through the real lifecycle. Published credentials, data erased periodically." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/demo.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/demo.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/demo.html" />
+  <style>
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .demo-hero { padding: 128px 0 32px; }
+    .demo-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 22ch; }
+    .demo-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .demo-chapo { font-size: 1.05rem; color: #475569; max-width: 66ch; }
+    .demo-chapo strong { color: #0b1220; }
+    .demo-cta { margin: 26px 0 6px; }
+    .demo-note { font-size: .86rem; color: #64748b; margin: 0; }
+    .demo-cles { border: 1px solid #e6e7f0; border-radius: 14px; background: #fff; padding: 6px 24px 18px; margin: 26px 0 8px; }
+    .demo-cles h2 { font-size: 1.05rem; margin: 18px 0 4px; }
+    .demo-cles p.sous { margin: 0 0 14px; color: #64748b; font-size: .9rem; }
+    table.demo-comptes { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    table.demo-comptes th { text-align: left; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: #64748b; font-weight: 700; padding: 6px 10px 6px 0; border-bottom: 1px solid #e6e7f0; }
+    table.demo-comptes td { padding: 9px 10px 9px 0; border-bottom: 1px solid #f1f2f7; color: #475569; }
+    table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; color: #0b1220; font-weight: 600; }
+    .demo-mdp { font-family: ui-monospace, Consolas, monospace; background: #f4f5fb; border: 1px solid #e6e7f0; border-radius: 7px; padding: 3px 8px; color: #0b1220; }
+    .avert { border-left: 3px solid #b45309; padding: 4px 0 4px 16px; margin-bottom: 22px; }
+    .avert h3 { margin: 0 0 6px; font-size: 1rem; color: #0b1220; }
+    .avert p { margin: 0; color: #475569; font-size: .93rem; }
+    @media (max-width: 640px) { table.demo-comptes th:last-child, table.demo-comptes td:last-child { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Back to the site</a>
+      <a href="validation-continue.html">Continuous validation</a>
+      <a class="lang-switch" href="../demo.html" hreflang="fr">Français</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="demo-hero">
+  <div class="container">
+    <span class="demo-surtitre">Public demonstration</span>
+    <h1>Come in, it's open.</h1>
+    <p class="demo-chapo">The instance below is <strong>the image delivered to customers, byte for byte</strong>. It is filled with an entirely fictional design file — a surgical drill and a diagnostic instrument — taken through the <strong>real lifecycle</strong>: released documents, opened revisions, frozen content, signatures bound to the fingerprint of what they attest, chained audit trail. Nothing in it was fabricated for the demonstration.</p>
+    <p class="demo-cta">
+      <a class="btn btn-primary" href="https://demo.filum.app" rel="nofollow noopener">Open the demonstration</a>
+    </p>
+    <p class="demo-note">No sign-up, no form, no tracking.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="demo-cles">
+      <h2>The credentials</h2>
+      <p class="sous">Password shared by all four accounts: <span class="demo-mdp">Demo!Filum2026</span>. They open nothing but this instance.</p>
+      <table class="demo-comptes">
+        <thead>
+          <tr>
+            <th>Identifier</th>
+            <th>Role</th>
+            <th>What it lets you see</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="ident">KGA</td><td>Administrator</td><td>settings, users, archive, legal hold</td></tr>
+          <tr><td class="ident">ABR</td><td>Approver</td><td>can sign an approval</td></tr>
+          <tr><td class="ident">SBA</td><td>Approver</td><td>quality — audit trail review</td></tr>
+          <tr><td class="ident">RME</td><td>Approver</td><td>instrument engineering</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Four things to know before you go in</h2>
+    <div class="avert"><h3>Do not upload any real data</h3><p>Everything entered is visible to other visitors, and erased at the next reset. For a medical device design file, both are serious. The file on display is entirely fictional — product, people, values, suppliers.</p></div>
+    <div class="avert"><h3>This is not a qualified installation</h3><p>Nothing signed there has any value: everyone signs in under everyone's name. A real installation is single-organisation, behind your infrastructure, with your accounts and your passwords.</p></div>
+    <div class="avert"><h3>Everything is reset regularly</h3><p>The instance returns to its original state at a fixed interval. That is also what repairs it: if a visitor has changed a password or locked an account, the next reset reopens the door. The application displays the period on every screen.</p></div>
+    <div class="avert"><h3>The assistant is deliberately switched off</h3><p>Filum runs on YOUR language-model key, never ours. On an instance with published credentials, a key placed there would be an open bill to whoever finds it: the assistant therefore reports itself as “not configured”, as on a fresh installation.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Where to start</h2>
+    <p class="demo-chapo">Open a released document and look at its signatures: each carries the fingerprint of the content it attests, and that fingerprint survives the next revision. Then open the audit trail: the chain is verified on screen, entry by entry. Finally, try to delete a released document — the refusal is explicit and points you to the compliant route, a new revision. That is the heart of the product, and it takes three gestures.</p>
+    <p class="demo-cta">
+      <a class="btn btn-primary" href="https://demo.filum.app" rel="nofollow noopener">Open the demonstration</a>
+      <a class="btn btn-light" href="validation-continue.html" style="margin-left:10px">How the product is verified</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. The demonstration carries fictional data and is not a qualified installation.</p>
+  </div>
+</footer>
+
+</body>
+</html>
