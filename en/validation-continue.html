@@ -60,8 +60,8 @@
     <h1>Software validated once is validated for one version.</h1>
     <p class="vc-chapo">The question we get after someone has read the validation file is never “did you validate?”. It is: <strong>what stops the next release from shipping with a deviation?</strong> Three checks run on every change to the code. None of them depends on somebody remembering to launch them.</p>
     <div class="vc-chiffres">
-      <div class="vc-chiffre"><b>40</b><span>cases replayed on every change</span></div>
-      <div class="vc-chiffre"><b>43</b><span>requirements, each traced to its clause</span></div>
+      <div class="vc-chiffre"><b>41</b><span>cases replayed on every change</span></div>
+      <div class="vc-chiffre"><b>44</b><span>requirements, each traced to its clause</span></div>
       <div class="vc-chiffre"><b>20</b><span>documents regenerated and compared</span></div>
       <div class="vc-chiffre"><b>3</b><span>guards, each proven by mutation</span></div>
     </div>
@@ -109,7 +109,7 @@
 <section class="section section-tint">
   <div class="container">
     <h2>They do not run on my machine</h2>
-    <p class="lead">The three checks are replayed on every code push on a fresh machine that knows nothing of my workstation: dependencies reinstalled, image rebuilt from scratch, 22 generator invocations, then the 40 qualification cases — delivered image included. A change that broke one of them cannot go unnoticed, including by me.</p>
+    <p class="lead">The three checks are replayed on every code push on a fresh machine that knows nothing of my workstation: dependencies reinstalled, image rebuilt from scratch, 22 generator invocations, then the 41 qualification cases — delivered image included. A change that broke one of them cannot go unnoticed, including by me.</p>
     <p>It is also what makes the validation file usable: it is not written once and copied from release to release. It is produced from the most recent real run, with its figures, durations and digests. A hand-written figure always ends up lying — it happened, it is told above, and it is why every figure on this page is read from the sources.</p>
   </div>
 </section>
