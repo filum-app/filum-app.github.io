@@ -10,39 +10,8 @@
   <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/ia.html" />
   <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/ia.html" />
   <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/ia.html" />
-  <style>
-    /* Même raison que les deux autres pages secondaires : la barre est dessinée pour un
-       héros SOMBRE et ne s'opacifie qu'au défilement, par un script absent d'ici. */
-    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
-    .ia-hero { padding: 128px 0 40px; }
-    .ia-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 24ch; }
-    .ia-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
-    .ia-chapo { font-size: 1.05rem; color: #475569; max-width: 66ch; }
-    .ia-chapo strong { color: #0b1220; }
-    .ia-appel { border: 1px solid #e6e7f0; border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; background: #fff; }
-    .ia-appel h3 { margin: 0 0 14px; font-size: 1.05rem; }
-    .ia-ligne { display: grid; grid-template-columns: 132px 1fr; gap: 14px; padding: 8px 0; }
-    .ia-ligne dt { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748b; padding-top: 2px; }
-    .ia-ligne dd { margin: 0; font-size: .93rem; color: #475569; }
-    .ia-verrou dd strong, .ia-ligne dd strong { color: #0b1220; }
-    .ia-appel .ia-verrou dt { color: #047857; }
-    .ia-appel .ia-verrou dd { color: #334155; }
-    .verrou { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid #e6e7f0; }
-    .verrou-puce { width: 36px; height: 36px; border-radius: 999px; background: #e2f3ec; color: #047857; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-    .verrou h3 { margin: 0 0 8px; font-size: 1.08rem; }
-    .verrou .v-quoi { margin: 0 0 8px; color: #334155; font-size: .95rem; }
-    .verrou .v-pourquoi { margin: 0 0 8px; color: #64748b; font-size: .9rem; }
-    .verrou .v-ou { margin: 0; color: #4338CA; font-size: .86rem; }
-    .limite { border-left: 3px solid #b45309; padding: 4px 0 4px 16px; margin-bottom: 22px; }
-    .limite h3 { margin: 0 0 6px; font-size: 1rem; color: #0b1220; }
-    .limite p { margin: 0; color: #475569; font-size: .93rem; }
-    .qr { border-top: 1px solid #e6e7f0; padding: 18px 0; }
-    .qr h3 { margin: 0 0 6px; font-size: .98rem; color: #0b1220; }
-    .qr p { margin: 0; color: #475569; font-size: .93rem; }
-    @media (max-width: 640px) { .ia-ligne, .verrou { grid-template-columns: 1fr; gap: 6px; } }
-  </style>
 </head>
-<body>
+<body data-page="secondaire">
 
 <nav id="nav">
   <div class="nav-inner">

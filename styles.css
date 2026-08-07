@@ -471,3 +471,148 @@ footer { background: var(--dark); color: #94A3B8; padding: 60px 0; }
   font-size: 17px; cursor: pointer; transition: background .15s;
 }
 .lightbox-close:hover { background: rgba(255,255,255,.22); }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   PAGES SECONDAIRES — étude de cas, validation continue, position IA, démo
+   ══════════════════════════════════════════════════════════════════════════════
+
+   POURQUOI CE BLOC EXISTE. Ces règles vivaient dans un <style> propre à chaque page, écrit
+   par le générateur. Quatre blocs, 8 Ko, quinze couleurs de plus que celles d'ici dont
+   sept redéclarées à l'identique — et la même règle #nav copiée-collée QUATRE fois. Le
+   même composant y portait quatre noms (.cas-chapo, .vc-chapo, .ia-chapo, .demo-chapo) et
+   ses valeurs avaient déjà divergé sans que personne l'ait décidé : 62ch, 64ch, 66ch.
+
+   Les sélecteurs sont donc REGROUPÉS ici. Les noms de classes ne changent pas : ce
+   déplacement ne doit rien modifier au rendu, et une passe qui refait tout à la fois ne se
+   prouve plus. Là où une valeur diffère réellement, elle est écrite à part — avec la
+   raison quand il y en a une, et l'aveu quand il n'y en a pas.
+
+   ─────────────────────────────────────────────────────────────────────────────
+   LA PALETTE SECONDAIRE, ET L'ÉCART QU'ELLE RÉVÈLE
+
+   Ces pages emploient une palette VOISINE de celle du site sans lui être identique :
+   #E6E7F0 ici contre --line: #E2E8F0 là, pour le rôle de bordure ; #F1F2F7 contre
+   --tint: #F1F5F9, pour le même fond discret. L'écart n'a pas été décidé, il s'est
+   installé. Il est conservé tel quel dans cette passe — qui ne change rien visuellement —
+   et NOMMÉ pour qu'il cesse d'être invisible. L'unifier est une décision d'un seul mot,
+   qui ne peut se prendre qu'une fois l'écart posé sous les yeux.
+   ────────────────────────────────────────────────────────────────────────────── */
+:root {
+  --line-2: #E6E7F0;    /* bordure des pages secondaires — cf. --line: #E2E8F0 */
+  --tint-2: #F1F2F7;    /* fond discret                  — cf. --tint: #F1F5F9 */
+  --surface-2: #F4F5FB; /* fond de code                  — sans équivalent principal */
+  --sub-2: #64748B;     /* texte atténué   — entre --sub et --faint, sans équivalent */
+  --indigo-2: #4338CA;  /* accent                        — cf. --indigo-deep: #4F46E5 */
+  --indigo-pale: #ECEAFD;
+  --amber-2: #B45309;   /* alerte                        — cf. --amber: #F59E0B */
+  --emerald-2: #047857;
+  --emerald-pale: #E2F3EC;
+  --ink-2: #334155;
+  --violet-pale: #C7C5F5;
+  --nav-opaque: rgba(11, 18, 32, .92);
+}
+
+/* LA BARRE DE NAVIGATION. Elle est dessinée pour un héros SOMBRE : ses liens sont clairs
+   et son fond ne s'opacifie qu'au défilement, par script.js. Les pages secondaires n'ont
+   pas de héros sombre et ne chargent pas ce script — sans cette règle, leurs liens sont
+   illisibles sur fond clair. Constaté en lisant le rendu, pas le code.
+
+   Une seule déclaration, portée par un attribut du <body>, là où il y en avait quatre. */
+body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filter: blur(14px); }
+
+/* ── Le héros des pages secondaires ── */
+.cas-hero, .vc-hero, .ia-hero, .demo-hero { padding: 128px 0 40px; }
+/* La page de démonstration enchaîne sur un bloc d'identifiants : elle respire moins bas. */
+.demo-hero { padding-bottom: 32px; }
+
+.cas-hero h1, .vc-hero h1, .ia-hero h1, .demo-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px;
+}
+/* La mesure du titre suit la longueur réelle de chacun : « Entrez, c'est ouvert. »
+   n'appelle pas la même largeur que « L'IA dans Filum — trois points d'appel ». */
+.cas-hero h1 { max-width: 20ch; }
+.vc-hero h1, .demo-hero h1 { max-width: 22ch; }
+.ia-hero h1 { max-width: 24ch; }
+
+.cas-surtitre, .vc-surtitre, .ia-surtitre, .demo-surtitre {
+  display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--indigo-2);
+}
+
+.cas-chapo, .vc-chapo, .ia-chapo, .demo-chapo { font-size: 1.05rem; color: var(--sub); }
+/* TROIS MESURES POUR UN MÊME COMPOSANT, et aucune raison ne les distingue : c'est de la
+   dérive, pas une intention. Elle est conservée parce que cette passe ne doit rien changer
+   au rendu ; l'unifier tient en une ligne, le jour où on le décide. */
+.cas-chapo { max-width: 62ch; }
+.vc-chapo { max-width: 64ch; }
+.ia-chapo, .demo-chapo { max-width: 66ch; }
+.ia-chapo strong, .demo-chapo strong { color: var(--dark); }
+
+/* ── Les compteurs de tête (étude de cas et validation continue) ── */
+.cas-chiffres, .vc-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
+.cas-chiffre b, .vc-chiffre b { display: block; font-size: 1.7rem; color: var(--indigo-2); line-height: 1.1; }
+.cas-chiffre span, .vc-chiffre span { font-size: .82rem; color: var(--sub-2); }
+
+/* ── Étude de cas : les défauts trouvés ── */
+.defaut { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line-2); }
+.defaut-etape { font: 700 .75rem/1.6 ui-monospace, Consolas, monospace; color: var(--indigo-2); background: var(--indigo-pale); border-radius: 6px; height: fit-content; text-align: center; padding: 3px 0; }
+.defaut-corps h3 { margin: 0 0 6px; font-size: 1.02rem; }
+.defaut-conseq { margin: 0 0 8px; color: var(--sub); font-size: .93rem; }
+.defaut-trait { margin: 0; color: var(--ink-2); font-size: .9rem; }
+.defaut-trait strong { color: var(--emerald-2); }
+.cas-acquis li { margin-bottom: 9px; color: var(--sub); }
+
+/* ── Validation continue : les gardes ── */
+.garde { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid var(--line-2); }
+.garde-rang { font: 700 1.15rem/1 ui-monospace, Consolas, monospace; color: var(--indigo-2); background: var(--indigo-pale); border-radius: 999px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.garde-corps h3 { margin: 0 0 10px; font-size: 1.12rem; }
+.garde-q { margin: 0 0 12px; color: var(--ink-2); font-size: .96rem; font-style: italic; border-left: 3px solid var(--violet-pale); padding-left: 12px; }
+.garde-quoi { margin: 0 0 10px; color: var(--sub); font-size: .94rem; }
+.garde-attrape { margin: 0 0 10px; color: var(--sub); font-size: .92rem; }
+.garde-attrape strong { color: var(--amber-2); }
+.garde-effet { margin: 0; color: var(--ink-2); font-size: .92rem; }
+.vc-limites li { margin-bottom: 11px; color: var(--sub); }
+
+/* ── Position IA : les points d'appel et les verrous ── */
+.ia-appel { border: 1px solid var(--line-2); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; background: var(--bg); }
+.ia-appel h3 { margin: 0 0 14px; font-size: 1.05rem; }
+.ia-ligne { display: grid; grid-template-columns: 132px 1fr; gap: 14px; padding: 8px 0; }
+.ia-ligne dt { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--sub-2); padding-top: 2px; }
+.ia-ligne dd { margin: 0; font-size: .93rem; color: var(--sub); }
+.ia-verrou dd strong, .ia-ligne dd strong { color: var(--dark); }
+.ia-appel .ia-verrou dt { color: var(--emerald-2); }
+.ia-appel .ia-verrou dd { color: var(--ink-2); }
+.verrou { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid var(--line-2); }
+.verrou-puce { width: 36px; height: 36px; border-radius: 999px; background: var(--emerald-pale); color: var(--emerald-2); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.verrou h3 { margin: 0 0 8px; font-size: 1.08rem; }
+.verrou .v-quoi { margin: 0 0 8px; color: var(--ink-2); font-size: .95rem; }
+.verrou .v-pourquoi { margin: 0 0 8px; color: var(--sub-2); font-size: .9rem; }
+.verrou .v-ou { margin: 0; color: var(--indigo-2); font-size: .86rem; }
+.qr { border-top: 1px solid var(--line-2); padding: 18px 0; }
+.qr h3 { margin: 0 0 6px; font-size: .98rem; color: var(--dark); }
+.qr p { margin: 0; color: var(--sub); font-size: .93rem; }
+
+/* ── Limites et avertissements : même composant, deux noms hérités ── */
+.limite, .avert { border-left: 3px solid var(--amber-2); padding: 4px 0 4px 16px; margin-bottom: 22px; }
+.limite h3, .avert h3 { margin: 0 0 6px; font-size: 1rem; color: var(--dark); }
+.limite p, .avert p { margin: 0; color: var(--sub); font-size: .93rem; }
+
+/* ── Démonstration : identifiants publiés ── */
+.demo-cta { margin: 26px 0 6px; }
+.demo-note { font-size: .86rem; color: var(--sub-2); margin: 0; }
+.demo-cles { border: 1px solid var(--line-2); border-radius: 14px; background: var(--bg); padding: 6px 24px 18px; margin: 26px 0 8px; }
+.demo-cles h2 { font-size: 1.05rem; margin: 18px 0 4px; }
+.demo-cles p.sous { margin: 0 0 14px; color: var(--sub-2); font-size: .9rem; }
+table.demo-comptes { width: 100%; border-collapse: collapse; font-size: .92rem; }
+table.demo-comptes th { text-align: left; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--sub-2); font-weight: 700; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line-2); }
+table.demo-comptes td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--tint-2); color: var(--sub); }
+table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; color: var(--dark); font-weight: 600; }
+.demo-mdp { font-family: ui-monospace, Consolas, monospace; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 7px; padding: 3px 8px; color: var(--dark); }
+
+@media (max-width: 640px) {
+  .defaut { grid-template-columns: 1fr; gap: 6px; }
+  .defaut-etape { display: inline-block; padding: 3px 10px; }
+  .garde { grid-template-columns: 1fr; gap: 10px; }
+  .ia-ligne, .verrou { grid-template-columns: 1fr; gap: 6px; }
+  table.demo-comptes th:last-child, table.demo-comptes td:last-child { display: none; }
+}

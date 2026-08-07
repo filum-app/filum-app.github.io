@@ -10,30 +10,8 @@
   <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/validation.html" />
   <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/validation.html" />
   <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/validation.html" />
-  <style>
-    /* La barre de navigation du site est conçue pour un héros SOMBRE : ses liens sont
-       clairs et son fond ne s'opacifie qu'au défilement, par script.js. Cette page n'a pas
-       de héros sombre et ne charge pas ce script — sans cette règle, ses liens sont
-       illisibles sur fond clair. Constaté en lisant le rendu, pas le code. */
-    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
-    .cas-hero { padding: 128px 0 40px; }
-    .cas-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 20ch; }
-    .cas-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
-    .cas-chapo { font-size: 1.05rem; color: #475569; max-width: 62ch; }
-    .cas-chiffres { display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0 8px; }
-    .cas-chiffre b { display: block; font-size: 1.7rem; color: #4338CA; line-height: 1.1; }
-    .cas-chiffre span { font-size: .82rem; color: #64748b; }
-    .defaut { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid #e6e7f0; }
-    .defaut-etape { font: 700 .75rem/1.6 ui-monospace, Consolas, monospace; color: #4338CA; background: #eceafd; border-radius: 6px; height: fit-content; text-align: center; padding: 3px 0; }
-    .defaut-corps h3 { margin: 0 0 6px; font-size: 1.02rem; }
-    .defaut-conseq { margin: 0 0 8px; color: #475569; font-size: .93rem; }
-    .defaut-trait { margin: 0; color: #334155; font-size: .9rem; }
-    .defaut-trait strong { color: #047857; }
-    .cas-acquis li { margin-bottom: 9px; color: #475569; }
-    @media (max-width: 640px) { .defaut { grid-template-columns: 1fr; gap: 6px; } .defaut-etape { display: inline-block; padding: 3px 10px; } }
-  </style>
 </head>
-<body>
+<body data-page="secondaire">
 
 <nav id="nav">
   <div class="nav-inner">
