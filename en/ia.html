@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI in Filum — three call sites, and what we do not guarantee</title>
+  <meta name="description" content="A language model is called at three places in Filum, never elsewhere. It signs nothing, writes nothing without human reading, and enters no qualified function. Your key, your contract." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/ia.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/ia.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/ia.html" />
+  <style>
+    /* Même raison que les deux autres pages secondaires : la barre est dessinée pour un
+       héros SOMBRE et ne s'opacifie qu'au défilement, par un script absent d'ici. */
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .ia-hero { padding: 128px 0 40px; }
+    .ia-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 24ch; }
+    .ia-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .ia-chapo { font-size: 1.05rem; color: #475569; max-width: 66ch; }
+    .ia-chapo strong { color: #0b1220; }
+    .ia-appel { border: 1px solid #e6e7f0; border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; background: #fff; }
+    .ia-appel h3 { margin: 0 0 14px; font-size: 1.05rem; }
+    .ia-ligne { display: grid; grid-template-columns: 132px 1fr; gap: 14px; padding: 8px 0; }
+    .ia-ligne dt { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748b; padding-top: 2px; }
+    .ia-ligne dd { margin: 0; font-size: .93rem; color: #475569; }
+    .ia-verrou dd strong, .ia-ligne dd strong { color: #0b1220; }
+    .ia-appel .ia-verrou dt { color: #047857; }
+    .ia-appel .ia-verrou dd { color: #334155; }
+    .verrou { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid #e6e7f0; }
+    .verrou-puce { width: 36px; height: 36px; border-radius: 999px; background: #e2f3ec; color: #047857; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .verrou h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .verrou .v-quoi { margin: 0 0 8px; color: #334155; font-size: .95rem; }
+    .verrou .v-pourquoi { margin: 0 0 8px; color: #64748b; font-size: .9rem; }
+    .verrou .v-ou { margin: 0; color: #4338CA; font-size: .86rem; }
+    .limite { border-left: 3px solid #b45309; padding: 4px 0 4px 16px; margin-bottom: 22px; }
+    .limite h3 { margin: 0 0 6px; font-size: 1rem; color: #0b1220; }
+    .limite p { margin: 0; color: #475569; font-size: .93rem; }
+    .qr { border-top: 1px solid #e6e7f0; padding: 18px 0; }
+    .qr h3 { margin: 0 0 6px; font-size: .98rem; color: #0b1220; }
+    .qr p { margin: 0; color: #475569; font-size: .93rem; }
+    @media (max-width: 640px) { .ia-ligne, .verrou { grid-template-columns: 1fr; gap: 6px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Back to the site</a>
+      <a href="validation-continue.html">Continuous validation</a>
+      <a class="lang-switch" href="../ia.html" hreflang="fr">Français</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="ia-hero">
+  <div class="container">
+    <span class="ia-surtitre">Position on AI</span>
+    <h1>A model is called at three places. None of them produces evidence.</h1>
+    <p class="ia-chapo">Filum ships a pre-drafting assistant. It runs on <strong>your</strong> Anthropic key, it is <strong>disabled with one checkbox</strong>, and with no key configured the product works in full. Above all: <strong>nothing that constitutes evidence goes through it</strong> — traceability, signatures, the chained audit trail, the inspection archive and the 11 statement quality checks are deterministic and run offline. That is what makes them qualifiable, and 34 cases do it.</p>
+    <p class="ia-chapo" style="margin-top:14px">Model called today: <strong>claude-opus-5</strong>. That name is written into every retained draft, and it is never rewritten retroactively.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The three call sites, and nothing else</h2>
+    <p class="section-sub">This answers a data protection officer's question: what leaves, when, and where does it go.</p>
+    
+    <div class="ia-appel">
+      <h3>Pre-drafting assistant, on a document</h3>
+      <dl>
+        <div class="ia-ligne"><dt>What goes out</dt><dd>The graph nodes attached to THIS document: codes, statements, measured values, statuses. Nothing else — not the audit trail, not the user accounts, not the neighbouring documents.</dd></div>
+        <div class="ia-ligne"><dt>What comes back</dt><dd>A draft synthesis or conclusion, stored apart from the document, marked “proposed”.</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>The lock</dt><dd>The draft retains the EXACT LIST of nodes it was given and the model's name. It enters the document only if a named person accepts it, and that acceptance is dated and logged. A rejected draft is retained: the trace of what was proposed is part of the record.</dd></div>
+      </dl>
+    </div>
+    <div class="ia-appel">
+      <h3>Requirement rewrite, as you type</h3>
+      <dl>
+        <div class="ia-ligne"><dt>What goes out</dt><dd>The statement you have just typed, and the list of form defects raised by the deterministic checks. Nothing from the rest of the file.</dd></div>
+        <div class="ia-ligne"><dt>What comes back</dt><dd>A proposed rewrite, displayed next to the field.</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>The lock</dt><dd>Nothing is written. The proposal is displayed, you copy back what you keep — it is your keystrokes that enter the record. The model is furthermore forbidden to invent a value, a unit or a component absent from your statement: where your sentence is not measurable, it leaves a placeholder to fill rather than a plausible figure.</dd></div>
+      </dl>
+    </div>
+    <div class="ia-appel">
+      <h3>Connection test, in Settings</h3>
+      <dl>
+        <div class="ia-ligne"><dt>What goes out</dt><dd>A minimal message, with no data from your file. It only checks that the key answers.</dd></div>
+        <div class="ia-ligne"><dt>What comes back</dt><dd>An acknowledgement, or the reason for refusal.</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>The lock</dt><dd>Not applicable: nothing is produced, nothing is retained.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7f7fb">
+  <div class="container">
+    <h2>Six locks, verifiable in the delivered product</h2>
+    <p class="section-sub">Each names the place where you can see it for yourself. A guarantee you cannot verify is not a guarantee.</p>
+    
+    <div class="verrou">
+      <span class="verrou-puce">1</span>
+      <div>
+        <h3>AI signs nothing</h3>
+        <p class="v-quoi">No text produced by a model enters a record without a named person having accepted it, and that acceptance carries their name, its date and its entry in the audit trail.</p>
+        <p class="v-pourquoi">An electronic signature engages a person's accountability (21 CFR 11.50). Text slipped into an approved document without passing through somebody would make that signature untruthful.</p>
+        <p class="v-ou">↳ Document screen: the draft is displayed separately, with its “accept” and “reject” buttons.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">2</span>
+      <div>
+        <h3>The model invents nothing</h3>
+        <p class="v-quoi">The system instruction forbids inventing a value, a result or a reference, requires quoting each source's exact code in brackets, and requires writing “to be completed” where information is missing.</p>
+        <p class="v-pourquoi">An invented figure has no source, and it is the source that holds a design file together. A gap filled by a guess is worse than a gap: it can no longer be seen.</p>
+        <p class="v-ou">↳ The instruction is in the delivered code, readable as is. We will show it to you on request.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">3</span>
+      <div>
+        <h3>The model returns no verdict</h3>
+        <p class="v-quoi">It is explicitly forbidden to conclude on the conformity or non-conformity of anything. It states what the data shows; the decision belongs to the signatory.</p>
+        <p class="v-pourquoi">A regulatory verdict binds the organisation before an authority. It is not delegated to a tool, least of all a tool whose output varies from one call to the next.</p>
+        <p class="v-ou">↳ Same system instruction. A draft containing a verdict can be rejected like any other.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">4</span>
+      <div>
+        <h3>Your key, your contract</h3>
+        <p class="v-quoi">Filum ships no API key. It is YOUR Anthropic key that is used, stored in your local database, never in our code and never in our repository. With no key configured, no call goes out — and the product works in full.</p>
+        <p class="v-pourquoi">A vendor key would route your design data through our account, under our terms, at our discretion. No design file should depend on a supplier's commercial relationship with a third party.</p>
+        <p class="v-ou">↳ Settings → AI assistant. The key's source is displayed there: your organisation, the server environment, or none.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">5</span>
+      <div>
+        <h3>One switch, and it really cuts</h3>
+        <p class="v-quoi">An administrator disables the assistant for the whole installation. No call goes out then, even if a key remains configured.</p>
+        <p class="v-pourquoi">Some organisations forbid any external call from systems holding design data. They must be able to enforce it, not ask their users for it.</p>
+        <p class="v-ou">↳ Settings → AI assistant → “enable” checkbox.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">6</span>
+      <div>
+        <h3>What matters most never calls it</h3>
+        <p class="v-quoi">Traceability, signatures, content freezing, the chained audit trail, the inspection archive, the statement quality checks: none of them calls a model. They are deterministic, they run offline, and they are qualified.</p>
+        <p class="v-pourquoi">You cannot qualify what does not return the same result twice. Everything carrying regulatory proof is therefore, by construction, outside the model's scope.</p>
+        <p class="v-ou">↳ The validation file: every case runs without an API key, and the whole suite runs offline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What we do not guarantee</h2>
+    <p class="section-sub">The part brochures leave out. An auditor asking for the contract would find the gap in one question — better we write it ourselves.</p>
+    
+    <div class="limite">
+      <h3>Use of your data by the model provider</h3>
+      <p>Filum calls the API with YOUR key. The applicable terms — retention, use for training, processing location — are those of YOUR contract with Anthropic, not ours. We cannot commit on a third party's behalf, and a promise we do not hold would serve you nothing before an auditor. Read that contract, and if your policy requires it, leave the assistant disabled: the product works in full without it.</p>
+    </div>
+    <div class="limite">
+      <h3>The quality of what the model proposes</h3>
+      <p>A language model returns plausible text, not true text. The instructions reduce the risk of invention; they do not remove it. That is exactly why nothing enters a record without human reading, and why the draft retains the list of sources it received: so that checking is possible, and quick.</p>
+    </div>
+    <div class="limite">
+      <h3>Reproducibility of a model output</h3>
+      <p>Two identical calls do not necessarily return the same text. That is a property of the model, not a flaw in Filum — and it is why no qualified function depends on it. What is retained, by contrast, is perfectly reproducible: the accepted draft is frozen, and its digest enters the record like any other content.</p>
+    </div>
+    <div class="limite">
+      <h3>A validation of the model itself</h3>
+      <p>We do not validate Anthropic, and nobody can in the ISO 13485 sense. What we validate is the SOFTWARE AROUND IT: the locks above are within the qualification scope, the model is not. If an auditor asks you for the AI's validation, that is the honest answer — and it holds, because nothing that constitutes proof goes through the model.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7f7fb">
+  <div class="container">
+    <h2>The questions we get asked</h2>
+    
+    <div class="qr">
+      <h3>Can I use Filum with no AI at all?</h3>
+      <p>Yes, and that is the default state: with no key configured, no call goes out. Every regulatory function — traceability, signatures, audit trail, archive, statement checks — works identically.</p>
+    </div>
+    <div class="qr">
+      <h3>Can the AI modify a requirement already written?</h3>
+      <p>No. No path in the product lets a model write into the graph. The requirement rewrite is displayed next to the field; you are the one who copies it back.</p>
+    </div>
+    <div class="qr">
+      <h3>How do I prove to an auditor that a text was not written by AI without anyone knowing?</h3>
+      <p>Each retained draft carries its origin — the model's name — the list of sources it was given, the person who accepted or rejected it, and the date. Whatever did not go through that was typed by somebody.</p>
+    </div>
+    <div class="qr">
+      <h3>Does the model name change retroactively?</h3>
+      <p>No. A draft keeps the name of the model that WROTE it, even after an update. Recomputing that field on display would say what we use today instead of what wrote the text — and a record is not rewritten.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container" style="text-align:center">
+    <h2>See the locks for real</h2>
+    <p style="max-width:56ch;margin:14px auto 26px">A thirty-minute demonstration, on fictional data. We open the system instruction's code if you ask.</p>
+    <p>
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration%20%E2%80%94%20AI%20position">Request a demonstration</a>
+      <a class="btn btn-light" href="validation-continue.html" style="margin-left:10px">See continuous validation</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. The model name and the figures on this page are read from the software's sources at every generation.</p>
+  </div>
+</footer>
+
+</body>
+</html>

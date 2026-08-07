@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'IA dans Filum — trois points d'appel, et ce que nous ne garantissons pas</title>
+  <meta name="description" content="Un modèle de langue est appelé à trois endroits de Filum, jamais ailleurs. Il ne signe rien, n'écrit rien sans lecture humaine, et n'entre dans aucune fonction qualifiée. Votre clé, votre contrat." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/ia.html" />
+  <link rel="alternate" hreflang="en" href="https://filum-app.github.io/en/ia.html" />
+  <link rel="alternate" hreflang="x-default" href="https://filum-app.github.io/ia.html" />
+  <style>
+    /* Même raison que les deux autres pages secondaires : la barre est dessinée pour un
+       héros SOMBRE et ne s'opacifie qu'au défilement, par un script absent d'ici. */
+    #nav { background: rgba(11, 18, 32, .92); backdrop-filter: blur(14px); }
+    .ia-hero { padding: 128px 0 40px; }
+    .ia-hero h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; margin: 12px 0 16px; max-width: 24ch; }
+    .ia-surtitre { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #4338CA; }
+    .ia-chapo { font-size: 1.05rem; color: #475569; max-width: 66ch; }
+    .ia-chapo strong { color: #0b1220; }
+    .ia-appel { border: 1px solid #e6e7f0; border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; background: #fff; }
+    .ia-appel h3 { margin: 0 0 14px; font-size: 1.05rem; }
+    .ia-ligne { display: grid; grid-template-columns: 132px 1fr; gap: 14px; padding: 8px 0; }
+    .ia-ligne dt { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748b; padding-top: 2px; }
+    .ia-ligne dd { margin: 0; font-size: .93rem; color: #475569; }
+    .ia-verrou dd strong, .ia-ligne dd strong { color: #0b1220; }
+    .ia-appel .ia-verrou dt { color: #047857; }
+    .ia-appel .ia-verrou dd { color: #334155; }
+    .verrou { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid #e6e7f0; }
+    .verrou-puce { width: 36px; height: 36px; border-radius: 999px; background: #e2f3ec; color: #047857; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .verrou h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .verrou .v-quoi { margin: 0 0 8px; color: #334155; font-size: .95rem; }
+    .verrou .v-pourquoi { margin: 0 0 8px; color: #64748b; font-size: .9rem; }
+    .verrou .v-ou { margin: 0; color: #4338CA; font-size: .86rem; }
+    .limite { border-left: 3px solid #b45309; padding: 4px 0 4px 16px; margin-bottom: 22px; }
+    .limite h3 { margin: 0 0 6px; font-size: 1rem; color: #0b1220; }
+    .limite p { margin: 0; color: #475569; font-size: .93rem; }
+    .qr { border-top: 1px solid #e6e7f0; padding: 18px 0; }
+    .qr h3 { margin: 0 0 6px; font-size: .98rem; color: #0b1220; }
+    .qr p { margin: 0; color: #475569; font-size: .93rem; }
+    @media (max-width: 640px) { .ia-ligne, .verrou { grid-template-columns: 1fr; gap: 6px; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Retour au site</a>
+      <a href="validation-continue.html">Validation continue</a>
+      <a class="lang-switch" href="en/ia.html" hreflang="en">English</a>
+      <a class="btn btn-sm btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démo</a>
+    </div>
+  </div>
+</nav>
+
+<section class="ia-hero">
+  <div class="container">
+    <span class="ia-surtitre">Position sur l'IA</span>
+    <h1>Un modèle est appelé à trois endroits. Aucun ne produit une preuve.</h1>
+    <p class="ia-chapo">Filum embarque un assistant de pré-rédaction. Il tourne sur <strong>votre</strong> clé Anthropic, il est <strong>désactivable en une case</strong>, et sans clé configurée le produit fonctionne entièrement. Surtout : <strong>rien de ce qui fait preuve ne passe par lui</strong> — la traçabilité, les signatures, la piste d'audit chaînée, l'archive d'inspection et les 11 contrôles de qualité d'énoncé sont déterministes et tournent hors ligne. C'est ce qui permet de les qualifier, et 34 cas le font.</p>
+    <p class="ia-chapo" style="margin-top:14px">Modèle appelé aujourd'hui : <strong>claude-opus-5</strong>. Ce nom est inscrit dans chaque brouillon conservé, et il n'est jamais réécrit rétroactivement.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Les trois points d'appel, et rien d'autre</h2>
+    <p class="section-sub">Ce tableau répond à la question d'un délégué à la protection des données : qu'est-ce qui sort, quand, et pour aller où.</p>
+    
+    <div class="ia-appel">
+      <h3>Assistant de pré-rédaction, sur un document</h3>
+      <dl>
+        <div class="ia-ligne"><dt>Ce qui part</dt><dd>Les nœuds du graphe rattachés à CE document : codes, énoncés, valeurs mesurées, statuts. Rien d'autre — ni la piste d'audit, ni les comptes utilisateurs, ni les documents voisins.</dd></div>
+        <div class="ia-ligne"><dt>Ce qui revient</dt><dd>Un brouillon de synthèse ou de conclusion, conservé à part du document, marqué « proposé ».</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>Le verrou</dt><dd>Le brouillon conserve la LISTE EXACTE des nœuds qui lui ont été fournis et le nom du modèle. Il n'entre dans le document que si une personne nommée l'accepte, et cette acceptation est datée et journalisée. Un brouillon refusé reste conservé : la trace de ce qui a été proposé fait partie de l'enregistrement.</dd></div>
+      </dl>
+    </div>
+    <div class="ia-appel">
+      <h3>Reformulation d'une exigence, à la saisie</h3>
+      <dl>
+        <div class="ia-ligne"><dt>Ce qui part</dt><dd>L'énoncé que vous venez de taper, et la liste des défauts de forme relevés par les contrôles déterministes. Rien du reste du dossier.</dd></div>
+        <div class="ia-ligne"><dt>Ce qui revient</dt><dd>Une proposition de reformulation, affichée à côté du champ.</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>Le verrou</dt><dd>Rien n'est écrit. La proposition s'affiche, vous recopiez ce que vous retenez — c'est votre frappe qui entre dans l'enregistrement. Il est en outre interdit au modèle d'inventer une valeur, une unité ou un composant absent de votre énoncé : là où votre phrase n'est pas mesurable, il laisse un emplacement à remplir plutôt qu'un chiffre vraisemblable.</dd></div>
+      </dl>
+    </div>
+    <div class="ia-appel">
+      <h3>Test de connexion, dans les Réglages</h3>
+      <dl>
+        <div class="ia-ligne"><dt>Ce qui part</dt><dd>Un message minimal, sans aucune donnée de votre dossier. Il sert uniquement à vérifier que la clé répond.</dd></div>
+        <div class="ia-ligne"><dt>Ce qui revient</dt><dd>Un accusé de réception, ou le motif du refus.</dd></div>
+        <div class="ia-ligne ia-verrou"><dt>Le verrou</dt><dd>Sans objet : rien n'est produit, rien n'est conservé.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7f7fb">
+  <div class="container">
+    <h2>Six verrous, vérifiables dans le produit livré</h2>
+    <p class="section-sub">Chacun désigne l'endroit où vous pouvez le constater vous-même. Une garantie qu'on ne peut pas vérifier n'est pas une garantie.</p>
+    
+    <div class="verrou">
+      <span class="verrou-puce">1</span>
+      <div>
+        <h3>L'IA ne signe rien</h3>
+        <p class="v-quoi">Aucun texte produit par un modèle n'entre dans un enregistrement sans qu'une personne nommée l'ait accepté, et cette acceptation porte son nom, sa date et son inscription dans la piste d'audit.</p>
+        <p class="v-pourquoi">Une signature électronique engage la responsabilité d'une personne (21 CFR 11.50). Un texte glissé dans un document approuvé sans passer par quelqu'un rendrait cette signature mensongère.</p>
+        <p class="v-ou">↳ Écran du document : le brouillon est affiché à part, avec ses boutons « accepter » et « refuser ».</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">2</span>
+      <div>
+        <h3>Le modèle n'invente rien</h3>
+        <p class="v-quoi">La consigne système interdit d'inventer une valeur, un résultat ou une référence, impose de citer le code exact de chaque source entre crochets, et impose d'écrire « à compléter » là où l'information manque.</p>
+        <p class="v-pourquoi">Un chiffre inventé n'a aucune source, et c'est la source qui fait tenir un dossier de conception. Un trou comblé par une supposition est pire qu'un trou : il ne se voit plus.</p>
+        <p class="v-ou">↳ La consigne est dans le code livré, lisible telle quelle. Nous vous la montrons sur demande.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">3</span>
+      <div>
+        <h3>Le modèle ne rend aucun verdict</h3>
+        <p class="v-quoi">Il lui est explicitement interdit de conclure à la conformité ou à la non-conformité de quoi que ce soit. Il constate l'état des données ; la décision appartient au signataire.</p>
+        <p class="v-pourquoi">Un verdict réglementaire engage l'organisation devant une autorité. Il ne se délègue pas à un outil, et surtout pas à un outil dont la sortie varie d'un appel à l'autre.</p>
+        <p class="v-ou">↳ Même consigne système. Un brouillon qui contiendrait un verdict est refusable comme n'importe quel autre.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">4</span>
+      <div>
+        <h3>Votre clé, votre contrat</h3>
+        <p class="v-quoi">Filum n'embarque aucune clé d'API. C'est VOTRE clé Anthropic qui est utilisée, conservée dans votre base locale, jamais dans notre code ni dans notre dépôt. Sans clé configurée, aucun appel ne part — et le produit fonctionne entièrement.</p>
+        <p class="v-pourquoi">Une clé de l'éditeur ferait transiter vos données de conception par notre compte, sous nos conditions, à notre discrétion. Aucun dossier de conception ne devrait dépendre de la relation commerciale d'un fournisseur avec un tiers.</p>
+        <p class="v-ou">↳ Réglages → Assistant IA. La source de la clé y est affichée : votre organisation, l'environnement du serveur, ou aucune.</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">5</span>
+      <div>
+        <h3>Un interrupteur, et il coupe vraiment</h3>
+        <p class="v-quoi">Un administrateur désactive l'assistant pour toute l'installation. Aucun appel ne part alors, y compris si une clé reste configurée.</p>
+        <p class="v-pourquoi">Certaines organisations interdisent tout appel externe depuis les systèmes qui portent des données de conception. Elles doivent pouvoir l'imposer, pas le demander à leurs utilisateurs.</p>
+        <p class="v-ou">↳ Réglages → Assistant IA → case « activer ».</p>
+      </div>
+    </div>
+    <div class="verrou">
+      <span class="verrou-puce">6</span>
+      <div>
+        <h3>Ce qui compte le plus ne l'appelle jamais</h3>
+        <p class="v-quoi">La traçabilité, les signatures, le gel du contenu, la piste d'audit chaînée, l'archive d'inspection, les contrôles de qualité d'énoncé : aucun n'appelle un modèle. Ils sont déterministes, ils tournent hors ligne, et ils sont qualifiés.</p>
+        <p class="v-pourquoi">On ne qualifie pas ce qui ne rend pas deux fois le même résultat. Tout ce qui porte une preuve réglementaire est donc, par construction, hors du périmètre du modèle.</p>
+        <p class="v-ou">↳ Le dossier de validation : chaque cas s'exécute sans clé d'API, et la suite entière tourne hors ligne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Ce que nous ne garantissons pas</h2>
+    <p class="section-sub">La partie que les plaquettes omettent. Un auditeur qui demande le contrat trouverait le trou en une question — autant l'écrire nous-mêmes.</p>
+    
+    <div class="limite">
+      <h3>L'usage de vos données par le fournisseur du modèle</h3>
+      <p>Filum appelle l'API avec VOTRE clé. Les conditions applicables — conservation, usage pour l'entraînement, localisation des traitements — sont celles de VOTRE contrat avec Anthropic, pas du nôtre. Nous ne pouvons pas nous engager à la place d'un tiers, et une promesse que nous ne tenons pas ne vous servirait à rien devant un auditeur. Lisez ce contrat, et si votre politique l'exige, laissez l'assistant désactivé : le produit fonctionne entièrement sans lui.</p>
+    </div>
+    <div class="limite">
+      <h3>La qualité de ce que le modèle propose</h3>
+      <p>Un modèle de langue rend un texte plausible, pas un texte vrai. Les consignes réduisent le risque d'invention ; elles ne l'annulent pas. C'est précisément pourquoi rien n'entre dans un enregistrement sans lecture humaine, et pourquoi le brouillon conserve la liste des sources qu'il a reçues : pour que la vérification soit possible, et rapide.</p>
+    </div>
+    <div class="limite">
+      <h3>La reproductibilité d'une sortie de modèle</h3>
+      <p>Deux appels identiques ne rendent pas forcément le même texte. C'est une propriété du modèle, pas un défaut de Filum — et c'est la raison pour laquelle aucune fonction qualifiée n'en dépend. Ce qui est conservé, en revanche, est parfaitement reproductible : le brouillon accepté est figé, et son empreinte entre dans l'enregistrement comme n'importe quel autre contenu.</p>
+    </div>
+    <div class="limite">
+      <h3>Une validation du modèle lui-même</h3>
+      <p>Nous ne validons pas Anthropic, et personne ne le peut au sens de l'ISO 13485. Ce que nous validons est le LOGICIEL QUI L'ENCADRE : les verrous ci-dessus sont dans le périmètre de qualification, le modèle ne l'est pas. Si un auditeur vous demande la validation de l'IA, la réponse honnête est celle-là — et elle tient, parce que rien de ce qui fait preuve ne passe par le modèle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7f7fb">
+  <div class="container">
+    <h2>Les questions qu'on nous pose</h2>
+    
+    <div class="qr">
+      <h3>Puis-je utiliser Filum sans aucune IA ?</h3>
+      <p>Oui, et c'est l'état par défaut : sans clé configurée, aucun appel ne part. Toutes les fonctions réglementaires — traçabilité, signatures, piste d'audit, archive, contrôles d'énoncé — fonctionnent à l'identique.</p>
+    </div>
+    <div class="qr">
+      <h3>L'IA peut-elle modifier une exigence déjà écrite ?</h3>
+      <p>Non. Aucun chemin du produit ne laisse un modèle écrire dans le graphe. La reformulation d'exigence s'affiche à côté du champ ; c'est vous qui recopiez.</p>
+    </div>
+    <div class="qr">
+      <h3>Comment prouver à un auditeur qu'un texte n'a pas été écrit par l'IA à l'insu de tous ?</h3>
+      <p>Chaque brouillon conservé porte son origine — le nom du modèle — la liste des sources qui lui ont été fournies, la personne qui l'a accepté ou refusé, et la date. Ce qui n'est pas passé par là a été tapé par quelqu'un.</p>
+    </div>
+    <div class="qr">
+      <h3>Le nom du modèle change-t-il rétroactivement ?</h3>
+      <p>Non. Un brouillon garde le nom du modèle qui l'a RÉDIGÉ, même après une mise à jour. Recalculer ce champ à l'affichage dirait ce qu'on utilise aujourd'hui au lieu de ce qui a écrit le texte — et un enregistrement ne se réécrit pas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container" style="text-align:center">
+    <h2>Voir les verrous en vrai</h2>
+    <p style="max-width:56ch;margin:14px auto 26px">Une démonstration de trente minutes, sur des données fictives. Nous ouvrons le code de la consigne système si vous le demandez.</p>
+    <p>
+      <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum%20%E2%80%94%20position%20IA">Demander une démonstration</a>
+      <a class="btn btn-light" href="validation-continue.html" style="margin-left:10px">Voir la validation continue</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="4.5" cy="17" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="19.5" cy="17" r="2"/><path d="M6 15.5 10.4 8.2M13.6 8.2 18 15.5"/></svg>
+      </span>
+      <span class="brand-name">Filum</span>
+    </div>
+    <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. Le nom du modèle et les chiffres de cette page sont lus depuis les sources du logiciel à chaque génération.</p>
+  </div>
+</footer>
+
+</body>
+</html>
