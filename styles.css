@@ -4,13 +4,41 @@
   --dark2: #0F172A;
   --ink: #1E293B;
   --sub: #475569;
-  --faint: #94A3B8;
+  /* ── LA PALETTE, DESCENDUE D'UN CRAN ──────────────────────────────────────────
+     Le site comptait 132 manquements au seuil AA en mode clair, tous antérieurs
+     au mode sombre : les onglets inactifs à 2,56, les coches vertes à 2,27, le
+     blanc sur pastille ambre à 2,15. Ce n'étaient pas des cas isolés mais CINQ
+     couleurs, chacune employée des dizaines de fois.
+
+     La correction garde la TEINTE et descend la LUMINOSITÉ d'un ou deux crans sur
+     la même gamme : la marque ne change pas, elle s'assombrit. Chaque valeur a été
+     choisie sur le calcul, pas à l'œil — et vérifiée sur les DEUX fonds où elle
+     sert, le blanc et le teinté, parce qu'un cran suffisant sur l'un ne l'est pas
+     toujours sur l'autre.
+
+       --faint    #94A3B8 -> #5B6B82   2,56 -> 5,43 (blanc) et 4,95 (teinté)
+       --indigo   #6366F1 -> #4F46E5   4,47 -> 6,29
+       --violet   #8B5CF6 -> #7C3AED   4,23 -> 5,70
+       --emerald  #10B981 -> #047857   2,54 -> 5,48
+       --amber    #F59E0B -> #B45309   2,15 -> 5,02
+
+     --faint ne prend PAS slate-500 (#64748B), qui passe sur blanc (4,76) mais
+     échoue sur fond teinté (4,34) — or il sert aux deux. La valeur retenue est
+     entre slate-500 et slate-600, et c'est délibéré.
+
+     --indigo-deep descend d'autant, sinon il rejoignait --indigo et la gamme se
+     réduisait à une seule marche. */
+  --faint: #5B6B82;
+  /* Le meme role, sur les BANDES SOMBRES. --faint vaut pour les fonds clairs ; l'employer
+     sur le pied de page l'a fait tomber a 3,45 des que la palette est descendue. Un token
+     par surface, sinon l'un des deux est toujours sacrifie. */
+  --faint-sombre: #94A3B8;
   --line: #E2E8F0;
-  --indigo: #6366F1;
-  --indigo-deep: #4F46E5;
-  --violet: #8B5CF6;
-  --emerald: #10B981;
-  --amber: #F59E0B;
+  --indigo: #4F46E5;
+  --indigo-deep: #4338CA;
+  --violet: #7C3AED;
+  --emerald: #047857;
+  --amber: #B45309;
   --tint: #F1F5F9;
   --bg: #FFFFFF;
   --radius: 16px;
@@ -483,7 +511,7 @@ footer { background: var(--dark); color: #94A3B8; padding: 60px 0; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-size: 14.5px; }
 .footer-contact a { color: #A5B4FC; font-weight: 600; }
 .footer-contact a:hover { text-decoration: underline; }
-.footer-legal { font-size: 12.5px; color: var(--faint); }
+.footer-legal { font-size: 12.5px; color: var(--faint-sombre); }
 
 /* ─── Lightbox ─── */
 .lightbox {
@@ -530,7 +558,9 @@ footer { background: var(--dark); color: #94A3B8; padding: 60px 0; }
   --line-2: #E6E7F0;    /* bordure des pages secondaires — cf. --line: #E2E8F0 */
   --tint-2: #F1F2F7;    /* fond discret                  — cf. --tint: #F1F5F9 */
   --surface-2: #F4F5FB; /* fond de code                  — sans équivalent principal */
-  --sub-2: #64748B;     /* texte atténué   — entre --sub et --faint, sans équivalent */
+  /* --sub-2 etait de la derive : #64748B, entre --sub et --faint, sans role propre,
+     et insuffisant sur fond teinte (4,34). Il rejoint --sub. */
+  --sub-2: #475569;
   --indigo-2: #4338CA;  /* accent                        — cf. --indigo-deep: #4F46E5 */
   --indigo-pale: #ECEAFD;
   --amber-2: #B45309;   /* alerte                        — cf. --amber: #F59E0B */
@@ -636,6 +666,10 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 .demo-cles h2 { font-size: 1.05rem; margin: 18px 0 4px; }
 .demo-cles p.sous { margin: 0 0 14px; color: var(--sub-2); font-size: .9rem; }
 table.demo-comptes { width: 100%; border-collapse: collapse; font-size: .92rem; }
+/* L'en-tete de cette table n'est pas un bandeau : c'est un intitule discret pose sur la
+   carte. Sans cette remise a zero, il heritait du fond sombre de « thead th » — pense
+   pour le tableau comparatif de l'accueil — et son texte y tombait a 2,36. */
+table.demo-comptes thead th { background: transparent; }
 table.demo-comptes th { text-align: left; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--sub-2); font-weight: 700; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line-2); }
 table.demo-comptes td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--tint-2); color: var(--sub); }
 table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; color: var(--strong); font-weight: 600; }
@@ -697,6 +731,7 @@ table.demo-comptes td.ident { font-family: ui-monospace, Consolas, monospace; co
     --ink: #E7E9F2;
     --sub: #A9B1C4;
     --faint: #8A93A8;
+    --faint-sombre: #8A93A8;
 
     /* Les accents s'éclaircissent : posés sur un fond sombre, leurs valeurs claires
        n'atteignent plus le contraste d'un texte de corps. */
