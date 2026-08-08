@@ -23,6 +23,11 @@
      devient structurante — c'est elle qui fait qu'une carte se detache. */
   --indigo-text: #4F46E5; /* indigo LISIBLE sur lavis — --indigo-deep reste pour le bouton blanc */
   --danger: #B91C1C;
+  /* LA MESURE DE LECTURE. Elle existait en quatre valeurs — 62ch, 64ch, 66ch dans les
+     classes de chapo, plus deux attributs style= inline — pour un seul et meme role :
+     la largeur confortable d'une colonne de prose. Aucune raison ne les distinguait.
+     Une valeur, un nom, et l'ecart cesse de se reinstaller. */
+  --mesure: 66ch;
   --strong: #0B1220; /* encre d'emphase — NE PAS confondre avec --dark, fond de bande */
   --surface: #FFFFFF;
   --wash-indigo-a: #EEF2FF;
@@ -109,6 +114,11 @@ a { color: inherit; text-decoration: none; }
   padding: 5px 9px; border: 1px solid rgba(203, 213, 225, .28); border-radius: 7px;
   transition: color .15s, border-color .15s, background .15s;
 }
+/* CIBLE TACTILE. La bascule mesure 39x32 : conforme au minimum AA (24x24) mais penible
+   au pouce. On etend la ZONE ATTEIGNABLE par un pseudo-element, sans toucher a la taille
+   dessinee : agrandir le bouton aurait deplace toute la barre de navigation. */
+.lang-switch { position: relative; }
+.lang-switch::after { content: ""; position: absolute; inset: -6px -5px; }
 .lang-switch:hover { color: #fff; border-color: rgba(203, 213, 225, .6); background: rgba(255, 255, 255, .06); }
 @media (max-width: 860px) {
   .nav-links { display: none; }
@@ -559,12 +569,15 @@ body[data-page="secondaire"] #nav { background: var(--nav-opaque); backdrop-filt
 }
 
 .cas-chapo, .vc-chapo, .ia-chapo, .demo-chapo { font-size: 1.05rem; color: var(--sub); }
-/* TROIS MESURES POUR UN MÊME COMPOSANT, et aucune raison ne les distingue : c'est de la
-   dérive, pas une intention. Elle est conservée parce que cette passe ne doit rien changer
-   au rendu ; l'unifier tient en une ligne, le jour où on le décide. */
-.cas-chapo { max-width: 62ch; }
-.vc-chapo { max-width: 64ch; }
-.ia-chapo, .demo-chapo { max-width: 66ch; }
+.cas-chapo, .vc-chapo, .ia-chapo, .demo-chapo { max-width: var(--mesure); }
+/* COLONNE DE LECTURE — a ne pas confondre avec .container-narrow (780px), qui est une
+   largeur de MISE EN PAGE. Ici il s'agit de la MESURE : un nombre de caracteres par
+   ligne. C'est pourquoi l'unite est le ch et non le pixel — 66 caracteres restent 66
+   caracteres quelle que soit la taille du texte, ce qu'une valeur en pixels ne tient pas. */
+.container-lecture { max-width: var(--mesure); }
+/* Un texte CENTRE se lit plus etroit qu'un texte aligne a gauche : l'oeil doit retrouver
+   le debut de la ligne suivante sans point d'appui. D'ou une mesure a part, et assumee. */
+.lead-centre { max-width: 56ch; margin: 14px auto 26px; }
 .ia-chapo strong, .demo-chapo strong { color: var(--strong); }
 
 /* ── Les compteurs de tête (étude de cas et validation continue) ── */
