@@ -109,6 +109,18 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <h2>And three days later, a third party found two more</h2>
+    <p class="lead">The seven above come from our protocol. The two that follow come from someone else — and that is precisely the point.</p>
+    <p>The archival copies of frozen records are produced in PDF/A, the format meant to guarantee a document still opens in ten years. We had written our own conformance check, and it had been declaring those files conformant for two months.</p>
+    <p>On 9 August 2026 we ran veraPDF — the reference implementation, written by an outside consortium — over a complete archive. <strong>Four records out of fifteen were non-conformant.</strong></p>
+    <p>The cause was <strong>a single character</strong>: the superscript plus of “Na⁺”, an entirely ordinary chemistry notation in a diagnostics file. The embedded font did not draw it, and the file fell back on a glyph the format forbids. Two consequences, neither visible from the inside: the document carried metadata asserting a conformance it did not have, and the reader saw an empty box where the record says “Na⁺”.</p>
+    <p>Our own check saw nothing, and that was predictable: <strong>written by the author of the code, it shares exactly its blind spots.</strong> What one did not think to produce, one does not think to look for either. That is the argument for third-party audit, and it holds for a software vendor just as it does for a manufacturer.</p>
+    <p>What remains: the reference validator now runs at every release, over a document built to defeat it. And the harness carries a <strong>deliberately non-conformant witness</strong> — if the validator lets the witness through, no other result of that run is retained. “Fifteen conformant files” means nothing coming from a tool that can no longer say no.</p>
+  </div>
+</section>
+
 <section class="section section-tint">
   <div class="container">
     <h2>What remains of it</h2>
