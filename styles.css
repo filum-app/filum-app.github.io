@@ -133,6 +133,11 @@ a { color: inherit; text-decoration: none; }
 .nav-links { display: flex; gap: 22px; margin-left: auto; }
 .nav-links a { color: #CBD5E1; font-size: 14.5px; font-weight: 500; transition: color .15s; }
 .nav-links a:hover { color: #fff; }
+/* Un bouton posé dans .nav-links héritait de la couleur des LIENS (#CBD5E1) : la règle
+   est plus spécifique que .btn-primary, et lui reprenait son blanc — contraste sous le
+   seuil AA sur le bout violet du dégradé. Les boutons vivent désormais dans .nav-right,
+   mais la garde reste : elle coûte une ligne et referme le piège pour de bon. */
+.nav-links a.btn { color: inherit; }
 
 /* Bascule de langue : discrète, mais toujours visible — y compris sur mobile, où le reste
    de la navigation disparaît. Un lecteur anglophone ne doit jamais avoir à la chercher. */
@@ -152,6 +157,14 @@ a { color: inherit; text-decoration: none; }
   .nav-links { display: none; }
   .nav-inner { justify-content: space-between; }
   .nav-right { margin-left: auto; }
+  /* TROIS ÉLÉMENTS NE TIENNENT PAS DANS CETTE BARRE. Depuis que « Essayer la démo » s'y
+     ajoute, la mesure donne un débordement de +48 px à 861 et +37 à 360 — et la barre étant
+     en position fixe, aucune barre de défilement n'apparaît pour aller chercher ce qui est
+     sorti. Le bouton poussé dehors était « Demander une démo », c'est-à-dire l'appel
+     principal du site.
+     On n'en garde donc qu'un sur petit écran, et c'est « Essayer la démo » : la page vers
+     laquelle il mène porte elle-même de quoi nous écrire. */
+  .nav-right .btn-demo ~ .btn-primary { display: none; }
 }
 
 /* ─── Héros ─── */
@@ -468,7 +481,14 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Tableau positionnement ─── */
 .table-wrap { margin-top: 40px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
-table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 680px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+/* LA LARGEUR MINIMALE APPARTIENT AU TABLEAU COMPARATIF, PAS À TOUTES LES TABLES.
+   Posée sur le sélecteur générique, elle s'appliquait aussi à la table des identifiants de
+   la page de démonstration — qui, elle, n'a pas d'enveloppe .table-wrap en overflow-x.
+   Mesuré à 390 px : la page débordait de 339 px et la colonne « Rôle » commençait à x=371,
+   hors écran. L'accommodation mobile plus bas (masquage de la 3e colonne) était écrite et
+   sans effet : la largeur minimale l'annulait. */
+.table-wrap table { min-width: 680px; }
 th, td { padding: 15px 18px; font-size: 14px; text-align: center; border-bottom: 1px solid var(--line); }
 th:first-child, td:first-child { text-align: left; }
 thead th { background: var(--dark2); color: #fff; font-weight: 600; font-size: 13px; }
