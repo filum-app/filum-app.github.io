@@ -1,0 +1,92 @@
+# Déploiement du site vitrine par GitHub Actions.
+#
+# POURQUOI REMPLACER LE CONSTRUCTEUR HISTORIQUE. Le déploiement Pages « legacy » se
+# déclenche tout seul à la poussée et ne rend qu'un verdict : « built » ou « errored ».
+# Le 6 août 2026, trois builds consécutifs ont échoué avec « Page build failed », durée 0,
+# sans une ligne de journal — alors qu'aucun fichier n'avait été ajouté ni supprimé depuis
+# le dernier build réussi, que .nojekyll était en place, et que GitHub annonçait Pages
+# opérationnel. Le site est resté figé sur une version périmée, et il n'y avait rien à
+# lire pour comprendre pourquoi.
+#
+# Un déploiement qu'on ne peut pas diagnostiquer n'est pas un déploiement, c'est un pari.
+# Ce workflow fait le même travail — publier le contenu du dépôt tel quel — mais chaque
+# étape écrit son journal, et un échec désigne sa cause.
+#
+# CE QU'IL NE FAIT PAS. Aucune construction, aucune transformation : le site est déjà
+# généré dans C:\Dev\filum par « npx tsx scripts/build-site.ts », vérifié par la QA et
+# l'audit de fraîcheur, puis recopié ici. Ajouter une étape de génération ici dupliquerait
+# cette chaîne et ferait diverger les deux.
+
+name: deploiement
+
+on:
+  push:
+    branches: [main]
+  # Relance à la demande, sans avoir à fabriquer un commit pour reconstruire.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  # Exigé par actions/deploy-pages : le déploiement s'authentifie auprès de Pages par un
+  # jeton OIDC de courte durée, jamais par un secret stocké dans le dépôt.
+  id-token: write
+
+# Un seul déploiement à la fois. « cancel-in-progress: false » : une publication déjà
+# lancée va à son terme plutôt que d'être coupée en deux par la poussée suivante — un site
+# à moitié déployé est pire qu'un site en retard d'une minute.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v5
+
+      - name: Compter ce qui part
+        # Le journal doit dire ce qui a été publié, pas seulement que ça l'a été. Un site
+        # amputé de ses documents se déploierait sans erreur : ce relevé le montrerait.
+        run: |
+          echo "pages HTML : $(find . -name '*.html' -not -path './.git/*' | wc -l)"
+          echo "documents  : $(find ./docs -name '*.docx' 2>/dev/null | wc -l)"
+          echo "captures   : $(find . -name '*.png' -not -path './.git/*' | wc -l)"
+          echo "poids total: $(du -sh --exclude=.git . | cut -f1)"
+          test -f .nojekyll || { echo "::error::.nojekyll absent — Pages tenterait de traiter le site avec Jekyll"; exit 1; }
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empaqueter le site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      # CE QU'ON A APPRIS LE 6 AOÛT 2026, ET QUI VAUT D'ÊTRE ÉCRIT ICI.
+      #
+      # L'empaquetage réussit toujours : 26,3 Mo envoyés en quelques secondes, l'artefact
+      # est accepté. C'est la PUBLICATION côté GitHub qui reste « in_progress » et ne rend
+      # jamais la main. L'action attend, puis abandonne et ANNULE le déploiement.
+      #
+      # Passer « timeout: 1800000 » ne sert à rien : l'action reçoit bien la valeur — le
+      # journal la montre — mais la plafonne en interne à dix minutes. Un réglage sans
+      # effet dans un dépôt vaut moins que pas de réglage : il fait croire au lecteur
+      # suivant que la question est traitée. Il est donc retiré.
+      #
+      # Le même site se publiait en moins d'une minute le matin même, trois fois de suite.
+      # Ce n'est ni sa taille ni son contenu : c'est le service qui s'est dégradé pour ce
+      # dépôt en début d'après-midi. Ce qu'apporte ce workflow, ce n'est pas de corriger
+      # ça — on ne corrige pas le service de quelqu'un d'autre — c'est de POUVOIR LE DIRE,
+      # là où le constructeur historique répondait « Page build failed », durée 0.
+      #
+      # Si l'échec persiste : relancer par « workflow_dispatch » plus tard. Ne PAS forcer
+      # plusieurs reconstructions d'affilée — chacune annule celle qui est encore en cours,
+      # et c'est ce cercle qui a tenu le site figé toute une après-midi.
+      - name: Déployer
+        id: deploiement
+        uses: actions/deploy-pages@v4
