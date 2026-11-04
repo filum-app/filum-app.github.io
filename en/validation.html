@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filum validated itself — and found seven defects</title>
-  <meta name="description" content="The vendor of Filum executed on its own software the installation qualification protocol it hands to its customers. The 7 defects found, what they would have cost, and what was done." />
+  <title>We executed our own protocol. It found seven defects.</title>
+  <meta name="description" content="The vendor of Filum executed on its own software the installation qualification protocol it wrote. The 7 defects found, what they would have cost, and what was done." />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/validation.html" />
@@ -23,7 +23,6 @@
     </a>
     <div class="nav-links">
       <a href="index.html">Back to the site</a>
-      <a href="validation-continue.html">Continuous validation</a>
       <a href="ia.html">AI position</a>
     </div>
     <div class="nav-right">
@@ -38,12 +37,10 @@
   <div class="container">
     <span class="cas-surtitre">Case study — the vendor on its own product</span>
     <h1>We executed our own protocol. It found seven defects.</h1>
-    <p class="cas-chapo">Filum ships with an installation qualification protocol: thirteen steps the customer's IT team runs and signs. Most vendors write it. We <strong>executed</strong> it, on a real installation, from loading the image through restoring a backup. Here is what it found — and why that is good news.</p>
+    <p class="cas-chapo">We wrote an installation qualification protocol for Filum: thirteen steps an IT team runs and signs. Most vendors write it. We <strong>executed</strong> it, on a real installation, from loading the image through restoring a backup. Here is what it found — and why that is good news.</p>
     <div class="cas-chiffres">
       <div class="cas-chiffre"><b>13/13</b><span>steps executed</span></div>
       <div class="cas-chiffre"><b>7</b><span>defects found, all closed</span></div>
-      <div class="cas-chiffre"><b>46</b><span>qualification cases, 0 deviation</span></div>
-      <div class="cas-chiffre"><b>49</b><span>validation requirements</span></div>
     </div>
   </div>
 </section>
@@ -51,14 +48,14 @@
 <section class="section">
   <div class="container">
     <h2>What the procedure found</h2>
-    <p class="lead">Each line gives the step that surfaced the defect, what it would have cost the customer, and what was done. None would have been found without running the procedure: neither code checking, nor the application build, nor the qualification cases ran inside the delivered container at the time.</p>
+    <p class="lead">Each line gives the step that surfaced the defect, what it would have cost a user, and what was done. None would have been found without running the procedure: neither code checking, nor the application build, nor the qualification cases ran inside the container at the time.</p>
     
       <article class="defaut">
         <div class="defaut-etape">IQ-04</div>
         <div class="defaut-corps">
-          <h3>The delivered image could not start</h3>
-          <p class="defaut-conseq">The installation stopped at the first technical step, in front of the customer's IT provider, on go-live day. No upstream check could have caught it: they all run outside the container.</p>
-          <p class="defaut-trait"><strong>Resolution</strong> — Dependencies completed, and a check that now fails the BUILD rather than the start-up: the error can no longer travel as far as the customer.</p>
+          <h3>The Docker image could not start</h3>
+          <p class="defaut-conseq">The installation would have stopped at the first technical step, in front of the IT provider, on go-live day. No upstream check could have caught it: they all ran outside the container.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Dependencies completed, and a check that now fails the BUILD rather than the start-up.</p>
         </div>
       </article>
       <article class="defaut">
@@ -66,7 +63,7 @@
         <div class="defaut-corps">
           <h3>The container announced a version that was not its own</h3>
           <p class="defaut-conseq">The start-up log — kept by the IT provider as installation evidence — said 1.0.0 while the screen displayed 1.2.0. Two numbers for one installation, in a file that must tie every record to the version that produced it.</p>
-          <p class="defaut-trait"><strong>Resolution</strong> — A single source, no fallback value left. And the protocol now makes it a check: record the version in the log, compare it with the screen.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — A single source. And the protocol now makes it a check: record the version in the log, compare it with the screen.</p>
         </div>
       </article>
       <article class="defaut">
@@ -90,7 +87,7 @@
         <div class="defaut-corps">
           <h3>The delivery check step could not be executed</h3>
           <p class="defaut-conseq">The protocol asked to compare the digest of the archive received with the one communicated by the vendor. Neither the archive nor the digest existed, and the step skipped the only check that catches a delivery altered in transit.</p>
-          <p class="defaut-trait"><strong>Resolution</strong> — Delivery archive produced with two digests verifiable without Docker, and the step now requires both: the archive's before loading, the image's after.</p>
+          <p class="defaut-trait"><strong>Resolution</strong> — Delivery archive produced with two digests, and the step now requires both: the archive's before loading and without Docker, the image's after.</p>
         </div>
       </article>
       <article class="defaut">
@@ -105,7 +102,7 @@
         <div class="defaut-etape">—</div>
         <div class="defaut-corps">
           <h3>The installation guide described a delivery that did not exist</h3>
-          <p class="defaut-conseq">The guide had the reader load a file with an invented name and asked for no digest check before loading. The customer would have followed a procedure impossible from its very first line.</p>
+          <p class="defaut-conseq">The guide had the reader load a file with an invented name and asked for no digest check before loading. A user would have followed a procedure impossible from its very first line.</p>
           <p class="defaut-trait"><strong>Resolution</strong> — Section rewritten on the real delivery, digest check included, with the warning never to rebuild the image in order to check it.</p>
         </div>
       </article>
@@ -114,12 +111,12 @@
 
 <section class="section">
   <div class="container">
-    <h2>And four days later, a third party found two more</h2>
-    <p class="lead">The seven above come from our protocol. The two that follow come from someone else — and that is precisely the point.</p>
-    <p>The archival copies of frozen records are produced in PDF/A, the format meant to guarantee a document still opens in ten years. We had written our own conformance check at the same time, and it had been declaring those files conformant.</p>
-    <p>On 9 August 2026 we ran veraPDF — the reference implementation, written by an outside consortium — over a complete archive. <strong>Four records out of fifteen were non-conformant.</strong></p>
+    <h2>And four days later, an outside tool found two more</h2>
+    <p class="lead">The seven above come from our protocol. The two that follow come from a tool we did not write — and that is precisely the point.</p>
+    <p>Alongside each frozen .docx, the only authoritative file, the archive includes a summary of the dossier in PDF/A, the format designed so a document can still be read in ten years. It carries the .docx digests, but it is built at extraction: if the dossier has changed since the freeze, it can differ from the .docx. We had written our own conformance check at the same time, and it had been declaring those files conformant.</p>
+    <p>On 9 August 2026 we ran veraPDF — the reference implementation, written by an outside consortium — over a complete archive. <strong>Four files out of fifteen were non-conformant.</strong></p>
     <p>The cause was <strong>a single character</strong>: the superscript plus of “Na⁺”, an entirely ordinary chemistry notation in a diagnostics file. The embedded font did not draw it, and the file fell back on a glyph the format forbids. Two consequences, neither visible from the inside: the document carried metadata asserting a conformance it did not have, and the reader saw an empty box where the record says “Na⁺”.</p>
-    <p>Our own check saw nothing, and that was predictable: <strong>written by the author of the code, it shares exactly its blind spots.</strong> What one did not think to produce, one does not think to look for either. That is the argument for third-party audit, and it holds for a software vendor just as it does for a manufacturer.</p>
+    <p>Our own check saw nothing, and that was predictable: <strong>written by the author of the code, it shares exactly its blind spots.</strong> What one did not think to produce, one does not think to look for either. That is the argument for an outside check, and it holds for a software vendor just as it does for a manufacturer.</p>
     <p>What remains: the reference validator now runs at every release, over a document built to defeat it. And the harness carries a <strong>deliberately non-conformant witness</strong> — if the validator lets the witness through, no other result of that run is retained. “Fifteen conformant files” means nothing coming from a tool that can no longer say no.</p>
   </div>
 </section>
@@ -127,23 +124,23 @@
 <section class="section section-tint">
   <div class="container">
     <h2>What remains of it</h2>
-    <p class="lead">Fixing seven defects would be worth little if the eighth had to wait for the next customer. What the exercise mainly left behind is checks.</p>
+    <p class="lead">Fixing seven defects would be worth little if the eighth had to wait for the next installation. What the exercise mainly left behind is checks.</p>
     <ul class="cas-acquis">
-      <li>A qualification case that starts the delivered image, reads its log and checks that no data is served without a session — the blind spot is covered, not merely patched.</li>
-      <li>A check that regenerates the published documents and compares their text: none can any longer describe a product it no longer describes without that showing.</li>
-      <li>A check that says whether the delivered archive still describes the repository — and refuses to republish a version number already handed to a customer.</li>
-      <li>All of it replayed on every change to the code, with no human action.</li>
+      <li>A qualification case that starts the Docker image, reads its log and checks that no data is served without a session — the blind spot is covered, not merely patched.</li>
+      <li>A check that regenerates the documents from their sources and compares their text with the copy kept in the code repository. It does not read the public site.</li>
+      <li>A check, to be run by hand, that says whether the latest release archive still matches the code.</li>
+      <li>The first two are replayed on every push to the main branch.</li>
     </ul>
-    <p style="margin-top:22px">The execution is recorded in a dated and signed record whose digest is frozen. It is provided on request.</p>
-    <p class="section-note">The validation file and the IQ protocol were <strong>withdrawn on 2 October 2026</strong>: an internal audit found statements in them that the code did not uphold. Their corrected editions will ship with version 1.3.0.</p>
+    <p style="margin-top:22px">The execution is recorded in a dated and signed record whose digest is frozen.</p>
+    <p class="section-note">The validation file and the IQ protocol were <strong>withdrawn on 2 October 2026</strong>: an internal audit found statements in them that the code did not uphold. Their corrected editions will ship with version 1.3.0. The execution told on this page covers version 1.2.0, on 4 and 5 August 2026.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container container-lecture">
     <h2>Why we are telling this</h2>
-    <p>A supplier claiming to have no defects is mostly claiming to have looked for none. What you can ask a vendor for is not an absence of defects: it is that they ran their own procedure, that they say what they found, and that they show you what stops the next one from getting through.</p>
-    <p>It is also the reason the product exists. Filum does not promise your files will be perfect: it makes sure a discrepancy shows while you can still deal with it, rather than in front of an auditor.</p>
+    <p>A supplier claiming to have no defects is mostly claiming to have looked for none. What you can ask a vendor for is not an absence of defects: it is that they ran their own procedure, and that they say what they found and what they changed.</p>
+    <p>It is also the reason the product exists. Filum does not promise your files will be perfect: it makes sure a gap in the file shows while you can still deal with it, rather than in front of an auditor.</p>
     <p style="margin-top:26px">
       <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=Filum%20demonstration">Request a demonstration</a>
       <a class="btn btn-light" href="index.html" style="margin-left:10px">Discover Filum</a>
@@ -160,7 +157,8 @@
       <span class="brand-name">Filum</span>
     </div>
     <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
-    <p class="footer-legal">© 2026 Filum — Kevin Garau. The defects described are those recorded in the signed execution record.</p>
+    <p class="footer-legal">© 2026 Filum — Kevin Garau. The seven IQ defects are those recorded in the signed execution record.</p>
+    <p class="footer-legal">Personal project, with no customers or pilots: code written by an AI programming assistant, under the direction of Kevin Garau.</p>
     <p class="footer-legal"><a href="legal.html">Legal notice and privacy</a></p>
   </div>
 </footer>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filum — Du besoin à la preuve, sans rupture</title>
-  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Piste d'audit chaînée, archive d'inspection vérifiable sans le logiciel, pack de validation IQ/OQ remis avec. Conçu pour la R&amp;D de dispositifs médicaux." />
+  <meta name="description" content="Filum relie besoins, exigences, essais, risques et preuves dans un graphe de traçabilité vivant — et génère NDR, DHF, rapport de gestion des risques et rapports CAPA à la demande. Risques ISO 14971, validation de méthodes CLSI et NC/CAPA sur le même fil. Piste d'audit chaînée, archive d'inspection vérifiable sans le logiciel. Conçu pour la R&amp;D de dispositifs médicaux." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="alternate" hreflang="fr" href="https://filum-app.github.io/" />
@@ -52,6 +52,7 @@
       <a class="btn btn-primary" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démonstration</a>
       <a class="btn btn-ghost" href="#graphe">Découvrir le fil ↓</a>
     </div>
+    <p class="hero-note reveal d3">Projet personnel, sans client ni pilote : code écrit par un assistant de programmation à intelligence artificielle, sous la direction de Kevin Garau.</p>
 
     <!-- Le fil animé -->
     <div class="hero-thread reveal d4" aria-hidden="true">
@@ -163,7 +164,7 @@
 <section class="section" id="produit">
   <div class="container">
     <p class="kicker reveal">Le socle</p>
-    <h2 class="reveal d1">Visite guidée, sur données réelles.</h2>
+    <h2 class="reveal d1">Visite guidée, sur données fictives.</h2>
     <p class="section-sub reveal d2">Toutes les captures proviennent de l'application en fonctionnement — aucun montage. Deux programmes de démonstration : OD-300 « Orthodrive » (perceuse chirurgicale) et NovaLyte NL-100 (analyseur d'électrolytes, diagnostic in vitro), dont viennent les écrans de validation analytique.</p>
 
     <div class="tour reveal d3">
@@ -189,16 +190,16 @@
         <button class="ttab" data-shot="normes" data-caption="ISO 13485, MDR, ISO 14971, IEC 62304, 61010, 61326, 62366… des références liables aux exigences. Métadonnées seulement — le texte reste dans vos copies achetées.">
           <strong>Bibliothèque de normes</strong><span>IEC 61010, 61326, 62366…</span>
         </button>
-        <button class="ttab" data-shot="import" data-caption="Votre dossier existant entre depuis un fichier CSV. Les liens se résolvent avec VOS codes. Aperçu à blanc avant toute écriture : ce qui serait créé, mis à jour, rejeté — et pourquoi, ligne par ligne.">
+        <button class="ttab" data-shot="import" data-caption="Votre dossier existant entre depuis un classeur Excel, un document Word ou un fichier CSV. Les liens se résolvent avec VOS codes. Aperçu à blanc avant toute écriture : ce qui serait créé, mis à jour, rejeté — et pourquoi, ligne par ligne.">
           <strong>Reprise de données</strong><span>Sans ressaisir 400 exigences</span>
         </button>
-        <button class="ttab" data-shot="signature" data-caption="Le mot de passe est redemandé à chaque signature (21 CFR 11.200(a)(1)). La manifestation porte le nom imprimé figé, la signification, l'horodatage UTC (11.50) et l'empreinte du contenu attesté (11.70). Un échec est journalisé et compte dans le verrouillage du compte.">
+        <button class="ttab" data-shot="signature" data-caption="Le mot de passe est redemandé à chaque signature (21 CFR 11.200(a)(1)). Sur un document, la manifestation porte le nom imprimé figé, la signification, l'horodatage UTC (11.50) et l'empreinte du contenu attesté (11.70). Un échec est journalisé et compte dans le verrouillage du compte.">
           <strong>Signature électronique</strong><span>Deux composants, à chaque fois</span>
         </button>
         <button class="ttab" data-shot="audit" data-caption="Chaque entrée porte l'empreinte de la précédente : le bandeau vérifie la chaîne à chaque affichage et nommerait le rang d'une rupture. Écritures, signatures, gels de contenu, générations et connexions — attribuées, horodatées, en append seul (ALCOA+), avec une annulation ciblée pour corriger sans jamais effacer.">
-          <strong>Journal d'audit chaîné</strong><span>Une altération se voit, et se situe</span>
+          <strong>Journal d'audit chaîné</strong><span>Une rupture se voit, et se situe</span>
         </button>
-        <button class="ttab" data-shot="retention" data-caption="Vous déclarez votre durée de conservation, ce qui la fonde et la référence de votre procédure — Filum n'impose aucune doctrine et ne purge jamais. Une conservation légale bloque toute suppression. L'archive d'inspection produit un dossier vérifiable hors Filum, dont l'ancre peut être contresignée par une autorité d'horodatage RFC 3161.">
+        <button class="ttab" data-shot="retention" data-caption="Vous déclarez votre durée de conservation, ce qui la fonde et la référence de votre procédure — Filum n'impose aucune doctrine et n'applique aucune purge à l'échéance. L'archive d'inspection produit un dossier vérifiable hors Filum, dont l'ancre peut être contresignée par une autorité d'horodatage RFC 3161.">
           <strong>Rétention &amp; archive</strong><span>Vérifiable sans le logiciel</span>
         </button>
       </div>
@@ -211,16 +212,6 @@
         <p class="tour-hint">Cliquez sur l'image pour l'agrandir</p>
       </figure>
     </div>
-
-    <div class="telechargements telechargements-un reveal d3">
-      <a class="dl" href="docs/Manuel_utilisateur_Filum.docx" download>
-        <span class="dl-ico" aria-hidden="true">↓</span>
-        <span class="dl-txt">
-          <strong>Le manuel utilisateur, en entier</strong>
-          <em>21 chapitres, captures réelles, dont le périmètre — 6 Mo, sans formulaire</em>
-        </span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -229,22 +220,22 @@
   <div class="container">
     <p class="kicker reveal">Les modules</p>
     <h2 class="reveal d1">Trois modules. <span class="grad">Un seul graphe.</span></h2>
-    <p class="section-sub reveal d2">Risques, validation de méthodes et CAPA ne sont pas des annexes : ils vivent sur le même fil que vos exigences — et se vérifient les uns les autres.</p>
+    <p class="section-sub reveal d2">Risques, validation de méthodes et CAPA ne sont pas des annexes : ils vivent sur le même fil que vos exigences.</p>
 
     <!-- Module 1 : ISO 14971 -->
     <div class="module-row reveal">
       <figure class="module-figure">
         <div class="browser-frame">
           <div class="browser-bar"><span></span><span></span><span></span><em>filum — gestion des risques</em></div>
-          <img src="assets/risques.png" alt="Le module ISO 14971 de Filum : matrices 5×5 initiale et résiduelle, registre FMEA avec maîtrises vérifiées par le graphe" />
+          <img src="assets/risques.png" alt="Le module ISO 14971 de Filum : matrices 5×5 initiale et résiduelle, registre FMEA avec maîtrises reliées au graphe" />
         </div>
       </figure>
       <div class="module-text">
         <span class="module-badge badge-amber">ISO 14971</span>
-        <h3>Gestion des risques, vérifiée par le graphe</h3>
-        <p>Registre FMEA (danger → situation dangereuse → dommage), matrice 5×5 avec zones Acceptable / ALARP / Inacceptable, risque initial face au résiduel. Et surtout : une maîtrise n'est « vérifiée » que lorsque les spécifications et essais qui la portent sont clos favorablement — une preuve du graphe, pas une case cochée.</p>
+        <h3>Gestion des risques, reliée au graphe</h3>
+        <p>Registre FMEA (danger → situation dangereuse → dommage), matrice 5×5 avec zones Acceptable / ALARP / Inacceptable, risque initial face au résiduel. Une maîtrise se rattache aux spécifications et aux essais qui la portent.</p>
         <ul class="module-points">
-          <li>Maîtrises vérifiées par les essais liés — jamais par une case à cocher</li>
+          <li>Maîtrises rattachées aux essais qui les vérifient</li>
           <li>Matrice 5×5 gravité × probabilité (+ détectabilité), bibliothèque de dangers</li>
           <li>Rapport de gestion des risques (RMF) généré en .docx</li>
         </ul>
@@ -263,13 +254,13 @@
       <div class="module-text">
         <span class="module-badge badge-indigo">CLSI EP</span>
         <h3>Validation de méthodes IVD, statistiques incluses</h3>
-        <p>Importez le CSV du banc : le moteur statistique intégré déroule les protocoles CLSI — EP05 précision (ANOVA), EP06 linéarité, EP09 comparaison de méthodes (Bland-Altman, Passing-Bablok), EP17 LoB/LoD/LoQ, EP25 stabilité, EP26 lot-à-lot — et rend un verdict Conforme / Non conforme sur critère a priori. L'étude vérifie une spécification : la preuve tombe dans la matrice.</p>
+        <p>Importez le CSV du banc : le moteur statistique intégré déroule les protocoles CLSI — EP05 précision (ANOVA), EP06 linéarité, EP09 comparaison de méthodes (Bland-Altman, Passing-Bablok), EP17 LoB/LoD/LoQ, EP25 stabilité, EP26 lot-à-lot — et rend un verdict Conforme, Non conforme ou Non concluant. L'étude vérifie une spécification : la preuve tombe dans la matrice.</p>
         <ul class="module-points">
           <li>6 protocoles CLSI, statistiques et graphiques calculés en interne</li>
-          <li>Verdict Conforme / Non conforme automatique — pas d'Excel à côté</li>
+          <li>Verdict automatique — pas d'Excel à côté</li>
           <li>Chaque étude verse sa preuve dans la matrice de traçabilité</li>
         </ul>
-        <p class="module-case">Sur NovaLyte : 6 spécifications, 6 études STU-1 à STU-6 — 5 conformes, 1 échec lot-à-lot (EP26) visible immédiatement.</p>
+        <p class="module-case">Sur NovaLyte : 6 spécifications, 6 études STU-1 à STU-6, chacune reliée à sa spécification.</p>
       </div>
     </div>
 
@@ -283,14 +274,13 @@
       </figure>
       <div class="module-text">
         <span class="module-badge badge-emerald">ISO 13485 §8.3 / §8.5</span>
-        <h3>NC &amp; CAPA nées du graphe, refermées par lui</h3>
-        <p>Un essai en échec, une spécification NOK, un risque inacceptable : la non-conformité naît du graphe, avec sa disposition signée. L'escalade CAPA se justifie sur le risque, et le cycle est verrouillé — pas de plan d'actions sans cause racine, pas de clôture sans vérification d'efficacité prouvée par un essai repassé Pass, contrôlée par un vérificateur indépendant.</p>
+        <h3>NC &amp; CAPA nées du graphe</h3>
+        <p>Depuis un essai ou une étude en échec, un bouton ouvre la non-conformité reliée au graphe ; sa disposition se signe ensuite. L'escalade CAPA se justifie sur le risque, et le cycle suit des étapes ordonnées — pas de plan d'actions sans cause racine, et une étape de vérification d'efficacité avant la clôture.</p>
         <ul class="module-points">
-          <li>Cycle verrouillé : Ouverte → Investigation → Plan → Mise en œuvre → Vérification → Clôture</li>
-          <li>Efficacité prouvée par le graphe : critère a priori + essai re-vérifié Pass</li>
-          <li>Rétroaction automatique à la clôture : spéc NOK reverdie, NC fermées, risque ré-évalué</li>
+          <li>Cycle en étapes : Ouverte → Investigation → Plan → Mise en œuvre → Vérification → Clôture</li>
+          <li>Passage en vérification seulement quand toutes les actions sont réalisées ou annulées</li>
         </ul>
-        <p class="module-case">Sur OD-300 : l'essai VER-3 en échec a donné lieu à NC-1, escaladée en CAPA-1 (cause racine : élastomère de joint inadapté) — clôturée EFFICACE, SPEC-5 repassée NOK → OK automatiquement.</p>
+        <p class="module-case">Sur OD-300 : l'essai VER-3 en échec a donné lieu à NC-1, escaladée en CAPA-1 (cause racine : élastomère de joint inadapté), clôturée EFFICACE.</p>
       </div>
     </div>
   </div>
@@ -303,7 +293,7 @@
     <h2 class="reveal d1">L'IA propose. <span class="grad">L'humain valide et signe.</span></h2>
     <div class="cards-4">
       <div class="gcard reveal"><span class="gnum n1">1</span><h3>Origine tracée</h3><p>Chaque texte porte un badge « Origine : IA » avec le modèle utilisé. Rien d'anonyme.</p></div>
-      <div class="gcard reveal d1"><span class="gnum n2">2</span><h3>Sources citées</h3><p>L'IA rédige uniquement depuis le graphe et cite chaque affirmation : [REQ-3001], [SPEC-5]…</p></div>
+      <div class="gcard reveal d1"><span class="gnum n2">2</span><h3>Sources citées</h3><p>L'IA a pour consigne de rédiger uniquement depuis le graphe et de citer chaque affirmation : [REQ-3001], [SPEC-5]…</p></div>
       <div class="gcard reveal d2"><span class="gnum n3">3</span><h3>Validation humaine</h3><p>Un brouillon n'entre dans un document qu'après validation explicite, nominative et horodatée.</p></div>
       <div class="gcard reveal d3"><span class="gnum n4">4</span><h3>Zéro décision réglementaire</h3><p>L'IA constate l'état des données. La décision — et la signature — restent humaines.</p></div>
     </div>
@@ -314,12 +304,12 @@
 <section class="section section-dark" id="conformite">
   <div class="container">
     <p class="kicker reveal">Conformité du logiciel lui-même</p>
-    <h2 class="reveal d1">Audit-ready, <span class="grad">et vérifiable sans nous.</span></h2>
+    <h2 class="reveal d1">Vérifiable <span class="grad">sans nous.</span></h2>
     <p class="section-sub reveal d2">Un logiciel de conformité qui demande qu'on le croie sur parole ne vaut rien. Chacun des mécanismes ci-dessous se contrôle par un tiers — souvent sans même ouvrir Filum.</p>
     <div class="cards-3">
       <div class="ccard reveal">
         <h3>Piste d'audit chaînée</h3>
-        <p>Chaque entrée porte l'empreinte de la précédente. Modifier ou supprimer une ligne directement dans la base rompt le maillon de toutes les suivantes, et la vérification dit <em>à quel rang</em>. Le chaînage détecte, il n'empêche pas — c'est écrit tel quel dans l'écran.</p>
+        <p>Chaque entrée porte l'empreinte de la précédente. Modifier une ligne directement dans la base, ou supprimer une ligne qui en a d'autres après elle, crée une rupture, et la vérification dit <em>à quel rang</em>. Ce contrôle a ses limites : qui écrit dans la base peut recalculer la chaîne, et les dernières lignes de la piste peuvent être supprimées sans rupture. La comparaison avec une archive antérieure peut alors le montrer, pour ce que cette archive couvre. Le chaînage détecte, il n'empêche pas — c'est écrit tel quel dans l'écran.</p>
       </div>
       <div class="ccard reveal d1">
         <h3>Archive d'inspection vérifiable hors Filum</h3>
@@ -327,11 +317,11 @@
       </div>
       <div class="ccard reveal d2">
         <h3>Horodatage par un tiers</h3>
-        <p>L'ancre de l'archive est contresignée par l'autorité d'horodatage RFC 3161 que <strong>vous</strong> désignez. Une chaîne recalculée après coup ne redonnera pas la tête horodatée : l'altération passe de détectable à indéniable.</p>
+        <p>L'ancre de l'archive est contresignée par l'autorité d'horodatage RFC 3161 que <strong>vous</strong> désignez. Une chaîne recalculée après coup ne redonnera pas la tête horodatée. Le jeton se vérifie hors de Filum avec <code>openssl ts -verify</code> : Filum n'en contrôle pas lui-même la signature.</p>
       </div>
       <div class="ccard reveal">
-        <h3>Rétention déclarée, conservation légale</h3>
-        <p>Filum ne supprime jamais un enregistrement figé et n'applique aucune purge à l'échéance. Vous déclarez votre durée, ce qui la fonde et la référence de votre procédure. Une conservation légale bloque toute suppression, motif écrit obligatoire.</p>
+        <h3>Rétention déclarée</h3>
+        <p>Filum n'applique aucune purge à l'échéance. Vous déclarez votre durée, ce qui la fonde et la référence de votre procédure.</p>
       </div>
       <div class="ccard reveal d1">
         <h3>Personne ne pose le mot de passe d'un autre</h3>
@@ -343,38 +333,10 @@
       </div>
     </div>
 
-    <div class="proof reveal d2">
-      <div class="proof-num"><strong>46</strong><span>cas de qualification opérationnelle exécutés</span></div>
-      <div class="proof-num"><strong>0</strong><span>écart au dernier passage</span></div>
-      <div class="proof-num"><strong>49</strong><span>exigences de validation, chacune tracée à sa clause</span></div>
-    </div>
-
     <div class="honesty reveal d3">
       <h3>Ce que nous n'écrivons jamais : « conforme 21 CFR Part 11 ».</h3>
-      <p>La certification du §11.100(c) engage l'entité juridique dont les collaborateurs signent, par lettre manuscrite adressée à la FDA. Aucun éditeur de logiciel ne peut la porter à votre place, et celui qui le prétend vous vend un risque.</p>
-      <p>Ce que nous livrons, en revanche : une <strong>matrice clause par clause</strong> en trois colonnes — ce que fait le logiciel, ce qui reste à votre charge, ce qui est hors périmètre, points ouverts nommés compris ; une <strong>note d'intégrité des données</strong> avec un protocole que votre auditeur peut jouer pour la <em>falsifier</em> ; et un <strong>pack de validation</strong> : protocole IQ, dossier de validation, exigences et cas de test exécutables dans votre environnement.</p>
-      <div class="telechargements telechargements-sombre">
-        <a class="dl dl-sombre" href="docs/Matrice_21CFR11_Filum.docx" download>
-          <span class="dl-ico" aria-hidden="true">↓</span>
-          <span class="dl-txt">
-            <strong>La matrice, en entier</strong>
-            <em>26 clauses, 6 points ouverts nommés</em>
-          </span>
-        </a>
-        <a class="dl dl-sombre" href="docs/Note_Annexe11_Filum.docx" download>
-          <span class="dl-ico" aria-hidden="true">↓</span>
-          <span class="dl-txt">
-            <strong>La note de correspondance Annexe 11</strong>
-            <em>14 chapitres — et pourquoi l'Annexe 11 ne vous vise pas</em>
-          </span>
-        </a>
-        <a class="dl dl-sombre" href="docs/Note_integrite_des_donnees_Filum.docx" download>
-          <span class="dl-ico" aria-hidden="true">↓</span>
-          <span class="dl-txt">
-            <strong>La note d'intégrité des données</strong>
-            <em>11 mécanismes, et le protocole pour les falsifier</em>
-          </span>
-        </a>
+      <p>La certification du §11.100(c) engage l'entité juridique dont les collaborateurs signent, par une lettre à signature manuscrite adressée à la FDA. Aucun éditeur de logiciel ne peut la porter à votre place, et celui qui le prétend vous vend un risque.</p>
+      <div class="telechargements telechargements-sombre" style="grid-template-columns:minmax(0,520px)">
         <a class="dl dl-sombre" href="docs/Note_tenue_sous_charge_Filum.docx" download>
           <span class="dl-ico" aria-hidden="true">↓</span>
           <span class="dl-txt">
@@ -384,10 +346,10 @@
         </a>
       </div>
       <p class="section-note reveal d3" style="margin-top:20px">
-        Le dossier de validation, le protocole IQ et la note de rétention ont été <strong>retirés le 2 octobre 2026</strong> : un audit interne y a relevé des affirmations que le code ne tenait pas. Leurs éditions corrigées accompagneront la version 1.3.0.
+        Le dossier de validation, le protocole IQ et la note de rétention ont été <strong>retirés le 2 octobre 2026</strong> ; la matrice 21 CFR Part 11, le manuel utilisateur, la note Annexe 11 et la note d'intégrité des données l'ont été le <strong>4 novembre 2026</strong> : un audit interne y a relevé des affirmations que le code ne tenait pas. Leurs éditions corrigées accompagneront la version 1.3.0. L'exécution de notre protocole IQ, les 4 et 5 août 2026 sur la version 1.2.0, reste consignée dans son enregistrement signé.
       </p>
       <p class="section-note reveal d3" style="margin-top:12px">
-        Notre protocole IQ, nous l'avons <strong>exécuté</strong> sur notre propre logiciel. Il a trouvé 7 défauts, tous fermés. <a href="validation.html" style="color:#A5B4FC;font-weight:600">Lire l'étude de cas →</a>  ·  Et ce qui empêche la prochaine de passer : <a href="validation-continue.html" style="color:#A5B4FC;font-weight:600">la validation continue →</a>  ·  Et ce qu'un modèle de langue touche, ou ne touche pas : <a href="ia.html" style="color:#A5B4FC;font-weight:600">notre position sur l'IA →</a>
+        Notre protocole IQ, nous l'avons <strong>exécuté</strong> sur notre propre logiciel. Il a trouvé 7 défauts, tous fermés. <a href="validation.html" style="color:#A5B4FC;font-weight:600">Lire l'étude de cas →</a>  ·  Et ce qu'un modèle de langue touche, ou ne touche pas : <a href="ia.html" style="color:#A5B4FC;font-weight:600">notre position sur l'IA →</a>
       </p>
     </div>
   </div>
@@ -399,7 +361,7 @@
     <p class="kicker reveal">Périmètre</p>
     <h2 class="reveal d1">Ce que Filum fait. <span class="grad">Et ce qu'il ne fait pas.</span></h2>
     <p class="section-sub reveal d2">
-      Une démonstration faite à quelqu'un qui cherchait autre chose coûte deux heures aux deux parties. Autant le dire ici. Aucune ligne de la colonne de droite n'est assortie d'une échéance&nbsp;: nous ne vendons pas ce qui n'existe pas.
+      Une démonstration faite à quelqu'un qui cherchait autre chose coûte deux heures aux deux parties. Autant le dire ici. Aucune ligne de la colonne de droite n'est assortie d'une échéance.
     </p>
 
     <div class="scope reveal d3">
@@ -408,15 +370,15 @@
         <ul>
           <li class="scope-item"><strong>Traçabilité</strong><span>Graphe besoin → exigence → spécification → essai → preuve. Matrice et analyse d'impact générées, jamais périmées.</span></li>
           <li class="scope-item"><strong>Qualité d'énoncé</strong><span>Contrôles déterministes à la frappe, gabarits EARS, reformulation proposée — jamais écrite.</span></li>
-          <li class="scope-item"><strong>Gestion documentaire</strong><span>Brouillon → Revue → Publié, contenu gelé dès la mise en revue. NDR, DHF, RMF, NCR, CAPA générés en .docx.</span></li>
-          <li class="scope-item"><strong>Signature électronique</strong><span>Deux composants à chaque signature, manifestation lisible, empreinte du contenu attesté.</span></li>
-          <li class="scope-item"><strong>Risque ISO 14971</strong><span>FMEA, matrice 5×5, ALARP. Une maîtrise n'est vérifiée que si les essais qui la portent sont clos favorablement.</span></li>
-          <li class="scope-item"><strong>Validation de méthodes IVD</strong><span>Six protocoles CLSI calculés en interne — EP05, 06, 09, 17, 25, 26 — verdict conforme / non conforme automatique.</span></li>
-          <li class="scope-item"><strong>Non-conformités et CAPA</strong><span>Cycles verrouillés. Pas de clôture sans efficacité prouvée par un essai repassé favorable.</span></li>
+          <li class="scope-item"><strong>Gestion documentaire</strong><span>Brouillon → Revue → Publié. À la mise en revue, le contenu est figé dans un fichier dont l'empreinte est conservée. Un écart apparu pendant la revue bloque la publication ; après publication, l'écran peut s'écarter de l'enregistrement signé (statuts, résultats d'essai), sans alerte. NDR, DHF, RMF, NCR, CAPA générés en .docx.</span></li>
+          <li class="scope-item"><strong>Signature électronique</strong><span>Deux composants à chaque signature, manifestation lisible, empreinte du contenu attesté sur les documents et les revues de piste.</span></li>
+          <li class="scope-item"><strong>Risque ISO 14971</strong><span>FMEA, matrice 5×5, ALARP. Une maîtrise se relie aux essais qui la portent.</span></li>
+          <li class="scope-item"><strong>Validation de méthodes IVD</strong><span>Six protocoles CLSI calculés en interne — EP05, 06, 09, 17, 25, 26 — verdict automatique.</span></li>
+          <li class="scope-item"><strong>Non-conformités et CAPA</strong><span>Cycles en étapes, de la détection à la vérification d'efficacité.</span></li>
           <li class="scope-item"><strong>Dossier technique</strong><span>Le paquet qu'un inspecteur demande : index sur 50 éléments réglementaires, statuts déduits du graphe.</span></li>
           <li class="scope-item"><strong>Conformité du logiciel</strong><span>Piste d'audit chaînée ET REVUE, archive vérifiable hors Filum, horodatage RFC 3161, rétention déclarée, conservation légale.</span></li>
-          <li class="scope-item"><strong>Reprise de vos données</strong><span>Vos classeurs Excel et documents Word tels quels, liens résolus par VOS codes, aperçu à blanc obligatoire avant toute écriture.</span></li>
-          <li class="scope-item"><strong>Exploitation</strong><span>Docker auto-hébergé, interface FR / EN, quatre rôles, pack de validation IQ/OQ remis.</span></li>
+          <li class="scope-item"><strong>Reprise de vos données</strong><span>Vos classeurs Excel et documents Word sans conversion préalable, liens résolus par VOS codes, aperçu à blanc obligatoire avant toute écriture.</span></li>
+          <li class="scope-item"><strong>Exploitation</strong><span>Docker auto-hébergé, interface FR / EN, quatre rôles.</span></li>
         </ul>
       </div>
       <div class="scope-col scope-no">
@@ -442,7 +404,7 @@
     </p>
 
     <p class="section-note reveal d3">
-      La note de périmètre développe chaque ligne, énonce les trois choix de conception qui expliquent les absences, et dit ce qui reste à la charge de votre organisation. Elle est faite pour être lue avant de s'engager, pas après. Aucun formulaire, aucune adresse à laisser :
+      La note de périmètre développe chaque ligne, énonce les trois choix de conception qui expliquent les absences, et dit ce qui reste à la charge de votre organisation. Aucun formulaire, aucune adresse à laisser :
     </p>
     <div class="telechargements reveal d3">
       <a class="dl" href="docs/Perimetre_Filum_recto.docx" download>
@@ -463,7 +425,7 @@
         <span class="dl-ico" aria-hidden="true">→</span>
         <span class="dl-txt">
           <strong>Les documents de conformité</strong>
-          <em>matrice Part 11, intégrité, rétention, pack de validation</em>
+          <em>tenue sous charge ; les autres sont retirés jusqu'à la 1.3.0</em>
         </span>
       </a>
     </div>
@@ -478,7 +440,7 @@
     <div class="table-wrap reveal d2">
       <table>
         <thead>
-          <tr><th></th><th>V&amp;V matérielle pilotée par les données d'essai</th><th>Graphe fin exigence&nbsp;→&nbsp;preuve</th><th>Risques &amp; CAPA vérifiés par le graphe</th><th>Dossier auto-compilé (DHF)</th><th>Simplicité &amp; prix PME</th></tr>
+          <tr><th></th><th>V&amp;V matérielle pilotée par les données d'essai</th><th>Graphe fin exigence&nbsp;→&nbsp;preuve</th><th>Risques &amp; CAPA reliés au graphe</th><th>Dossier auto-compilé (DHF)</th><th>Simplicité &amp; prix PME</th></tr>
         </thead>
         <tbody>
           <tr><td>eQMS généralistes <em>(Greenlight Guru, Qualio…)</em></td><td>—</td><td>—</td><td>partiel</td><td>partiel</td><td>—</td></tr>
@@ -495,12 +457,12 @@
 <!-- ═══════════ FAQ ═══════════ -->
 <section class="section section-tint" id="faq">
   <div class="container container-narrow">
-    <p class="kicker reveal">Questions fréquentes</p>
-    <h2 class="reveal d1">Ce qu'on nous demande d'abord.</h2>
+    <p class="kicker reveal">Questions à poser</p>
+    <h2 class="reveal d1">Ce qu'un responsable qualité demanderait d'abord.</h2>
     <div class="faq reveal d2">
       <details open>
         <summary>Où sont hébergées nos données ?</summary>
-        <p>Aujourd'hui, chez vous : Filum s'installe en local ou sur votre serveur — la base est un fichier unique que vous sauvegardez comme vous l'entendez. Une offre SaaS hébergée (UE) arrive avec la V1 ; l'export libre des données restera la règle.</p>
+        <p>Chez vous : Filum s'installe en local ou sur votre serveur — les données tiennent dans deux volumes Docker (la base et les fichiers, dont les documents approuvés), à sauvegarder ensemble.</p>
       </details>
       <details>
         <summary>Et le texte des normes ISO / IEC / ASTM ?</summary>
@@ -508,17 +470,17 @@
       </details>
       <details>
         <summary>Le logiciel lui-même doit être validé chez nous. Vous nous aidez ?</summary>
-        <p>Le pack de validation existe et vous est remis : <strong>protocole IQ</strong> destiné à votre informatique ou à votre infogérant, <strong>dossier de validation</strong> reprenant les exigences du logiciel avec leur criticité justifiée, et une <strong>suite de qualification opérationnelle exécutable</strong> — ses cas appellent les mêmes fonctions que l'application, pas des copies, ce qui est la seule façon qu'un rapport dise quelque chose du logiciel réellement livré. Vous la rejouez chez vous, après chaque montée de version.</p>
-        <p>Ce qui reste à votre charge, et que nous ne pouvons pas faire à votre place : la décision de criticité du système, la qualification de performance dans vos conditions réelles, et votre politique de revalidation.</p>
+        <p>Pas aujourd'hui : le protocole IQ et le dossier de validation sont retirés (voir la note plus haut). Et la validation chez vous reste la vôtre : un pack fournisseur l'alimente, il ne la remplace pas.</p>
+        <p>Dans tous les cas, ces points restent à votre charge : la décision de criticité du système, la qualification de performance dans vos conditions réelles, et votre politique de revalidation.</p>
       </details>
       <details>
         <summary>Comment prouver à un inspecteur qu'un enregistrement n'a pas bougé ?</summary>
         <p>Vous produisez une <strong>archive d'inspection</strong> : un dossier compressé contenant les enregistrements approuvés octet pour octet, la liste de leurs empreintes SHA-256, la piste d'audit, et une ancre unique qui couvre le tout. L'inspecteur la vérifie avec les outils standard de son système d'exploitation — sans Filum, sans licence, sans nous. Cette ancre peut être contresignée par l'autorité d'horodatage RFC 3161 de votre choix : une valeur recalculée après coup ne redonnera jamais celle qui a été horodatée.</p>
-        <p>Le corollaire honnête : le chaînage <em>détecte</em> une altération, il ne l'empêche pas. Qui a un accès direct au fichier de base peut écrire hors de l'application — c'est l'horodatage tiers, et la restriction d'accès qui relève de votre infrastructure, qui referment cette porte.</p>
+        <p>Le corollaire honnête : le chaînage <em>détecte</em> une rupture, il ne l'empêche pas. Qui a un accès direct au fichier de base peut écrire hors de l'application, et recalculer la chaîne — c'est l'horodatage tiers, et la restriction d'accès qui relève de votre infrastructure, qui referment cette porte.</p>
       </details>
       <details>
         <summary>L'IA peut-elle écrire n'importe quoi dans mon dossier ?</summary>
-        <p>Non. Elle ne rédige que depuis les données de votre graphe, cite ses sources, écrit « à compléter » quand l'information manque — et rien n'entre dans un document sans votre validation nominative. Aucune décision réglementaire n'est automatisée.</p>
+        <p>Non. Elle reçoit les seules données de votre graphe, a pour consigne de citer ses sources et d'écrire « à compléter » quand l'information manque — et rien n'entre dans un document sans votre validation nominative. Aucune décision réglementaire n'est automatisée.</p>
       </details>
       <details>
         <summary>On travaille sous Word. On va devoir changer ?</summary>
@@ -526,7 +488,7 @@
       </details>
       <details>
         <summary>Combien ça coûte ?</summary>
-        <p>Le modèle visé : self-service, prix transparents, sans engagement pluriannuel — à l'opposé des eQMS traditionnels. Contactez-nous pour le programme pilote : les premiers partenaires bénéficient de conditions fondatrices.</p>
+        <p>Filum n'est pas commercialisé aujourd'hui. La démonstration en ligne est libre d'accès.</p>
       </details>
     </div>
   </div>
@@ -539,7 +501,7 @@
     <div class="hero-cta reveal d1">
       <a class="btn btn-light" href="mailto:garaukev@gmail.com?subject=D%C3%A9monstration%20Filum">Demander une démonstration</a>
     </div>
-    <p class="cta-note reveal d2">Programme pilote ouvert — instruments chirurgicaux, implants et dispositifs de diagnostic in vitro.</p>
+    <p class="cta-note reveal d2">Démonstration en ligne, sur données fictives.</p>
   </div>
 </section>
 
@@ -555,6 +517,7 @@
     <p>« Du besoin à la preuve, sans rupture » — traçabilité &amp; conformité pour la R&amp;D de dispositifs médicaux.</p>
     <p class="footer-contact"><a href="mailto:garaukev@gmail.com">garaukev@gmail.com</a></p>
     <p class="footer-legal">© 2026 Filum — Kevin Garau. Captures d'écran issues de l'application réelle.</p>
+    <p class="footer-legal">Projet personnel, sans client ni pilote : code écrit par un assistant de programmation à intelligence artificielle, sous la direction de Kevin Garau.</p>
     <p class="footer-legal"><a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
   </div>
 </footer>
@@ -565,7 +528,7 @@
   <img src="" alt="Capture agrandie" />
 </div>
 
-<script type="application/json" id="graph-data">[{"cle":"besoin","titre":"Besoin","ex":"« UN-40 — Le laboratoire doit obtenir des résultats d'électrolytes fiables dès le premier passage de l'échantillon. »","corps":"Le point de départ du fil : l'usage prévu, la douleur terrain, la demande clinique. Chaque besoin est rattaché à son activité R&D et relié aux exigences qu'il motive — dès le départ, on sait pourquoi chaque exigence existe.","puces":["Saisi sur l'activité","Relié aux exigences","Repris dans le NDR généré (Background & Purpose)"]},{"cle":"exigence","titre":"Exigence","ex":"« La pièce à main shall rester sous 48 °C au contact osseux en usage continu. » — REQ-3002, criticité haute","corps":"L'entrée de conception, formulée en « shall », avec sa catégorie (mécanique, électrique, logiciel…) et sa criticité. Les exigences se hiérarchisent (système → sous-système, relation N–M) et se lient aux clauses normatives applicables — IEC 61010, 61326, 62366… — depuis la bibliothèque intégrée.","puces":["Hiérarchie système → sous-système","Bibliothèque de normes intégrée","Alerte si non couverte"]},{"cle":"spec","titre":"Spécification","ex":"« SPEC-5 — étanchéité du joint de tête : 500 cycles autoclave sans fissuration » — statut : OK / NOK / Justifié / N-A / En attente","corps":"La sortie de conception : une valeur mesurable, une méthode de vérification, un statut qui vit avec le projet. Une spécification peut couvrir plusieurs exigences — la relation N–M observée dans les vrais dossiers est native. Et quand un essai échoue, le NOK se voit partout où le fil passe.","puces":["Statut modifiable en un clic","Journalisé à chaque changement","Multi-exigences"]},{"cle":"essai","titre":"Essai","ex":"« VER-3 — endurance autoclave, plan PLN-3010 : 3/3 unités conformes à 500 cycles »","corps":"Le protocole avec son critère d'acceptation défini a priori, ses résultats et ses preuves. Un échec ne se perd pas dans un rapport : VER-3 en échec a ouvert la non-conformité NC-1 automatiquement. Tout ce qu'un auditeur demande, structuré d'avance.","puces":["Critères d'acceptation structurés","Échec → non-conformité tracée","Relié aux spécifications"]},{"cle":"resultat","titre":"Résultat","ex":"« Pass — re-vérification VER-3 après CAPA-1 : 3/3 unités à 500 cycles, joint FKM »","corps":"Le verdict de l'essai avec ses conditions, son exécutant et sa date. Importez le CSV du banc de mesure : Filum le conserve intact et calcule automatiquement n, moyenne, écart-type, min et max par colonne — et les études CLSI y ajoutent ANOVA, régressions et limites de détection.","puces":["Import CSV du banc","Statistiques automatiques","Moteur CLSI intégré"]},{"cle":"preuve","titre":"Preuve","ex":"« essai-endurance-ver3.csv — donnée brute conservée telle qu'importée »","corps":"L'enregistrement versé au dossier. La donnée brute n'est jamais retouchée (ALCOA+ : originale, durable) ; elle reste consultable dans la visionneuse et téléchargeable à l'identique. C'est elle qui ferme le fil — et qui reverdit la spécification.","puces":["Donnée brute intacte","Visionneuse intégrée","Reprise dans le DHF généré"]},{"cle":"risque","titre":"Risque (ISO 14971)","ex":"« R-1 — Énergie thermique au contact osseux → nécrose thermique » — initial S4×P3, résiduel S4×P1, maîtrisé","corps":"La dimension transverse : un danger appelle une maîtrise, et la maîtrise doit être vérifiée par le graphe — elle n'est « vérifiée » que si les spécifications et essais qui la portent sont clos favorablement. Filum signale tout risque dont la maîtrise n'a pas de preuve, et le RMF se génère en .docx.","puces":["Maîtrise vérifiée par le graphe","Matrice 5×5, zones ALARP","RMF généré en .docx"]}]</script>
+<script type="application/json" id="graph-data">[{"cle":"besoin","titre":"Besoin","ex":"« UN-40 — Le laboratoire doit obtenir des résultats d'électrolytes fiables dès le premier passage de l'échantillon. »","corps":"Le point de départ du fil : l'usage prévu, la douleur terrain, la demande clinique. Chaque besoin est rattaché à son activité R&D et relié aux exigences qu'il motive — dès le départ, on sait pourquoi chaque exigence existe.","puces":["Saisi sur l'activité","Relié aux exigences","Repris dans le NDR généré (Background & Purpose)"]},{"cle":"exigence","titre":"Exigence","ex":"« La pièce à main shall rester sous 48 °C au contact osseux en usage continu. » — REQ-3002, criticité haute","corps":"L'entrée de conception, formulée en « shall », avec sa catégorie (mécanique, électrique, logiciel…) et sa criticité. Les exigences se hiérarchisent (système → sous-système, relation N–M) et se lient aux clauses normatives applicables — IEC 61010, 61326, 62366… — depuis la bibliothèque intégrée.","puces":["Hiérarchie système → sous-système","Bibliothèque de normes intégrée","Alerte si non couverte"]},{"cle":"spec","titre":"Spécification","ex":"« SPEC-5 — étanchéité du joint de tête : 500 cycles autoclave sans fissuration » — statut : OK / NOK / Justifié / N-A / En attente","corps":"La sortie de conception : une valeur mesurable, une méthode de vérification, un statut qui vit avec le projet. Une spécification peut couvrir plusieurs exigences — la relation N–M observée dans les vrais dossiers est native. Le statut est saisi sur la spécification ; s'il est OK ou Justifié alors que le dernier résultat du premier essai, ou la première étude, est en échec, la matrice de traçabilité le signale.","puces":["Statut modifiable en un clic","Journalisé à chaque changement","Multi-exigences"]},{"cle":"essai","titre":"Essai","ex":"« VER-3 — endurance autoclave, plan PLN-3010 : 3/3 unités conformes à 500 cycles »","corps":"Le protocole avec son objet, sa procédure, ses résultats et ses preuves. Un échec ne se perd pas dans un rapport : un bouton sur le résultat déclare la non-conformité, pré-remplie et reliée à l'essai. Sur OD-300, VER-3 en échec a donné lieu à NC-1.","puces":["Objet et procédure par protocole","Échec → non-conformité tracée","Relié aux spécifications"]},{"cle":"resultat","titre":"Résultat","ex":"« Pass — re-vérification VER-3 après CAPA-1 : 3/3 unités à 500 cycles, joint FKM »","corps":"Le verdict de l'essai avec ses conditions, son exécutant et sa date. Importez le CSV du banc de mesure : Filum le conserve intact et calcule automatiquement n, moyenne, écart-type, min et max par colonne — et les études CLSI y ajoutent ANOVA, régressions et limites de détection.","puces":["Import CSV du banc","Statistiques automatiques","Moteur CLSI intégré"]},{"cle":"preuve","titre":"Preuve","ex":"« essai-endurance-ver3.csv — donnée brute conservée telle qu'importée »","corps":"L'enregistrement versé au dossier. La donnée brute n'est jamais retouchée (ALCOA+ : originale, durable) ; elle reste consultable dans la visionneuse et téléchargeable à l'identique. C'est elle qui ferme le fil.","puces":["Donnée brute intacte","Visionneuse intégrée","Reprise dans le DHF généré"]},{"cle":"risque","titre":"Risque (ISO 14971)","ex":"« R-1 — Énergie thermique au contact osseux → nécrose thermique » — initial S4×P3, résiduel S4×P1, maîtrisé","corps":"La dimension transverse : un danger appelle une maîtrise, et une maîtrise se relie dans le graphe aux spécifications et aux essais qui la portent. Filum affiche l'état de chaque maîtrise d'après le statut de ces spécifications et essais, et le RMF se génère en .docx.","puces":["Maîtrise reliée au graphe","Matrice 5×5, zones ALARP","RMF généré en .docx"]}]</script>
 <script src="script.js"></script>
 </body>
 </html>

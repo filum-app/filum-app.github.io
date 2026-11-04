@@ -196,6 +196,7 @@ a { color: inherit; text-decoration: none; }
 .hero-sub { max-width: 660px; margin: 0 auto; color: #B6C2D6; font-size: 18px; }
 .hero-sub strong { color: #E0E7FF; }
 .hero-cta { display: flex; gap: 14px; justify-content: center; margin-top: 34px; flex-wrap: wrap; }
+.hero-note { max-width: 660px; margin: 16px auto 0; color: #B6C2D6; font-size: 14px; }
 
 .hero-thread { max-width: 860px; margin: 54px auto 0; }
 .thread-draw { stroke-dasharray: 940; stroke-dashoffset: 940; animation: draw 2.2s ease forwards .3s; }
